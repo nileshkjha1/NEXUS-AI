@@ -172,3 +172,4 @@ export const RegisterPage = ({ onNavigateLogin }) => {
     </div>
   );
 };
+

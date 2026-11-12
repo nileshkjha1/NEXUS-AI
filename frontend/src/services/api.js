@@ -161,6 +161,18 @@ class ApiService {
     });
   }
 
+  // --- ML APIs ---
+  async mlTriage(title, description) {
+    return await this.request('/ml/triage', {
+      method: 'POST',
+      body: JSON.stringify({ title, description }),
+    });
+  }
+
+  async getMLMetrics() {
+    return await this.request('/ml/metrics');
+  }
+
   // --- System Health ---
   async getHealth() {
     return await this.request('/health');
@@ -168,3 +180,4 @@ class ApiService {
 }
 
 export const api = new ApiService();
+

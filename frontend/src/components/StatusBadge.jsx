@@ -12,3 +12,4 @@ export const StatusBadge = ({ status }) => {
 
   return <span className={`badge ${badgeClass}`}>{status || 'Open'}</span>;
 };
+

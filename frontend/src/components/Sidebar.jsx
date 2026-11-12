@@ -203,3 +203,4 @@ export const Sidebar = ({ currentView, onViewChange }) => {
     </aside>
   );
 };
+

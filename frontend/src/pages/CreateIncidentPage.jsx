@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { api } from '../services/api';
 import { Header } from '../components/Header';
-import { PlusCircle, AlertCircle, Sparkles, CheckCircle2 } from 'lucide-react';
+import { PlusCircle, AlertCircle, Sparkles, CheckCircle2, Zap } from 'lucide-react';
 
 export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -11,11 +11,42 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
     description: '',
   });
   const [loading, setLoading] = useState(false);
+  const [triaging, setTriaging] = useState(false);
+  const [triageSuggestion, setTriageSuggestion] = useState(null);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleAutoTriage = async () => {
+    if (!formData.title && !formData.description) {
+      setError('Please provide at least a summary or description for AI classification.');
+      return;
+    }
+    setError('');
+    setTriaging(true);
+
+    try {
+      const result = await api.mlTriage(formData.title, formData.description);
+      setTriageSuggestion(result);
+    } catch (err) {
+      console.error('Triage failed:', err);
+    } finally {
+      setTriaging(false);
+    }
+  };
+
+  const applySuggestion = () => {
+    if (triageSuggestion) {
+      setFormData(prev => ({
+        ...prev,
+        category: triageSuggestion.predicted_category,
+        priority: triageSuggestion.predicted_priority,
+      }));
+      setTriageSuggestion(null);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -26,7 +57,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
 
     try {
       const ticket = await api.createTicket(formData);
-      setSuccess(`Incident ${ticket.ticket_number} logged successfully!`);
+      setSuccess(`Incident ${ticket.ticket_number} logged successfully! Category: ${ticket.category}`);
       setTimeout(() => {
         if (onIncidentCreated) {
           onIncidentCreated(ticket.id);
@@ -65,7 +96,8 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
           {/* AI Helper Banner */}
           <div style={{
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
+            justifyContent: 'space-between',
             gap: '12px',
             padding: '14px 18px',
             backgroundColor: 'rgba(59, 130, 246, 0.08)',
@@ -73,11 +105,52 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
             borderRadius: 'var(--radius-sm)',
             marginBottom: '24px',
           }}>
-            <Sparkles size={20} color="#60a5fa" style={{ flexShrink: 0, marginTop: '2px' }} />
-            <div style={{ fontSize: '13px', color: '#93c5fd', lineHeight: 1.5 }}>
-              <strong>AI Incident Intelligence:</strong> Upon submission, NEXUS AI will automatically analyze your issue, verify SLA windows, and query the vector troubleshooting knowledge base to assist IT technicians.
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Sparkles size={20} color="#60a5fa" style={{ flexShrink: 0 }} />
+              <div style={{ fontSize: '13px', color: '#93c5fd', lineHeight: 1.5 }}>
+                <strong>ML-Powered Triage:</strong> NEXUS AI automatically classifies technical categories and evaluates SLA urgency.
+              </div>
             </div>
+
+            <button
+              type="button"
+              onClick={handleAutoTriage}
+              disabled={triaging || (!formData.title && !formData.description)}
+              className="btn btn-secondary"
+              style={{ fontSize: '12px', padding: '6px 12px', flexShrink: 0, borderColor: '#3b82f6' }}
+            >
+              <Zap size={14} color="#60a5fa" />
+              <span>{triaging ? 'Classifying...' : 'AI Auto-Triage'}</span>
+            </button>
           </div>
+
+          {/* AI Triage Suggestion Banner */}
+          {triageSuggestion && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '12px 16px',
+              backgroundColor: 'rgba(16, 185, 129, 0.1)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              borderRadius: 'var(--radius-sm)',
+              marginBottom: '20px',
+              fontSize: '13px',
+            }}>
+              <div>
+                <span style={{ color: '#34d399', fontWeight: '600' }}>ML Prediction: </span>
+                <span>Category: <strong>{triageSuggestion.predicted_category}</strong> ({(triageSuggestion.category_confidence * 100).toFixed(0)}%) • Priority: <strong>{triageSuggestion.predicted_priority}</strong> ({(triageSuggestion.priority_confidence * 100).toFixed(0)}%)</span>
+              </div>
+              <button
+                type="button"
+                onClick={applySuggestion}
+                className="btn btn-primary"
+                style={{ fontSize: '11px', padding: '4px 10px', backgroundColor: '#10b981' }}
+              >
+                Apply Suggestion
+              </button>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -88,7 +161,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
                 required
                 minLength={5}
                 className="form-control"
-                placeholder="e.g. Cannot access PostgreSQL database over VPN tunnel"
+                placeholder="e.g. Cannot access PostgreSQL production database over VPN tunnel"
                 value={formData.title}
                 onChange={handleChange}
               />
@@ -138,7 +211,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
                 minLength={10}
                 rows={6}
                 className="form-control"
-                placeholder="Describe what occurred, any error messages displayed, and steps you already tried..."
+                placeholder="Describe what occurred, error codes displayed, and troubleshooting steps already attempted..."
                 value={formData.description}
                 onChange={handleChange}
               />

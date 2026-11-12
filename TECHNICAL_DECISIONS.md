@@ -35,3 +35,11 @@
 ### TD-009: In-Memory SQLite Pytest Isolation Fixture
 - **Decision**: Added `backend/tests/conftest.py` with static in-memory SQLite (`sqlite:///:memory:`) and FastAPI dependency overrides for `get_db`.
 - **Rationale**: Guarantees that automated backend test suites run completely isolated from developer database state, preventing test flakes and ensuring 100% repeatable execution.
+
+### TD-010: TF-IDF & Balanced Logistic Regression for Incident Classification
+- **Decision**: Implemented scikit-learn Pipeline with `TfidfVectorizer(ngram_range=(1,2), sublinear_tf=True)` and `LogisticRegression(class_weight='balanced')` for category classification and priority prediction.
+- **Rationale**: High inference speed (<10ms per ticket), deterministic behavior, explainable feature weights, low memory footprint, and demonstrated 92.07% category accuracy on 820 labeled incidents.
+
+### TD-011: Text Preprocessing & Non-Destructive Technical Filtering
+- **Decision**: Tailored `clean_text` to preserve technical identifiers (e.g. replacing raw IP addresses with an `ipaddress` token, converting URLs to generic tokens) while removing conversational filler and punctuation.
+- **Rationale**: Prevents overfitting to specific server IP addresses or unique URLs while maximizing semantic generalization across IT infrastructure domains.

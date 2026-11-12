@@ -217,3 +217,4 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
     </div>
   );
 };
+

@@ -169,3 +169,4 @@ export const LoginPage = ({ onNavigateRegister }) => {
     </div>
   );
 };
+

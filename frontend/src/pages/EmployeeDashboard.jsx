@@ -186,3 +186,4 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
     </div>
   );
 };
+

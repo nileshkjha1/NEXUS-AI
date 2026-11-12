@@ -1,0 +1,821 @@
+title,description,category,priority
+"Cannot access PostgreSQL production database over VPN","My laptop is connected to Wi-Fi, but I cannot access the company PostgreSQL database. Connection times out with error 10060.",Database,High
+"VPN client disconnects intermittently every 15 minutes","The enterprise Cisco AnyConnect VPN client constantly drops connection during video calls and re-authenticates.",Network,High
+"Dual monitor display goes black when connected to dock","DisplayPort external Dell monitor randomly flickers and goes completely black for 4 seconds when plugged into USB-C dock.",Hardware,Low
+"Okta MFA push notifications not received on mobile device","Push verification requests from Okta are not arriving on my iPhone. SMS verification also times out.",Authentication,Critical
+"Production payment API returning 500 internal server error","Customers cannot checkout. The payment gateway microservice is throwing 500 errors and unhandled exceptions.",Application,Critical
+"Suspected phishing email received by executive team","Received an urgent email claiming to be from the CEO requesting wire transfer gift cards. Headers look spoofed.",Security,Critical
+"Need PyCharm Professional license key renewed","My IDE license key expired yesterday. Need procurement or IT approval to renew the enterprise subscription.",Software,Low
+"Office 365 Outlook client constantly crashing on startup","Outlook crashes immediately upon opening with error in mso20win32client.dll. Safe mode works.",Software,Medium
+"Switch stack failure on floor 4 networking closet","All wired Ethernet jacks on floor 4 east wing are unlinked. Core Cisco Catalyst switch shows amber fault light.",Network,Critical
+"Database query execution time spiked from 20ms to 8000ms","The customer lookup query on the read-replica database is causing 100% CPU utilization and slow query logs.",Database,High
+"Laptop keyboard spacebar key physically stuck","The spacebar on my ThinkPad laptop is physically stuck and types double spaces every press.",Hardware,Low
+"Request access to Jira marketing board","New hire joining the brand strategy team needs contributor permissions on the Jira board.",Application,Low
+"SSL TLS certificate expired on internal portal","Browser displays ERR_CERT_DATE_INVALID when opening the internal employee benefits dashboard.",Security,High
+"Corrupted index on MongoDB orders collection","The orders collection cannot perform write operations due to duplicate key error in wiredTiger storage engine.",Database,Critical
+"Wi-Fi signal very weak in conference room B","The access point in conference room B is dropping packets and signal drops to 1 bar during meetings.",Network,Medium
+"Password reset link expired before arrival","The self-service Active Directory password reset email took 45 minutes to arrive and token was expired.",Authentication,Medium
+"Docker daemon cannot start on developer workstation","Docker desktop fails to initialize WSL2 backend with error virtual disk service timeout.",Software,Medium
+"Ransomware warning pop-up on accounting workstation","A red pop-up claiming files are encrypted appeared on desktop. Machine disconnected from Ethernet immediately.",Security,Critical
+"Slack desktop app white blank screen on Windows 11","Slack loads a blank white window. Clearing cache and hardware acceleration toggle did not resolve.",Software,Low
+"Ergonomic vertical mouse replacement request","Current wireless mouse optical sensor is glitching. Requesting approval for an ergonomic vertical mouse.",Hardware,Low
+"Redis cache cluster memory reached 98% capacity","Redis cache nodes are evicting keys rapidly and response latency has tripled.",Database,High
+"Unable to mount NFS shared drive on Linux VM","Mount command hangs when trying to mount enterprise NFS storage at /mnt/data.",Network,Medium
+"Unauthorized login attempt alert from foreign IP address","AWS GuardDuty alerted to root account console login attempt from unauthorized country.",Security,Critical
+"GitLab CI CD pipeline runner out of disk space","All merge request build pipelines are failing with no space left on device error on runner 04.",Application,High
+"Microphone volume extremely quiet on Zoom calls","Built-in Realtek laptop microphone input level is barely audible even when boosted to 100% in Windows audio.",Hardware,Low
+"Single Sign-On SSO SAML assertion failure on Salesforce","Employees trying to log into Salesforce receive SAML response signature verification failed error.",Authentication,Critical
+"Blue Screen of Death BSOD with error CRITICAL_PROCESS_DIED","Windows 11 laptop crashed into blue screen twice this morning during heavy compiling.",Hardware,High
+"Need Adobe Acrobat Pro license for legal contract signing","Legal department paralegal requires full Adobe Acrobat DC Pro features to redact PDF documents.",Software,Low
+"Core router BGP session flap causing packet loss","Core edge router BGP peering with Tier 1 ISP is flapping every 3 minutes causing global packet drops.",Network,Critical
+"MySQL deadlock detected on customer transaction table","High concurrent checkout transactions are triggering InnoDB transaction deadlocks.",Database,High
+"Employee badge access revoked at main server room door","IT technician badge does not unlock data center server room door. Access card reader flashes red.",Authentication,High
+"Google Chrome crashing on opening intranet portal","Chrome crashes with STATUS_ACCESS_VIOLATION specifically when visiting internal HR portal.",Application,Medium
+"Stolen corporate laptop reported by remote engineer","Employee had their corporate laptop stolen from their vehicle. Requesting immediate remote MDM wipe.",Security,Critical
+"Conference room TV HDMI input not detecting video signal","Conference room 201 television displays No Signal when plugging in HDMI cable from laptop.",Hardware,Low
+"PostgreSQL vacuum freeze causing high disk IO","Auto-vacuum process on large audit log table is saturating disk IOPS and slowing down application queries.",Database,Medium
+"DNS resolution failure for internal *.corp domain","Internal machines cannot resolve hostnames ending with .corp. External domains like google.com work.",Network,High
+"Two-Factor Authentication 2FA device lost by employee","Employee lost their mobile device configured with Microsoft Authenticator. Needs temporary bypass code.",Authentication,High
+"Kubernetes pod crashloopbackoff on auth service","Production authentication deployment pods are crashing immediately due to missing secret environment variable.",Application,Critical
+"Firewall port 443 blocked to new vendor API endpoint","Outbound traffic to vendor REST API is being dropped by Palo Alto perimeter firewall.",Network,Medium
+"Malware detected by CrowdStrike on workstation 102","CrowdStrike Falcon detected Trojan dropper in user downloads folder and quarantined the file.",Security,Critical
+"Battery swollen and pushing against laptop trackpad","Laptop lithium battery appears swollen and trackpad is bulging upward. Disconnected from charger.",Hardware,High
+"Excel spreadsheet freezes when loading large pivot table","Microsoft Excel 365 becomes non-responsive and locks CPU when opening 200MB quarterly budget sheet.",Software,Medium
+"Elasticsearch cluster status Red unassigned shards","Elasticsearch indices for system logging are in red state with 14 unassigned replica shards.",Database,High
+"SSH public key authentication denied on staging server","Developer cannot SSH into staging Bastion host with error Permission denied (publickey).",Authentication,Medium
+"Web application CDN returning 502 Bad Gateway","Cloudflare edge CDN is returning 502 error to external visitors. Origin Nginx server may be down.",Application,Critical
+"Port mirror packet capture request for network diagnostic","Network engineer requesting SPAN port configuration on switch 2 to analyze VoIP SIP traffic.",Network,Low
+"USB headset audio cutting out in right earphone","Plantronics USB headset produces static audio and cuts out intermittently when moving the cord.",Hardware,Low
+"BitLocker recovery key prompt on boot after BIOS update","Laptop asks for 48-digit BitLocker recovery key following automated Dell firmware BIOS flash.",Security,High
+"Database read replica replication lag exceeding 3600 seconds","PostgreSQL standby replica lag is over 1 hour behind primary node.",Database,High
+"Jenkins build server queue stuck with 40 pending jobs","Jenkins master is unresponsive and workers are disconnected from master node.",Application,High
+"Reset password for temporary intern account","Intern starting today needs initial password reset for corporate email and intranet portal.",Authentication,Low
+"Wi-Fi captive portal loop on guest network","Visitors connecting to Guest Wi-Fi are stuck in a redirect loop and cannot accept terms of service.",Network,Low
+"Vulnerability scanner detected open Telnet port 23","Nessus scan flagged active Telnet daemon on legacy network switch. Needs immediate SSH migration.",Security,High
+"Laptop fan making loud grinding noise and running hot","Cooling fan inside Dell Latitude laptop is buzzing loudly and chassis is hot to the touch.",Hardware,Medium
+"Figma desktop app cannot sync local fonts","Figma font helper is not detecting custom fonts installed in Windows Fonts directory.",Software,Low
+"Oracle database tablespace SYSTEM out of storage space","Oracle database alert log shows ORA-01653 unable to extend table in tablespace SYSTEM.",Database,Critical
+"Unauthorized sudo command detected on production web server","Auditd log captured an unauthorized user invoking sudo /bin/bash on web-prod-02.",Security,Critical
+"Webcam not detected in Windows Device Manager","Integrated web camera on Lenovo ThinkPad does not appear in Device Manager or camera apps.",Hardware,Low
+"API rate limiter blocking valid customer requests","Kong API gateway is incorrectly returning 429 Too Many Requests to paying enterprise customers.",Application,High
+"IP address conflict detected on local subnet 192.168.1.0","Windows popped up an IP conflict error message stating another device has the same IP address.",Network,Medium
+"Request new SSL certificate for staging subdomain","Need DigiCert wildcard certificate generated for staging.nexusai.internal.",Security,Low
+"Microsoft Teams microphone permissions revoked in macOS","After macOS update, Teams cannot capture audio because microphone permission toggle is grayed out.",Software,Low
+"Cassandra cluster node down due to disk failure","Apache Cassandra ring node 3 died with java.io.IOError disk read failure.",Database,Critical
+"LDAP server timeout during employee login","OpenLDAP server is failing to respond within 5 seconds causing employee logins to fail company-wide.",Authentication,Critical
+"Thermal throttling causing severe laptop compilation slowness","CPU clock speed drops to 0.79 GHz due to thermal throttling when running unit tests.",Hardware,Medium
+"Production Kubernetes ingress controller Nginx crash","NGINX ingress controller pods OOMKilled by Linux kernel after sudden traffic spike.",Application,Critical
+"Network printer printing gibberish postscript code","HP LaserJet printer is continuously printing hundreds of pages with single lines of ASCII symbols.",Hardware,Low
+"SQL injection attack pattern detected in WAF logs","AWS WAF blocked multiple requests containing UNION SELECT statements aimed at search endpoint.",Security,Critical
+"Need Node.js and Python installed on new QA workstation","QA engineer needs developer tools and compilers configured on their provisioned Windows machine.",Software,Low
+"Cannot ping default gateway on VLAN 20","Workstations on VLAN 20 cannot reach their default gateway router 10.20.0.1.",Network,High
+"Active Directory account locked out after multiple bad passwords","Employee account is locked out after their phone kept sending old cached passwords.",Authentication,Medium
+"PostgreSQL connection pool exhausted by abandoned connections","Application reports FATAL: remaining connection slots are reserved for non-replication superusers.",Database,Critical
+"Web application session timeout too short (5 minutes)","Customer support agents complain that CRM web app logs them out every 5 minutes of inactivity.",Application,Low
+"Hard drive SMART error warning imminent failure","CrystalDiskInfo and BIOS report SMART threshold exceeded on primary NVMe SSD.",Hardware,Critical
+"DDoS attack targeting company public website","Spike of 500k SYN packets per second from botnet flooding external gateway router.",Security,Critical
+"VS Code extension marketplace unreachable","Developers unable to install extensions from Visual Studio Code marketplace due to corporate proxy block.",Software,Low
+"Wireless access point AP reboot loop on 3rd floor","Aruba AP-535 is constantly rebooting every 90 seconds after failed firmware upgrade.",Network,High
+"Redis replica failed to synchronize with primary master node","Redis slave reports Error condition on socket for SYNC: Connection reset by peer.",Database,Medium
+"Corporate iPhone MDM profile not installing","New corporate mobile device gives error The server certificate for https://mdm.corp is invalid.",Authentication,Medium
+"Memory leak in NodeJS backend service causing container restart","Container memory usage steadily increases by 20MB per hour until container is killed by Docker.",Application,High
+"Laptop AC power adapter cable frayed with exposed wires","Power adapter wire near the USB-C barrel connector has stripped insulation and sparks occasionally.",Hardware,High
+"Security group incorrectly exposes SSH port 22 to 0.0.0.0/0","Cloud security audit found AWS EC2 security group allowing public SSH from the open internet.",Security,Critical
+"Zoom desktop app audio echo during conference room meetings","Microphone in boardroom picks up speaker audio causing harsh feedback echo for remote participants.",Hardware,Low
+"Database table locking preventing batch billing updates","Postgres table invoice_items has an exclusive lock held by an open uncommitted transaction.",Database,High
+"Fiber optic patch cable severed in data center rack 4","Technician accidentally pinched and broke 10G LC-LC multimode fiber cable connecting spine switch.",Network,Critical
+"Kerberos ticket renewal failed on Linux workstation","User unable to access shared Samba network folders due to expired Kerberos krb5 ticket.",Authentication,Medium
+"Production frontend website CSS and images broken (404)","Assets build script uploaded bundle with wrong base path resulting in broken styling.",Application,High
+"RDP Remote Desktop connection refused by host","Administrator cannot connect via Remote Desktop to Windows Server 2022. Port 3389 listening status unknown.",Network,Medium
+"Root certificate authority expiring in 14 days","Enterprise internal Root CA certificate is set to expire on the 26th. All internal certs will be invalid.",Security,Critical
+"Spilled coffee onto mechanical keyboard in desk pod","Liquid spill occurred on mechanical keyboard. Unplugged immediately to prevent short circuit.",Hardware,Low
+"Elasticsearch out of heap memory with Garbage Collection pause","Elasticsearch node JVM is hanging for 45 seconds during full garbage collection cycles.",Database,High
+"Expired password prompt loop in Windows login","User enters new password conforming to complexity rules, but Windows prompts password change again.",Authentication,Medium
+"Jenkins agent pipeline fails with Docker permission denied","Jenkins pipeline step docker ps returns permission denied while trying to connect to Docker daemon socket.",Software,Medium
+"Corporate Wi-Fi RADIUS server certificate expired","Employees cannot connect to Enterprise WPA2 802.1x Wi-Fi because FreeRADIUS cert has expired.",Network,Critical
+"Suspicious PowerShell encoded command executed on endpoint","EDR sensor alerted to powershell.exe executing base64 encoded command from Word macro.",Security,Critical
+"Laptop screen hinge broken and plastic bezel cracked","Left hinge on laptop has snapped and opening the display separates the front bezel.",Hardware,Low
+"PostgreSQL database query planner choosing slow sequential scan","Query on table with 10M rows refuses to use index due to stale table statistics. Needs ANALYZE.",Database,Medium
+"GitHub enterprise SSO token revoked unexpectedly","Engineers cannot git push over HTTPS because personal access token expired or SAML was unlinked.",Authentication,Medium
+"High CPU utilization on web server due to regex catastrophic backtracking","Worker process pegged at 100% CPU due to uncontrolled backtracking in email regex validator.",Application,High
+"Subnet routing table missing route to AWS VPC peering connection","Instances in subnet 10.0.2.0 cannot communicate with peered database VPC 10.1.0.0.",Network,High
+"Multiple failed root SSH login attempts from unknown IP","Auth log shows 15,000 dictionary attack SSH login attempts against port 22 in last 2 hours.",Security,Critical
+"External monitor resolution locked at 640x480","When connecting 4K monitor via HDMI, Windows display settings only offers 640x480 resolution.",Hardware,Low
+"Git merge conflict in production deployment branch","Continuous delivery pipeline blocked because main branch has unresolved merge conflicts.",Application,Medium
+"ClickHouse database disk usage reached 90% threshold","Analytical database ClickHouse is filling up fast due to uncompressed historical log data.",Database,Medium
+"User cannot access Jira project permissions issue","Project manager added to new team cannot view or edit sprints in project PROJ.",Application,Low
+"Local network switch loop causing broadcast storm","Spanning Tree Protocol STP alert: switch port disabled due to detected BPDU loop on floor 2.",Network,Critical
+"Expired SAML signing certificate for Azure Active Directory","Azure AD Single Sign-On integration broken because signing certificate expired at midnight.",Authentication,Critical
+"USB-C flash drive corrupted and asking to format disk","USB thumb drive with presentation slides gives error Disk in drive is not formatted. Do you want to format?",Hardware,Medium
+"Vulnerability in log4j dependency flagged by Trivy scanner","Docker image scan in CI/CD pipeline blocked merge due to CVE-2021-44228 critical severity.",Security,Critical
+"Database connection pool leak in Celery background workers","Python Celery workers do not close SQLAlchemy sessions, leading to database connection exhaustion.",Database,High
+"Unable to establish IPsec tunnel to branch office router","Phase 1 IKE negotiation failed with remote SonicWall gateway due to preshared key mismatch.",Network,High
+"IntelliJ IDEA memory heap size out of memory error","Java IDE runs out of memory when indexing large monorepo project. Needs -Xmx increased in vmoptions.",Software,Low
+"Zero-day remote code execution vulnerability in web framework","Security advisory published for remote code execution in our web framework version. Needs urgent patch.",Security,Critical
+"Trackpad tap-to-click stopped working on laptop","Windows gesture tap-to-click no longer registers on Synaptics touchpad. Physical click still works.",Hardware,Low
+"Postgres transaction ID wraparound warning logged","PostgreSQL server logs show database is 10 million transactions away from shutdown due to TXID wraparound.",Database,Critical
+"Employee unable to decrypt PGP email from external partner","GPG reports secret key not available when trying to decrypt partner financial statement.",Authentication,Medium
+"Customer facing mobile app crashing on iOS 18 launch","Mobile app crashes instantly on splash screen for users who updated to latest iOS version.",Application,Critical
+"Network latency between EU and US data centers doubled to 180ms","Transatlantic fiber link rerouted to backup terrestrial circuit resulting in high packet latency.",Network,High
+"Laptop camera privacy shutter physically jammed closed","Mechanical privacy slider on webcam is stuck in the closed position and won't slide open.",Hardware,Low
+"Database backup snapshot failed on AWS RDS instance","Automated nightly snapshot of production RDS PostgreSQL instance failed with InsufficientStorage.",Database,Critical
+"Brute force attacks on corporate WordPress blog login","Thousands of automated POST requests targeting wp-login.php from distributed IP addresses.",Security,High
+"Slack notification webhook failing with HTTP 404","Alerting bot cannot send incident alerts to #it-ops Slack channel because webhook URL was deleted.",Application,Medium
+"Wi-Fi disconnects whenever microwave oven runs in kitchen","2.4GHz Wi-Fi signal in cafeteria drops completely due to electromagnetic interference from microwave.",Network,Low
+"Active Directory replication error between domain controllers","DC01 and DC02 show tombstone replication error 8606 in Event Viewer.",Authentication,High
+"Dual boot Ubuntu Linux GRUB bootloader missing after Windows update","Laptop boots directly into Windows after patch and GRUB boot menu no longer appears.",Software,Medium
+"Crypto mining process detected running on EC2 instance","Amazon GuardDuty alerted to outbound traffic connecting to Monero mining pool.",Security,Critical
+"Monitor power supply cable missing from docking station kit","New employee IT equipment bundle arrived without the AC power cord for the Dell monitor.",Hardware,Low
+"Postgres query taking 45 seconds due to missing foreign key index","Join between payments and orders is performing table sequential scan. Needs index on order_id.",Database,Medium
+"Employee cannot sign PDF with digital certificate","Adobe Acrobat gives error: The credential selected for signing is not valid or expired.",Authentication,Low
+"Core API gateway throwing 504 Gateway Timeout during flash sale","Incoming customer traffic surge overwhelmed upstream service resulting in 504 timeouts.",Application,Critical
+"VLAN tag mismatch on trunk port between switches","Traffic between Switch A and Switch B is dropping packets because native VLAN does not match.",Network,High
+"Trojan horse detected in developer NPM package cache","Antivirus quarantined suspicious executable inside node_modules/.bin directory.",Security,Critical
+"Laptop speakers emit loud high-pitched squeal when volume exceeds 50%","Built-in audio speakers produce piercing feedback sound when playing video calls.",Hardware,Low
+"Need Python 3.12 virtualenv configured for data science team","Data team requests standard virtual environment template with numpy and scikit-learn on server.",Software,Low
+"Database server running low on root filesystem disk space","Root partition / on PostgreSQL server is at 96% utilization due to large unrotated journal logs.",Database,High
+"RADIUS server rejecting 802.1x authentication for domain laptops","Domain computers fail network authentication with error Client certificate could not be validated.",Authentication,High
+"Internal documentation portal Wiki returning 500 database error","Confluence wiki displays database connection error when viewing engineering design docs.",Application,Medium
+"Firewall policy blocking DNS port 53 to cloud resolver","Workstations unable to resolve external hostnames because UDP 53 to 1.1.1.1 is dropped by rule 14.",Network,High
+"Employee inadvertently uploaded AWS root credentials to public GitHub","Developer pushed repository containing .aws/credentials file. Needs immediate key revocation.",Security,Critical
+"Desktop PC power supply unit makes clicking sound and shuts off","Workstation randomly clicks and powers off completely under heavy graphics load.",Hardware,High
+"Database query cache hit ratio dropped below 40%","MySQL InnoDB buffer pool size is too small for current working dataset causing constant disk reads.",Database,Medium
+"BitLocker PIN forgotten by executive traveling abroad","VP traveling in Europe forgot their BitLocker startup PIN and cannot access company presentations.",Authentication,High
+"Web application memory usage growing without bound","NodeJS service memory grows continuously until Kubernetes restarts pod every 3 hours.",Application,High
+"Wi-Fi roaming dropping VoIP calls when walking between hallways","Laptops disconnect and reconnect for 10 seconds when transitioning between AP-01 and AP-02.",Network,Medium
+"Ransomware canary file modified in corporate file share","Automated file share monitoring detected modification of canary tripwire file on network share.",Security,Critical
+"External keyboard missing letter E keycap","Logitech keyboard keycap for letter E snapped off from scissor switch.",Hardware,Low
+"Postgres streaming replication stopped due to WAL archive disk full","WAL archive partition on primary node reached 100% capacity and replication standby disconnected.",Database,Critical
+"Multi-factor authentication prompt spamming employee phone (MFA fatigue)","User received 40 consecutive Duo push alerts in 10 minutes from suspected threat actor.",Security,Critical
+"Outlook mailbox storage quota full at 50GB","User cannot send or receive emails because Exchange mailbox has reached hard limit.",Software,Medium
+"Core switch fan tray unit failure alert","Cisco switch reports FAN-1 failure and system temperature is rising above threshold.",Hardware,High
+"Kubernetes ingress SSL certificate expired overnight","All customer web traffic receiving SSL security warning on https://app.nexusai.com.",Application,Critical
+"Static IP address assignment request for network printer","Need static IPv4 address 10.0.5.50 reserved in DHCP server for new Konica Minolta printer.",Network,Low
+"Postgres database table bloat requiring pg_repack maintenance","Large billing table has 60% dead tuple bloat after heavy updates. Disk space cannot be reclaimed.",Database,Medium
+"Employee locked out of workstation after returning from parental leave","Account was marked dormant and disabled by automated Active Directory cleanup script.",Authentication,Medium
+"Suspicious outgoing SSH connections from web application container","Container in DMZ is initiating outbound SSH connections to unknown Russian IP address.",Security,Critical
+"Docking station ethernet port not functioning (link light off)","Docking station USB and display ports work, but RJ45 Ethernet jack has no link light.",Hardware,Low
+"Elasticsearch cluster split-brain condition detected","Two master nodes in Elasticsearch cluster each elected themselves master after network partition.",Database,Critical
+"Salesforce integration sync failing with Invalid Session ID","Automated nightly sync between billing database and Salesforce CRM fails with OAuth token error.",Application,High
+"Packet loss on branch office SD-WAN link","SD-WAN appliance reports 12% packet loss and 200ms jitter on primary broadband circuit.",Network,High
+"Malicious browser extension detected on marketing laptop","CrowdStrike flagged rogue Chrome extension harvesting form data and injected advertisements.",Security,Critical
+"Laptop touchpad physically clicking on its own without user touch","Trackpad registers ghost clicks and moves cursor erratically across the screen.",Hardware,Low
+"PostgreSQL connection timeout when connecting from AWS Lambda","Serverless Lambda functions exhausting database connections under burst traffic.",Database,High
+"VPN access request for third-party contractor","Contract developer starting security audit needs read-only VPN access to staging environment.",Authentication,Low
+"PDF export feature in billing dashboard crashing with OutOfMemory","Generating 500-page monthly invoice PDF exhausts Java heap memory in reporting service.",Application,Medium
+"Default gateway ARP table full on core router","Router dropping new connections with kernel error Neighbor table overflow.",Network,Critical
+"Unauthorized USB storage drive plugged into air-gapped terminal","DLP agent alerted that an unapproved SanDisk USB flash drive was connected to secure workstation.",Security,Critical
+"Laptop screen backlight completely dead (image faintly visible)","Laptop boots and external display works, but laptop screen backlight is black.",Hardware,Medium
+"Database collation mismatch error during SQL query execution","Query joining customer names fails with error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT).",Database,Low
+"Single Sign-On SSO redirect URI mismatch error on Google Workspace","Employees clicking Log in with Google receive Error 400: redirect_uri_mismatch.",Authentication,High
+"Web application CSS layout broken on Safari mobile browser","Flexbox layout on customer portal checkout page collapses into unclickable column on iOS Safari.",Application,Medium
+"DNS cache poisoning attempt detected by intrusion prevention system","Snort IDS flagged spoofed DNS response packets attempting to redirect traffic.",Security,Critical
+"Computer power supply cable sparking when plugged into wall outlet","Wall plug prong on desktop power cord is blackened and sparked when inserted into outlet.",Hardware,High
+"Wi-Fi network SSID not broadcasting in west wing","The corporate Wi-Fi SSID disappeared from list of available networks for users on floor 3 west.",Network,Medium
+"Postgres slow query log consuming 50GB of disk space","Database server partition filled up because postgresql.log was configured with debug query logging.",Database,Medium
+"User forgot MFA secret seed and cannot register new phone","Employee got a new phone and cannot transfer Microsoft Authenticator without IT admin reset.",Authentication,Medium
+"Production worker queue clogged with 100,000 unread messages","RabbitMQ message queue for processing image uploads is growing rapidly and workers are stalled.",Application,Critical
+"Corporate laptop recovered from malware infection needs clean OS reinstall","Machine was infected with rootkit and requires complete DoD wipe and image reinstallation.",Security,Medium
+"External USB hard drive not spinning up or recognized","Western Digital 4TB backup hard drive does not spin up and makes faint beeping sound.",Hardware,Low
+"Router firmware vulnerability CVE announced needs urgent patching","Cisco published critical advisory for remote code execution in IOS-XE web UI. Needs patch.",Network,Critical
+"PostgreSQL sequence reached maximum value (int4 overflow)","Table ID column was defined as INTEGER (max 2.1B) and next INSERT failed with integer out of range.",Database,Critical
+"Employee Active Directory account password reset request","User locked out after typing wrong password 3 times on Monday morning.",Authentication,Low
+"Production website returning blank white screen to visitors","Webpack bundle failed to load due to missing vendor chunk on static CDN.",Application,High
+"Ethernet wall port 304 in engineering lab is physically broken","Plastic RJ45 retention clip inside wall plate is broken and network cables fall out.",Hardware,Low
+"Firewall dropping all UDP traffic on voice VLAN","VoIP desk phones cannot place external calls because firewall is dropping SIP signaling packets.",Network,High
+"Suspected credential stuffing attack targeting customer login page","Tens of thousands of failed login attempts from botnet rotating residential IP proxies.",Security,Critical
+"Database index fragmentation exceeding 85% on orders table","SQL Server index fragmentation is causing slow range scans during nightly reporting.",Database,Medium
+"VPN client gives Error 412: The remote peer is no longer responding","Connecting to corporate VPN connects for 5 seconds then drops with Error 412.",Network,Medium
+"User cannot access shared network drive with error Access is Denied","Employee moved to new department and lost NTFS permissions to shared marketing folder.",Authentication,Low
+"Application memory leak causing out of memory OOM killer activation","Linux kernel killed main web service process after resident memory reached 16GB limit.",Application,Critical
+"Laptop display screen flickering rapidly at 60Hz","Screen on Lenovo laptop flickers violently with horizontal lines unless external monitor is attached.",Hardware,Medium
+"Unauthorized AWS IAM user created with AdministratorAccess","Security audit found an unauthorized IAM user 'dev-admin-backup' created without MFA.",Security,Critical
+"Postgres deadlocks occurring during concurrent order updates","Two background jobs updating invoice status in different order are triggering deadlocks.",Database,High
+"VoIP phone displays No Service and fails DHCP request","Desk phone in conference room cannot obtain IP address from voice VLAN DHCP pool.",Network,Medium
+"Self-service password reset portal returning 500 error","Employees cannot reset forgotten passwords because identity management web service is down.",Authentication,High
+"Docker container cannot resolve external domain names","Containers running on production host cannot resolve external APIs due to misconfigured resolv.conf.",Application,Medium
+"Hard drive clicking noise and Windows freezing on file access","Mechanical hard drive in CAD workstation makes repetitive clicking sound (click of death).",Hardware,High
+"Phishing landing page targeting employee Microsoft 365 credentials","Threat actors cloned the corporate login page on a deceptive domain and sent mass emails.",Security,Critical
+"Postgres wal_keep_size setting causing disk exhaustion","Database primary server ran out of disk space because old WAL files were preserved indefinitely.",Database,High
+"Wi-Fi authentication rejected due to expired NPS radius certificate","Windows Network Policy Server NPS failed to authenticate laptops due to expired server certificate.",Network,Critical
+"Okta session expired prompt repeating every 10 seconds","Employees logged into Okta dashboard are stuck in an infinite refresh loop prompting re-authentication.",Authentication,High
+"Critical database table accidentally dropped without backup","Junior developer ran DROP TABLE customers on staging database linked to production replica.",Database,Critical
+"High latency on storage area network SAN fiber channel switch","SAN switch reports CRC errors on port 12 connected to primary storage array.",Hardware,High
+"DDoS attack targeting DNS authoritative name servers","External DNS name servers for company domain are being flooded with UDP query amplification attack.",Security,Critical
+"Application background worker threads permanently hung on external HTTP call","Python requests call without timeout parameter caused all 32 worker threads to hang indefinitely.",Application,Critical
+"VLAN 10 traffic leaking into VLAN 20 due to switch misconfiguration","Security audit discovered trunk port configured as access port with wrong PVID.",Network,High
+"User cannot open encrypted BitLocker external drive on home PC","BitLocker drive created on enterprise PC cannot be opened on personal computer due to group policy.",Authentication,Low
+"Laptop battery charging port loose and wiggles","USB-C power delivery charging port on Dell Latitude has loose internal solder connection.",Hardware,Medium
+"Database vacuum fails with error: out of shared memory","Vacuuming 50 million row partitioned table fails due to max_locks_per_transaction limitation.",Database,Medium
+"Rogue DHCP server detected on office LAN handing out 192.168.0.x IPs","Employee plugged personal home Wi-Fi router into wall jack causing IP conflicts across floor.",Network,Critical
+"Stolen API secret keys used to launch unauthorized GPU instances","Compromised AWS secret key was used to spawn 50 p3.16xlarge GPU instances for crypto mining.",Security,Critical
+"Windows 11 update failed with error code 0x80070002","Monthly cumulative security update fails to install and rolls back on reboot.",Software,Low
+"Dual monitors arranged in wrong order in display settings","Mouse cannot move naturally between left and right screens because desktop arrangement is inverted.",Hardware,Low
+"Redis cluster failing to elect new master node after primary crash","Redis Sentinel quorum threshold not met because only 1 sentinel node out of 3 was running.",Database,High
+"Employee Active Directory account locked due to phone sync attempts","User changed Windows password but tablet was trying old password in background.",Authentication,Medium
+"Website shopping cart checkout button non-responsive on mobile","JavaScript syntax error in bundle prevented checkout button event listener from firing.",Application,High
+"Core router CPU at 99% due to high interrupt processing","Router software forwarding packets due to disabled hardware CEF (Cisco Express Forwarding).",Network,Critical
+"Malware trojan injected into developer bash profile","Security tool detected curl piping unknown shell script into bash in developer .bashrc.",Security,Critical
+"Printer error: drum unit life exceeded replace drum","Department office printer halts all print jobs with message: Drum Unit Expired.",Hardware,Low
+"Postgres database connection refused on port 5432","Postgres service stopped automatically after server ran out of disk space on /var/lib/postgresql.",Database,Critical
+"SSO SAML signature algorithm deprecation warning (SHA-1 to SHA-256)","Identity provider will reject SAML assertions signed with SHA-1 starting next month.",Authentication,Medium
+"NodeJS API gateway throwing unhandled promise rejection crash","Uncaught exception in error handler crashes Node process under malformed JSON payload.",Application,High
+"Direct Connect dedicated cloud fiber circuit down","AWS Direct Connect 10G link to Equinix data center is down. BGP transitioned to backup VPN.",Network,High
+"Unapproved remote desktop software TeamViewer detected on workstation","Endpoint agent alerted that TeamViewer was installed without IT approval.",Security,High
+"Mechanical keyboard keys chattering and typing double letters","Mechanical switches on keyboard intermittently send two keystrokes on single press.",Hardware,Low
+"Database query execution plan regression after upgrade","Query that took 100ms in PostgreSQL 14 now takes 18 seconds in PostgreSQL 16 due to JIT compilation.",Database,Medium
+"Employee cannot login to VPN with error: Certificate Revoked","VPN gateway reports that user client certificate has been placed on CRL revocation list.",Authentication,Medium
+"Frontend web app memory leak causing Chrome tab crash with Error code: Out of Memory","Single Page Application DOM nodes not being garbage collected after navigating between tabs.",Application,High
+"Fiber optic transceiver SFP module failure on core switch","Switch interface TenGigabitEthernet 1/1/1 link down due to failed optical transceiver module.",Hardware,High
+"Corporate DNS amplification attack reported by upstream ISP","Company authoritative DNS server being used as open reflector for DDoS attack.",Security,Critical
+"Wi-Fi connection drops in executive boardroom whenever door closes","Boardroom has sound-insulating metallic foil in walls attenuating Wi-Fi signal by 30dB.",Network,Low
+"Postgres streaming replication slot consuming 80GB disk space","Inactive replication slot is retaining WAL segments preventing automatic cleanup.",Database,High
+"Need Visual Studio Community installed on intern workstation","New intern joining frontend team needs IDE and git configured on loaner laptop.",Software,Low
+"Two-Factor Authentication 2FA secret reset request after factory reset","User wiped phone and needs QR code re-generated for internal Authenticator app.",Authentication,Medium
+"Web application payment form submitting duplicate orders under slow connection","Users clicking Submit button multiple times because button is not disabled during fetch call.",Application,High
+"Port security violation shutting down switch interface","Switch port automatically disabled itself after unauthorized laptop plugged into office desk.",Network,Medium
+"Phishing email with malicious macro attachment caught by spam filter","Employee reporting email with invoice.xlsm attachment asking if it is legitimate.",Security,Medium
+"Trackpad on loaner laptop completely unresponsive","Cursor does not move at all when touching trackpad. External USB mouse functions normally.",Hardware,Low
+"Database connection pool exhausted during database migration","Running Alembic migration locked tables and queued 300 backend database connections.",Database,High
+"Employee name change update in Active Directory and email alias","User got married and requested corporate email alias update and display name change.",Authentication,Low
+"Web application CSS z-index bug obscuring navigation dropdown","Modal overlay has z-index 1000 while navigation dropdown has z-index 999 making menu unclickable.",Application,Low
+"Network latency spike on transatlantic fiber circuit","Undersea cable cut in Atlantic ocean causing traffic rerouting with additional 60ms latency.",Network,High
+"Keylogger malware detected on executive assistant computer","CrowdStrike identified and terminated keyboard hook injecting malicious DLL into explorer.exe.",Security,Critical
+"Monitor power button stuck in pressed down position","Physical power toggle on Acer monitor is jammed and screen turns on and off continuously.",Hardware,Low
+"PostgreSQL database query deadlock in automated billing worker","Two concurrent billing worker threads locked accounts table in reverse sequence causing deadlock.",Database,High
+"Active Directory replication failing with DNS lookup error","Secondary domain controller cannot resolve GUID DNS record of primary domain controller.",Authentication,High
+"Production API returning 401 Unauthorized for all customer requests","JWT token signing secret was rotated in backend without updating auth service verification key.",Application,Critical
+"Ethernet cable clip broken causing cable to easily unplug from wall","Cat6 network patch cable in conference room slips out of wall jack whenever moved.",Hardware,Low
+"Corporate website DNS hijacked and pointing to malicious IP","Domain registrar account compromised and NS records modified to malicious DNS servers.",Security,Critical
+"BGP route flap causing intermittent packet loss for Australian customers","Upstream transit provider in Sydney experiencing BGP flapping with our edge routers.",Network,High
+"MySQL query cache fragmentation causing memory allocation errors","Legacy database server failing to allocate query cache blocks due to fragmented memory.",Database,Low
+"Employee password expired while traveling without VPN connection","User cannot log into local Windows profile because domain password change is required.",Authentication,Medium
+"Web application dropdown menu overflowing offscreen on tablet devices","Mobile responsive CSS media query missing for 768px tablet portrait resolution.",Application,Low
+"Unpatched Apache Struts vulnerability detected on legacy server","Internal vulnerability assessment flagged critical remote code execution flaw on payroll server.",Security,Critical
+"Laptop cooling fan running at maximum RPM continuously even at idle","CPU temperature sensor reporting inaccurate 99C value causing fan to scream constantly.",Hardware,Low
+"Postgres table index missing on high frequency audit query","Query scanning 25 million records takes 14 seconds without index on created_at timestamp.",Database,Medium
+"Employee cannot connect to enterprise Wi-Fi after Windows 11 23H2 update","WPA3 enterprise 802.1x handshake fails after major Windows operating system upgrade.",Network,Medium
+"Two-Factor Authenticator app generating wrong codes due to system clock drift","Mobile device clock drifted by 90 seconds causing all TOTP codes to be rejected.",Authentication,Medium
+"Production Kubernetes node disk pressure evicting pods","Container runtime storage filled with unpruned dangling container images on node 5.",Application,High
+"Malicious USB drop attack: unbranded USB drive found in parking lot","Employee turned in unlabeled flash drive found outside office entrance for forensic analysis.",Security,High
+"External mechanical keyboard spacebar stabilizer popped out of socket","Wire stabilizer bar on mechanical keyboard popped out causing spacebar to stick on press.",Hardware,Low
+"PostgreSQL transaction log archive disk usage at 98%","Archiver process falling behind in moving WAL files to Amazon S3 bucket.",Database,High
+"Need Zoom Rooms software updated on conference room tablet","Conference room iPad displays message: Please update Zoom Rooms app to join meetings.",Software,Low
+"Core router VRRP virtual IP flapping between master and backup","Keepalive heartbeat packets between redundant core routers being delayed by high CPU.",Network,Critical
+"Active Directory Kerberos pre-authentication failure audit alert","Over 500 Kerberos pre-auth failures logged in 5 minutes against service account.",Authentication,High
+"Memory leak in Python data pipeline workers consuming 64GB RAM","Pandas DataFrame concat in loop retains memory without garbage collection running.",Application,High
+"Ransomware attempt detected: rapid file renaming detected on NAS share","EDR sensor halted network access for workstation that renamed 500 files with .locked extension.",Security,Critical
+"Desktop computer will not power on (no lights or fan spin)","Pressing power button on HP desktop workstation produces no response. Power cable verified.",Hardware,High
+"PostgreSQL database vacuum blocked by prepared transaction","Forgotten two-phase commit prepared transaction preventing vacuum from cleaning dead tuples.",Database,High
+"User unable to access intranet portal after department transfer","Active Directory group membership was not updated during HR transfer to finance team.",Authentication,Low
+"API gateway returning 503 Service Unavailable under traffic peak","Kubernetes horizontal pod autoscaler HPA scaling too slowly to absorb sudden traffic burst.",Application,Critical
+"Wi-Fi signal completely dead on 2nd floor west quadrant","PoE switch port supplying power to access point AP-2W tripped on overcurrent protection.",Network,High
+"Suspected insider threat: unauthorized bulk download of customer database","Employee who submitted two weeks notice downloaded 50,000 customer records to USB.",Security,Critical
+"Laptop webcam produces flickering green lines during Microsoft Teams call","Built-in webcam sensor or ribbon cable is faulty causing distorted green video output.",Hardware,Low
+"Database index rebuild required on SQL Server customer table","Fragmented index causing queries that should take 5ms to take 600ms on production.",Database,Medium
+"SAML authentication assertion consumer service URL expired","SAML metadata certificate expired causing SSO logins to fail across all cloud applications.",Authentication,Critical
+"Application Docker container crashing with code 137 (OOMKilled)","NodeJS backend process exceeded 2GB container memory limit and was killed by Linux OOM killer.",Application,High
+"Fiber optic cable crushed by maintenance ladder in riser room","Facilities contractor pinched main fiber backbone cable connecting floor 1 and floor 2 switches.",Network,Critical
+"Cryptocurrency mining malware quarantined on graphics design workstation","GPU miner installed via cracked Photoshop plugin detected and quarantined by endpoint protection.",Security,Critical
+"Laptop power supply brick gets burning hot to touch","AC adapter casing reaches over 70C during charging. Requesting replacement for safety.",Hardware,Medium
+"Postgres query taking 30 seconds due to stale table statistics","Postgres planner estimated 1 row instead of 500,000 rows. Running ANALYZE resolved plan.",Database,Medium
+"Employee cannot login after password reset: Account is Disabled","Active Directory account was accidentally disabled by helpdesk during password reset.",Authentication,Medium
+"Frontend application assets taking 12 seconds to load over CDN","Static assets cache control headers set to max-age=0 causing cache misses on every request.",Application,Medium
+"Default gateway router ping drops 40% of packets","ICMP packet loss between floor switch and default gateway router due to duplex mismatch.",Network,High
+"Phishing email impersonating IT helpdesk asking users to verify passwords","Mass email sent to all staff claiming email will be shut down unless link is clicked.",Security,Critical
+"Computer monitor screen has permanent burned-in image retention","IPS monitor displays ghostly outlines of previous windows even when turned off.",Hardware,Low
+"Postgres replication connection closed by remote peer","Primary database terminated replication connection because standby took too long to acknowledge WAL.",Database,High
+"Employee Active Directory account locked out by Mac OS keychain","Mac Keychain has old saved password and repeatedly attempts authentication in background.",Authentication,Medium
+"Production checkout service returning 500 error on credit card processing","Stripe webhook endpoint threw unhandled exception when processing payment intent.",Application,Critical
+"Ethernet link speed negotiating at 100Mbps instead of 1000Mbps Gigabit","Damaged pair in Cat5e wall cable prevents link from negotiating at full Gigabit speed.",Network,Low
+"Unauthorized SSH key added to root authorized_keys file","File integrity monitoring detected addition of unknown RSA public key in /root/.ssh/authorized_keys.",Security,Critical
+"Laptop keyboard key T popped off and scissor mechanism broken","Physical keycap for letter T broke off and internal silicone cup is torn.",Hardware,Low
+"PostgreSQL transaction ID wraparound shutdown imminent alert","Postgres server in emergency vacuum mode to prevent database shutdown from transaction ID exhaustion.",Database,Critical
+"User unable to access VPN: certificate validation failed","Client machine system clock was set to year 2020 causing TLS certificate validation to fail.",Authentication,Medium
+"Single Page Application routing broken on page refresh (404 Not Found)","Nginx server configuration missing try_files $uri $uri/ /index.html directive for React router.",Application,Medium
+"Switch interface flapping continuously due to faulty patch cord","Interface GigabitEthernet 0/12 transitions between UP and DOWN every 5 seconds.",Network,Medium
+"Trojan dropper detected in email attachment quarantined by Microsoft Defender","Attachment named remittance_advice.exe was blocked and deleted by email gateway.",Security,Critical
+"External USB hub causing computer to reboot on plug-in","Plugging USB-C hub into laptop causes immediate power short and motherboard reboot.",Hardware,High
+"Database buffer pool dirty pages exceeding 70% threshold","MySQL InnoDB engine unable to flush dirty pages to disk quickly enough causing checkpoint stalls.",Database,Medium
+"Active Directory password complexity requirements not displayed to user","Password reset page gives generic error without stating 12 character and special symbol rules.",Authentication,Low
+"Customer data export taking 3 hours and locking tables","Export query runs SELECT * without pagination holding shared locks and degrading production performance.",Application,High
+"Network core router BGP route table memory full","Edge router BGP process ran out of RAM after receiving full internet routing table without filter.",Network,Critical
+"Unauthorized network port scan detected originating from workstation 44","Internal network IDS alerted that workstation 44 is scanning subnet for open SMB port 445.",Security,Critical
+"Wireless mouse cursor jumping erratically across screen","Optical sensor lens on wireless mouse has dust or hair obstructing laser tracking.",Hardware,Low
+"PostgreSQL database query planner cost estimation inaccurate","Planner chose nested loop join over hash join resulting in 200x slower execution time.",Database,Medium
+"Employee multi-factor authentication SMS verification code not arriving","Cellular carrier filtering automated shortcode SMS messages as spam.",Authentication,Medium
+"Web application search endpoint returning SQL syntax error","Improperly sanitized search parameter causes syntax error in SQL query string.",Application,High
+"Fiber optic link attenuation high due to dirty LC connector","Optical power meter reads -28dBm on 10G link. Connector requires alcohol cleaning.",Network,Medium
+"Zero-day remote code execution vulnerability in enterprise VPN client","Vendor issued emergency patch for buffer overflow in VPN client software.",Security,Critical
+"Laptop touchpad physically unresponsive to clicks","Trackpad touch tracking works, but physical click mechanism is jammed with debris.",Hardware,Low
+"Database checkpoint duration exceeding 15 minutes","PostgreSQL checkpoint taking too long and saturating disk IOPS during peak business hours.",Database,Medium
+"User account disabled due to 90-day inactivity policy","Contractor returning to work finds Active Directory account disabled by automated security script.",Authentication,Low
+"API response time degraded from 120ms to 4500ms under load","Thread pool exhaustion in Java Spring backend causing HTTP requests to queue up.",Application,High
+"Spanning tree topology change storm causing campus-wide network drops","Old unmanaged Netgear switch plugged into network port causing constant STP recalculations.",Network,Critical
+"Ransomware encryption detected on file server partition","File server alert: 1,000 files modified with .crypt extension within 60 seconds.",Security,Critical
+"Desktop computer chassis power button stuck inside front panel","Plastic spring behind power button broke and button remains pushed in continuously.",Hardware,Low
+"Postgres table autovacuum not running on heavily updated table","Table autovacuum_enabled was accidentally set to false during batch data load.",Database,Medium
+"Employee cannot authenticate with Smart Card PKI certificate","Smart card reader driver missing in Windows 11 after clean operating system install.",Authentication,Medium
+"Web server returning 413 Payload Too Large on document upload","Nginx client_max_body_size set to 1M preventing employees from uploading 5MB PDF documents.",Application,Low
+"Intermittent packet drops on voice VLAN causing robotic audio","Switch QoS priority queuing misconfigured: voice packets placed in best-effort queue.",Network,High
+"Privilege escalation exploit detected on production web server","Linux kernel vulnerability Dirty COW exploit attempt logged and blocked by security agent.",Security,Critical
+"Laptop screen hinge cracked and making cracking sound when opened","Display hinge stiffened and is bending the aluminum chassis whenever laptop is opened.",Hardware,Low
+"Database sequence out of sync with actual maximum table ID","Manual insert with explicit ID caused nextval() to produce duplicate primary key errors.",Database,High
+"Single Sign-On login looping back to login screen on Google Chrome","Chrome third-party cookie blocking policy preventing SSO session cookie from being stored.",Authentication,Medium
+"Microservice communication failing with Connection Refused on internal port","Backend worker cannot connect to inventory service because inventory pod is in CrashLoopBackOff.",Application,High
+"Core network firewall running at 98% memory usage","Firewall session state table filled with 2 million abandoned TCP connections from network scan.",Network,Critical
+"Unauthorized credential dump using Mimikatz detected on server","Endpoint protection blocked and quarantined mimikatz.exe attempting to dump LSASS memory.",Security,Critical
+"USB keyboard drops random keystrokes when typing quickly","Keyboard USB polling rate or faulty controller skipping characters during rapid typing.",Hardware,Low
+"PostgreSQL database transaction log disk full shutting down server","Database entered emergency read-only mode because disk partition for pg_wal reached 100%.",Database,Critical
+"Employee locked out of all corporate accounts after SIM swap attack","Attacker hijacked employee phone number and initiated password resets across accounts.",Authentication,Critical
+"Customer checkout failing due to unhandled currency conversion error","API threw ValueError when converting EUR price to USD without exchange rate loaded.",Application,High
+"Network cable disconnected alert on core switch port 24","Port 24 connecting backup storage array transitioned to DOWN state unexpectedly.",Network,Medium
+"Malicious PowerShell script downloaded via Excel macro","Defender for Endpoint terminated Word process that spawned PowerShell with encoded download cradle.",Security,Critical
+"Laptop screen flickering when brightness is set below 50%","LED backlight pulse-width modulation (PWM) circuit failing causing screen to strobe.",Hardware,Low
+"Database connection pool starvation in FastAPI backend","Async database connections not being released back to pool inside exception handler.",Database,High
+"User Active Directory password expired during international flight","Employee landed at client site and cannot log into Windows profile without network connection.",Authentication,Medium
+"Frontend application build failing with Webpack out of memory","Node process compiling production React bundle ran out of heap memory in Docker build.",Application,Medium
+"DNS server recursive resolver cache poisoned with fake records","Internal DNS server answering false IP addresses for external cloud services.",Network,Critical
+"Vulnerability in sudo package allowing root privilege escalation (CVE-2021-3156)","Security scan identified Baron Samedit vulnerability on 12 unpatched Linux servers.",Security,Critical
+"Dual monitor display turns off whenever phone is placed near dock","Electromagnetic interference from cell phone radio causes USB-C video signal to drop.",Hardware,Low
+"Postgres query taking 12 seconds due to missing composite index","Query filtering on both tenant_id and status performs sequential scan on 10M rows.",Database,Medium
+"Employee cannot receive Duo MFA push notification while roaming abroad","International roaming data disabled on company phone preventing push alerts from arriving.",Authentication,Medium
+"Production database replica disconnected and falling behind","Replication lag on analytics replica exceeded 12 hours due to network bandwidth saturation.",Database,High
+"Core switch redundancy VRRP master router failed to transition","Backup router did not take over active routing after primary switch suffered power loss.",Network,Critical
+"Malware trojan horse detected inside zip archive in email attachment","Email security gateway quarantined password-protected zip file containing executable.",Security,High
+"Laptop battery health degraded to 32% of original capacity","Battery drains from 100% to 0% in under 25 minutes of normal office use.",Hardware,Medium
+"Web application returning 500 error due to missing environment variable","Production release deployed without required AWS_S3_BUCKET_NAME configuration set.",Application,High
+"Access Point radio power set too low causing dead zones","Enterprise Wi-Fi controller misconfigured transmit power resulting in weak coverage in offices.",Network,Low
+"Employee Active Directory credentials compromised in credential dump","User password appeared in public breach dump from third-party website.",Security,Critical
+"Database connection timeout when executing complex financial report","Reporting query runs for over 300 seconds and is terminated by statement_timeout.",Database,Medium
+"Two-Factor Authenticator backup codes exhausted by user","Employee used all 10 one-time emergency backup codes and has no active phone registered.",Authentication,Medium
+"Web application shopping cart items disappearing on page navigation","Session cookies configured without SameSite attribute causing session loss in cross-site requests.",Application,Medium
+"Switch interface error counters incrementing rapidly (FCS errors)","Damaged copper Ethernet patch cable causing high frame check sequence FCS error count.",Network,Medium
+"Suspected cryptomining script embedded in marketing blog post","WordPress site hacked and injected with Coinhive JavaScript miner running in visitor browsers.",Security,Critical
+"Desktop computer monitor stand tilt mechanism loose and drooping","Monitor continuously tilts downward to desk because hinge tension screw is stripped.",Hardware,Low
+"PostgreSQL database query buffer cache hit ratio at 55%","Database server needs additional RAM allocated to shared_buffers to prevent slow disk reads.",Database,Medium
+"Employee unable to decrypt corporate email on Outlook mobile","Exchange ActiveSync certificate profile missing from employee iPhone.",Authentication,Low
+"Production service memory leak in Go microservice goroutines","Goroutine count steadily climbs from 50 to 50,000 causing process to crash with OOM.",Application,Critical
+"Wi-Fi network authentication failing due to expired intermediate CA","Intermediate Certificate Authority on RADIUS server expired causing 802.1x handshake failure.",Network,Critical
+"Data exfiltration alert: 10GB uploaded to unauthorized cloud storage","Employee uploaded massive archive of company engineering files to personal Mega.nz account.",Security,Critical
+"Laptop headphone jack physically broken with tip lodged inside","3.5mm audio jack snapped off inside laptop headphone port blocking audio output.",Hardware,Low
+"PostgreSQL table vacuum fails with out of disk space error","Vacuum full requires free disk space equal to table size which is unavailable on partition.",Database,High
+"SAML authentication fails with error: Response has expired","SAML response issue instant was 5 minutes in the past due to server clock drift.",Authentication,Medium
+"Customer facing mobile app crashing on startup after release","Mobile app update missing backward compatible database migration crashing on launch.",Application,Critical
+"Enterprise core router experiencing packet loss during peak business hours","Router interface buffer overflow dropping packets during daily 10:00 AM traffic surge.",Network,High
+"Unauthorized admin user created in PostgreSQL database","Audit log detected CREATE USER superadmin WITH SUPERUSER executed from unapproved host.",Security,Critical
+"Computer keyboard spacebar produces double spaces when pressed once","Mechanical switch key chatter causing spacebar to register duplicate keystrokes.",Hardware,Low
+"PostgreSQL database slow query log filled with sequential scans","Queries lacking indexes on foreign key columns are degrading overall database throughput.",Database,Medium
+"User forgot password and account locked out after failed attempts","Employee returning from vacation forgot password and needs reset by IT support.",Authentication,Low
+"Web application returning 502 Bad Gateway due to upstream crash","Gunicorn Python worker processes died from uncaught exception under high load.",Application,Critical
+"Wi-Fi connection drops whenever walking near microwave in breakroom","2.4GHz Wi-Fi spectrum heavily interfered with by 1000W microwave radiation.",Network,Low
+"Malicious macro in Word document attempted to execute PowerShell","Attack payload blocked by Microsoft Defender Attack Surface Reduction ASR rule.",Security,Critical
+"Laptop power cord insulation stripped near adapter plug","Exposed copper wires visible on power brick cable presenting electrical safety hazard.",Hardware,High
+"Database read replica lagging by 4 hours behind primary node","Network saturation between AWS US-East and US-West slowing down WAL replication stream.",Database,High
+"Employee Active Directory account locked out due to phone caching old password","User changed domain password but forgotten tablet kept attempting logins with old credentials.",Authentication,Medium
+"Production backend API throwing 500 error on user profile update","Database column constraint violation caused by unvalidated null value in phone number field.",Application,High
+"Direct Connect dedicated fiber link down between corporate office and AWS","Physical fiber link to cloud provider down. BGP failed over to backup IPsec VPN tunnel.",Network,High
+"Ransomware note displayed on fileshare server desktop","All files on shared drive encrypted with extension .locked. Incident response initiated immediately.",Security,Critical
+"Laptop internal cooling fan making loud rattling noise","Cooling fan bearing has failed inside laptop chassis and CPU temperature is spiking.",Hardware,Medium
+"Postgres autovacuum worker saturating disk IOPS during business hours","Autovacuum cost limit setting too aggressive causing heavy disk read and write operations.",Database,Medium
+"SAML Single Sign-On certificate expired across all SaaS applications","Identity Provider IdP certificate expired at midnight locking all employees out of cloud apps.",Authentication,Critical
+"Web application customer search returning 504 Gateway Timeout","Unindexed LIKE %query% search against 5 million customer records timing out upstream proxy.",Application,High
+"Network switch port error disabled due to BPDU guard violation","Someone connected an unauthorized switch into wall port causing BPDU guard to shut down port.",Network,Medium
+"Suspicious brute force attack on corporate SSH bastion host","Over 50,000 failed SSH login attempts from distributed botnet targeting root and ubuntu users.",Security,Critical
+"External monitor black screen when connected to docking station","Thunderbolt dock firmware needs update to support dual 4K monitors on Windows 11.",Hardware,Low
+"PostgreSQL database primary server crash due to kernel panic","Hardware memory parity error triggered Linux kernel panic on primary database host.",Database,Critical
+"Employee lost corporate smartphone configured with Duo MFA","Lost device reported by sales executive. Needs device remote wipe and MFA token deregistration.",Authentication,High
+"Production order checkout failing due to third party API downtime","Payment processor API is completely down and application lacks fallback queue mechanism.",Application,Critical
+"Wi-Fi network SSID disappeared from floor 2 after power surge","Access point power over ethernet PoE injector died after building electrical power surge.",Network,High
+"Trojan horse executable detected in temporary folder by EDR agent","Endpoint security agent quarantined suspicious binary dropped in AppData/Local/Temp.",Security,Critical
+"Laptop screen hinge cracked and plastic casing separating","Mechanical hinge on Dell laptop is broken and lifting screen separates the bezel.",Hardware,Low
+"Postgres transaction ID wraparound emergency vacuum in progress","Database operating in emergency vacuum mode and rejecting new write transactions.",Database,Critical
+"Single Sign-On login failing with error invalid audience in SAML response","SAML configuration entity ID mismatch between corporate IdP and cloud service provider.",Authentication,Medium
+"Web application memory usage climbs continuously until container killed","NodeJS application leaking event listeners on every incoming WebSocket connection.",Application,High
+"Core network firewall dropping valid traffic due to out of state sessions","Asymmetric routing causing firewall to drop TCP ACK packets with Invalid State error.",Network,High
+"Critical zero day remote code execution vulnerability in OpenSSH","OpenSSH vulnerability CVE-2024-6387 regreSSHion announced. Urgent patching required across fleet.",Security,Critical
+"Desktop PC refuses to power on: power supply fan does not spin","Workstation completely dead after thunderstorm. Power supply unit suspected blown.",Hardware,High
+"PostgreSQL connection pool exhausted by idle in transaction queries","Application sessions opening transactions without committing or rolling back.",Database,Critical
+"Employee Active Directory account disabled by automated security script","Account disabled because user did not log in for 60 consecutive days.",Authentication,Low
+"Production web application serving outdated cached assets","Cloudflare CDN edge cache not purging after deployment due to expired API token.",Application,Medium
+"Subnet routing table missing default route to internet gateway","Instances launched in new subnet cannot access external internet or download packages.",Network,High
+"DDoS attack targeting corporate customer portal login page","Volumetric HTTP flood with 200,000 requests per second overwhelming Nginx edge reverse proxy.",Security,Critical
+"Mechanical keyboard keys typing multiple characters on single tap","Key switch chatter causing keyboard to type letters repeatedly (e.g. 'eerror').",Hardware,Low
+"Postgres database slow query execution due to missing foreign key indexes","Foreign key columns without indexes causing table lock waits during cascades.",Database,Medium
+"User cannot log into workstation: The trust relationship between this workstation and the primary domain failed","Machine account password out of sync with Active Directory domain controller.",Authentication,High
+"Production API endpoint returning 500 error due to database schema mismatch","Code deployed before database migration ran causing missing column exceptions.",Application,Critical
+"Wi-Fi network latency high and constant packet drops during all-hands meeting","Too many devices connected to single access point in auditorium exceeding capacity.",Network,Medium
+"Phishing email targeting finance team with fake vendor invoice","Fraudulent email requesting payment destination bank account change detected and reported.",Security,Critical
+"Laptop battery swelling and lifting keyboard top case","Swollen lithium battery is warping the aluminum top case of employee MacBook.",Hardware,Critical
+"PostgreSQL write-ahead log disk usage exceeded 90% threshold","Archive command failing causing WAL files to accumulate on primary database storage.",Database,High
+"Employee Active Directory password expired while working remotely without VPN","User cannot change password because machine cannot reach corporate domain controller.",Authentication,Medium
+"Mobile app crashes instantly when customer opens push notification","Push notification payload contains unexpected null field crashing mobile JSON parser.",Application,High
+"Network cable between distribution switch and core switch damaged","Physical Cat6 cable link negotiating at 10Mbps half duplex with high collision rate.",Network,High
+"Ransomware canary file modified in corporate network share","Tripwire monitoring detected immediate file encryption attempt on shared file server.",Security,Critical
+"Laptop screen displays horizontal flickering pink lines across display","Faulty display cable or damaged GPU causing video artifacting on internal screen.",Hardware,Medium
+"Database query execution time regressed from 50ms to 9000ms after data growth","Query missing index on created_at date column now scanning 15 million rows.",Database,High
+"Two-Factor Authenticator push notification timeout on corporate mobile device","Duo push notifications fail to arrive due to battery saver background data restriction.",Authentication,Medium
+"Production backend throwing 500 error on payment processing checkout","Stripe webhook endpoint failed with unhandled exception when processing payment intent.",Application,Critical
+"BGP peering session flap causing packet loss to Europe data center","Intermittent fiber cut in Atlantic transit route causing BGP route oscillations.",Network,High
+"Security agent alerted to unauthorized privilege escalation attempt on Linux server","User attempted to run local root exploit against unpatched Linux kernel vulnerability.",Security,Critical
+"External keyboard missing letter A keycap snapped off from scissor mechanism","Mechanical keycap for letter A broke off and internal clip is torn.",Hardware,Low
+"PostgreSQL transaction ID wraparound shutdown imminent alert","Database entering emergency single-user mode to prevent catastrophic transaction ID wraparound.",Database,Critical
+"User unable to login with error: User account has expired in Active Directory","Contractor account reached end of contract date and was locked by automated policy.",Authentication,Medium
+"Web application customer search returning 504 Gateway Timeout under load","Full text search query without indexing timing out upstream Nginx reverse proxy.",Application,High
+"Wi-Fi captive portal redirect loop on guest network","Visitors unable to access internet because guest network captive portal certificate is invalid.",Network,Low
+"Trojan malware detected in employee downloads folder quarantined by Antivirus","Malicious setup.exe downloaded from compromised third-party website blocked by EDR.",Security,Critical
+"Laptop power adapter cord frayed near connector presenting fire hazard","Power adapter cable has stripped insulation and exposed electrical wiring.",Hardware,High
+"PostgreSQL database connection pool exhausted by long-running transactions","Uncommitted database transactions holding connection slots and starving backend workers.",Database,Critical
+"SAML Single Sign-On certificate expired across all enterprise cloud applications","SAML IdP token signing certificate expired at midnight locking all employees out.",Authentication,Critical
+"Production payment API returning 500 internal server error during checkout","Unhandled exception in payment processing microservice causing 100% checkout failure.",Application,Critical
+"Core edge router BGP peering session flap causing global packet drops","BGP session with Tier 1 transit provider flapping every 2 minutes.",Network,Critical
+"Suspected phishing email received by executive team requesting wire transfer","Urgent email impersonating CEO asking for immediate gift card purchases.",Security,Critical
+"Blue Screen of Death BSOD with error CRITICAL_PROCESS_DIED on compilation","Workstation crashed twice into blue screen during heavy code compilation.",Hardware,High
+"MySQL deadlock detected on customer transaction table during concurrent updates","High concurrent checkout transactions triggering InnoDB transaction deadlocks.",Database,High
+"Employee badge access revoked at main server room door reader","IT technician access card flashes red and fails to unlock data center door.",Authentication,High
+"Google Chrome crashing on opening internal intranet HR benefits portal","Chrome browser crashes with STATUS_ACCESS_VIOLATION specifically on internal site.",Application,Medium
+"Stolen corporate laptop reported by remote engineer requesting remote wipe","Employee had laptop stolen from vehicle. Requesting immediate remote MDM wipe.",Security,Critical
+"Conference room television HDMI input not detecting video signal from laptop","Television in boardroom displays No Signal when plugging in HDMI cable.",Hardware,Low
+"PostgreSQL vacuum freeze causing high disk IO and application query slowness","Auto-vacuum process saturating disk IOPS and slowing down application response time.",Database,Medium
+"DNS resolution failure for internal company domain names","Internal workstations cannot resolve hostnames ending in .corp.",Network,High
+"Two-Factor Authentication 2FA device lost by employee traveling abroad","Employee lost phone configured with Microsoft Authenticator and needs temporary access code.",Authentication,High
+"Kubernetes pod crashloopbackoff on production authentication service","Authentication pods are crashing repeatedly due to missing database connection secret.",Application,Critical
+"Firewall port 443 blocked to new third-party vendor REST API endpoint","Outbound traffic to vendor API dropped by perimeter firewall security policy.",Network,Medium
+"Malware detected by CrowdStrike on workstation 102 in sales department","Trojan dropper detected in user downloads folder and quarantined by endpoint security.",Security,Critical
+"Laptop lithium battery swollen and pushing against trackpad chassis","Battery swelling causing trackpad to lift out of laptop casing. Needs replacement.",Hardware,High
+"Microsoft Excel 365 freezes when loading large quarterly budget sheet","Excel hangs and consumes 100% CPU when opening 250MB spreadsheet.",Software,Medium
+"Elasticsearch cluster status Red with multiple unassigned replica shards","Search cluster in red state with unassigned shards following node restart.",Database,High
+"SSH public key authentication denied on production staging Bastion host","Developer cannot connect to Bastion host with Permission denied (publickey).",Authentication,Medium
+"Web application CDN returning 502 Bad Gateway to external visitors","Cloudflare edge CDN returning 502 error because origin web server is down.",Application,Critical
+"USB headset audio cutting out in right earphone during customer calls","Headset cord has internal wire break causing audio to cut out when moving.",Hardware,Low
+"BitLocker recovery key prompt on boot after automated Dell firmware update","Laptop boots into BitLocker recovery screen asking for 48-digit numerical key.",Security,High
+"Database read replica replication lag exceeding 7200 seconds","Read replica database is 2 hours behind primary node causing stale data reports.",Database,High
+"Jenkins build server queue stuck with 50 pending CI/CD build jobs","Jenkins master process is unresponsive and workers cannot pick up jobs.",Application,High
+"Reset password for new employee starting in marketing department","New hire needs initial password reset for email and corporate applications.",Authentication,Low
+"Vulnerability scanner detected open Telnet port 23 on core network switch","Security scan flagged active unencrypted Telnet service on network hardware.",Security,High
+"Laptop cooling fan making loud grinding noise and chassis running hot","Internal fan bearing failure causing laptop to overheat and thermal throttle.",Hardware,Medium
+"Figma desktop app cannot detect or sync local fonts installed in Windows","Figma font helper is not detecting custom brand fonts on Windows workstation.",Software,Low
+"Oracle database tablespace SYSTEM out of storage space on production","Database alert log reports ORA-01653 unable to allocate space in SYSTEM tablespace.",Database,Critical
+"Unauthorized sudo command execution detected on production web server","Security audit log captured non-root user invoking sudo /bin/bash on web server.",Security,Critical
+"Webcam not detected in Windows Device Manager or conference apps","Integrated webcam on laptop completely missing from Windows Device Manager.",Hardware,Low
+"API rate limiter incorrectly blocking valid enterprise customer requests","API gateway returning HTTP 429 Too Many Requests to paying customer integration.",Application,High
+"IP address conflict detected on local corporate subnet 10.0.1.0","Windows displayed IP conflict alert stating another device is using the same IP.",Network,Medium
+"Request new wildcard SSL certificate for internal staging environment","Need DigiCert wildcard certificate generated for *.staging.nexusai.internal.",Security,Low
+"Microsoft Teams microphone permission disabled after macOS operating system upgrade","Teams cannot record or capture microphone audio after macOS operating system update.",Software,Low
+"Cassandra database cluster node 3 down due to physical disk failure","NoSQL database node died with java.io.IOError disk read failure.",Database,Critical
+"OpenLDAP server timeout causing employee logins to fail company-wide","LDAP directory server is unresponsive causing authentication timeouts for all users.",Authentication,Critical
+"Thermal throttling causing severe compilation slowness on developer laptop","CPU clock speed drops to 800MHz under compiling load due to blocked vents.",Hardware,Medium
+"Production Kubernetes ingress controller Nginx crash due to memory limit","NGINX ingress controller pods killed by Linux kernel Out Of Memory killer.",Application,Critical
+"Network office printer continuously printing pages of unformatted code","HP LaserJet printer printing hundreds of pages of raw PostScript code.",Hardware,Low
+"SQL injection attack pattern detected and blocked by web application firewall","WAF blocked requests containing UNION SELECT statements aimed at product search.",Security,Critical
+"Need Node.js 20 and Python 3.12 installed on QA engineer computer","Developer requires updated compilers and runtime environments configured.",Software,Low
+"Workstations on VLAN 20 cannot ping default gateway router 10.20.0.1","All computers on marketing VLAN have lost network connectivity to gateway.",Network,High
+"Active Directory account locked out after user forgot to update mobile password","Employee changed corporate password but mobile tablet kept trying old password.",Authentication,Medium
+"PostgreSQL connection pool exhausted by abandoned unclosed connections","Application reports FATAL: remaining connection slots reserved for superuser.",Database,Critical
+"Web application customer session timeout too short (logging out after 5 minutes)","Customer service agents complain that web application logs them out too quickly.",Application,Low
+"Hard drive SMART warning alert indicates imminent NVMe SSD failure","Storage utility reports drive health critical and bad sectors increasing.",Hardware,Critical
+"Distributed denial of service DDoS attack flooding external company website","Spike of 600k SYN packets per second from botnet flooding corporate gateway.",Security,Critical
+"VS Code extension marketplace unreachable due to corporate proxy firewall","Developers cannot download or update extensions from Visual Studio Code store.",Software,Low
+"Wireless access point AP-04 reboot loop on third floor engineering pod","Access point continuously reboots every 2 minutes after power glitch.",Network,High
+"Redis replica failed to synchronize with primary master node in cluster","Redis standby node reports Error condition on socket for SYNC: Connection reset.",Database,Medium
+"Corporate iPhone mobile device management MDM profile installation failed","New phone gives error: The server certificate for https://mdm.corp is invalid.",Authentication,Medium
+"Memory leak in NodeJS backend service causing container to crash hourly","Container memory usage increases steadily until killed by Docker daemon.",Application,High
+"Laptop AC power adapter cable frayed with exposed wires sparking","Power cord insulation stripped near plug presenting fire and shock hazard.",Hardware,High
+"AWS EC2 security group incorrectly exposes SSH port 22 to public internet","Cloud security audit found firewall rule allowing 0.0.0.0/0 on port 22.",Security,Critical
+"Zoom conference room audio echo and feedback during meetings","Microphone picks up speaker audio causing harsh feedback loop for remote attendees.",Hardware,Low
+"Postgres table locked by open uncommitted transaction blocking updates","Billing update batch job cannot proceed due to exclusive lock on invoice table.",Database,High
+"Fiber optic cable severed in data center rack 4 by contractor","Technician accidentally severed 10G multimode fiber cable connecting switch stack.",Network,Critical
+"Kerberos ticket renewal failed on Linux workstation preventing file access","User unable to access shared network storage due to expired krb5 Kerberos ticket.",Authentication,Medium
+"Production frontend website CSS and images broken after release deployment","Assets script uploaded build bundle with wrong public path resulting in 404s.",Application,High
+"Remote Desktop RDP connection refused by Windows Server host","System administrator unable to connect via RDP to Windows Server 2022.",Network,Medium
+"Root certificate authority expiring in 10 days causing cert warnings","Internal enterprise root CA certificate set to expire soon requiring renewal.",Security,Critical
+"Coffee spilled onto mechanical keyboard causing keys to stick","Liquid spill occurred on keyboard. Disconnected immediately to prevent damage.",Hardware,Low
+"Elasticsearch cluster running out of heap memory causing 60-second GC pauses","Elasticsearch node JVM memory is saturated causing long garbage collection pauses.",Database,High
+"Windows login prompt stuck in password change loop for remote worker","User types new password satisfying complexity rules but Windows prompts again.",Authentication,Medium
+"Jenkins pipeline job fails with Docker daemon permission denied","Build script step docker ps returns permission denied connecting to socket.",Software,Medium
+"Corporate Wi-Fi RADIUS authentication certificate expired at midnight","Laptops unable to connect to WPA2 Enterprise 802.1x Wi-Fi network.",Network,Critical
+"Suspicious base64 encoded PowerShell command executed on finance computer","EDR sensor alerted to powershell.exe executing encoded command from email.",Security,Critical
+"Laptop screen display hinge cracked and plastic frame opening","Left hinge has snapped and opening screen separates the display housing.",Hardware,Low
+"PostgreSQL database query planner choosing slow sequential scan over index","Query on 10 million row table ignores index due to outdated table statistics.",Database,Medium
+"GitHub enterprise single sign-on token revoked unexpectedly for developers","Engineers cannot push code over HTTPS because SAML token was unlinked.",Authentication,Medium
+"High CPU utilization on web server due to regular expression backtracking","Worker process pegged at 100% CPU due to catastrophic regex backtracking.",Application,High
+"Subnet routing table missing route to peered VPC database network","Instances in application subnet cannot communicate with peered database VPC.",Network,High
+"Multiple failed SSH root login attempts from foreign IP addresses","Security log shows 20,000 dictionary attack SSH login attempts on port 22.",Security,Critical
+"External monitor resolution locked at 640x480 when plugged into HDMI","Windows display settings only offers 640x480 resolution on 4K monitor.",Hardware,Low
+"Git merge conflicts in release branch blocking continuous deployment","Production delivery pipeline blocked because main branch has unresolved conflicts.",Application,Medium
+"ClickHouse analytical database disk usage reached 92% capacity","Columnar database filling up quickly due to uncompressed event log data.",Database,Medium
+"User cannot access Jira project permissions issue after role change","Employee added to new team cannot view or edit backlog items in Jira.",Application,Low
+"Local network switch loop causing broadcast storm and switch crash","Spanning Tree Protocol alert: switch port disabled due to detected network loop.",Network,Critical
+"Expired SAML signing certificate for Azure Active Directory SSO","Azure AD Single Sign-On integration broken because signing certificate expired.",Authentication,Critical
+"USB-C flash drive corrupted and asking to format disk before opening","Flash drive containing presentation gives error Disk is not formatted.",Hardware,Medium
+"Critical remote code execution vulnerability in log4j dependency","Container scan in CI/CD pipeline blocked release due to critical CVE-2021-44228.",Security,Critical
+"Database connection pool leak in Celery background workers","Background workers not closing SQLAlchemy sessions leading to connection exhaustion.",Database,High
+"Unable to establish IPsec VPN tunnel to branch office SonicWall","Phase 1 IKE negotiation failed with remote gateway due to preshared key mismatch.",Network,High
+"IntelliJ IDEA memory heap size exhausted on large monorepo project","Java IDE crashes with OutOfMemoryError when indexing repository.",Software,Low
+"Zero day remote code execution vulnerability in web application framework","Security bulletin published for remote code execution flaw. Urgent patch needed.",Security,Critical
+"Trackpad tap-to-click stopped working on Windows 11 laptop","Touchpad registers cursor movement but physical tap gestures fail to click.",Hardware,Low
+"Postgres transaction ID wraparound shutdown warning in database log","Database within 5 million transactions of emergency shutdown due to TXID wraparound.",Database,Critical
+"Employee unable to decrypt PGP email from external financial auditor","GPG reports secret key not available when trying to decrypt partner file.",Authentication,Medium
+"Mobile app crashing on launch for all users who updated to iOS 18","iOS application crashes instantly on splash screen after latest operating system update.",Application,Critical
+"Network latency between EU and US data centers doubled to 190ms","Transatlantic subsea fiber link damaged causing traffic to reroute via Pacific.",Network,High
+"Laptop camera privacy slider physically jammed shut","Built-in webcam slider is stuck in the closed position and cannot be opened.",Hardware,Low
+"Database backup automated snapshot failed on AWS RDS instance","Nightly snapshot of production PostgreSQL RDS instance failed with storage error.",Database,Critical
+"Brute force attacks on corporate WordPress blog login page","Tens of thousands of automated POST requests targeting wp-login.php from botnet.",Security,High
+"Slack notification bot webhook failing with HTTP 404 Not Found","Alerting script cannot send notifications to Slack because incoming webhook was deleted.",Application,Medium
+"Wi-Fi disconnects whenever microwave oven in breakroom is operating","2.4GHz Wi-Fi in kitchen area drops connection during lunch hour microwave use.",Network,Low
+"Active Directory replication error between domain controllers DC01 and DC02","Domain controllers show tombstone replication error 8606 in Event Log.",Authentication,High
+"Dual boot Ubuntu GRUB bootloader menu missing after Windows update","Computer boots directly into Windows 11 and Linux boot option is absent.",Software,Medium
+"Crypto mining process detected running on EC2 production instance","Cloud security sensor alerted to outbound connection to cryptocurrency mining pool.",Security,Critical
+"Monitor power supply cord missing from new employee equipment kit","Monitor arrived in packaging without the required AC power supply cord.",Hardware,Low
+"Postgres query taking 40 seconds due to missing foreign key index","Join between payments and orders is doing sequential scan. Needs index on order_id.",Database,Medium
+"Employee cannot digitally sign PDF document with corporate certificate","Adobe Acrobat gives error: The credential selected for signing is expired.",Authentication,Low
+"Core API gateway throwing 504 Gateway Timeout during high traffic sale","Incoming customer traffic surge overwhelmed backend service resulting in timeouts.",Application,Critical
+"VLAN tag mismatch on trunk port between distribution switches","Packets between Switch A and Switch B are being dropped due to native VLAN mismatch.",Network,High
+"Trojan horse detected in developer NPM package cache directory","Antivirus quarantined suspicious executable inside node_modules directory.",Security,Critical
+"Laptop internal speakers emit loud high-pitched audio squeal","Built-in audio speakers produce piercing feedback sound during conference calls.",Hardware,Low
+"Need Python 3.12 and PyTorch installed on GPU research workstation","Research engineer requests data science environment configured on workstation.",Software,Low
+"Database server running low on root filesystem disk space (95%)","Root partition on PostgreSQL host filling up with unrotated system logs.",Database,High
+"RADIUS server rejecting 802.1x Wi-Fi authentication for domain laptops","Domain computers fail authentication with Client certificate could not be validated.",Authentication,High
+"Internal documentation portal Confluence returning database error 500","Documentation wiki displays database connection failure when accessing pages.",Application,Medium
+"Firewall policy blocking DNS UDP port 53 to public cloud resolvers","Workstations unable to resolve internet hostnames because UDP 53 is dropped.",Network,High
+"Employee inadvertently uploaded AWS root credentials to public GitHub repo","Developer pushed repo containing root access keys. Needs immediate revocation.",Security,Critical
+"Desktop PC power supply unit makes clicking sound and turns off","Computer shuts down abruptly under heavy load and PSU clicks.",Hardware,High
+"Database query cache hit ratio dropped below 35% on MySQL","Buffer pool size insufficient for current workload causing heavy disk reads.",Database,Medium
+"BitLocker PIN forgotten by executive traveling internationally","Executive traveling abroad forgot BitLocker startup PIN and cannot access files.",Authentication,High
+"Web application memory usage growing without bound causing crashes","NodeJS service memory grows continuously until Kubernetes restarts pod.",Application,High
+"Wi-Fi roaming dropping connection when walking between office wings","Laptops disconnect for 15 seconds when transitioning between access points.",Network,Medium
+"Ransomware canary file modified in corporate file share tripwire","Automated monitoring detected modification of canary file on network share.",Security,Critical
+"External keyboard missing letter E keycap broken off","Keycap snapped off from scissor switch mechanism on wireless keyboard.",Hardware,Low
+"Postgres streaming replication stopped due to WAL archive partition full","WAL archive partition reached 100% capacity and replication standby disconnected.",Database,Critical
+"Multi-factor authentication prompt spamming employee phone (MFA fatigue)","User received 50 consecutive Duo push alerts in 15 minutes from attacker.",Security,Critical
+"Outlook mailbox storage quota full at 50GB hard limit","Employee cannot send or receive emails because Exchange mailbox is full.",Software,Medium
+"Core switch fan tray unit failure alert system temperature rising","Cisco core switch reports FAN-1 failed and temperature is rising.",Hardware,High
+"Kubernetes ingress SSL certificate expired overnight breaking HTTPS","All customer web traffic receiving SSL security warning on corporate domain.",Application,Critical
+"Static IP address assignment request for new network printer","Need static IPv4 address reserved in DHCP server for department printer.",Network,Low
+"Postgres table bloat requiring pg_repack maintenance procedure","Large billing table has 65% dead tuple bloat after heavy updates.",Database,Medium
+"Employee locked out of workstation after returning from parental leave","Account marked inactive and disabled by automated Active Directory cleanup.",Authentication,Medium
+"Suspicious outgoing SSH connections from web container to foreign IP","Container in DMZ is initiating outbound SSH connections to unknown IP address.",Security,Critical
+"Docking station ethernet port not functioning with link light off","Docking station USB works, but RJ45 Ethernet jack has no link light.",Hardware,Low
+"Elasticsearch cluster split-brain condition detected between masters","Two master nodes in Elasticsearch cluster each elected themselves master.",Database,Critical
+"Salesforce integration sync failing with Invalid Session ID error","Nightly sync between billing database and Salesforce CRM fails with OAuth error.",Application,High
+"High packet loss on branch office SD-WAN broadband connection","SD-WAN appliance reports 15% packet loss and high jitter on broadband line.",Network,High
+"Malicious browser extension detected on marketing laptop stealing data","CrowdStrike flagged rogue Chrome extension harvesting input form data.",Security,Critical
+"Laptop touchpad physically clicking on its own without user contact","Trackpad registers ghost clicks and moves cursor erratically across desktop.",Hardware,Low
+"PostgreSQL connection timeout when connecting from AWS Lambda function","Serverless Lambda functions exhausting database connections under burst load.",Database,High
+"VPN access request for third-party contractor conducting audit","Contract developer needs read-only VPN access to staging environment for 1 week.",Authentication,Low
+"PDF export feature in billing dashboard crashing with OutOfMemoryError","Generating large monthly invoice PDF exhausts Java heap memory in reporting.",Application,Medium
+"Default gateway ARP table full on core router dropping new connections","Router dropping new connections with kernel error Neighbor table overflow.",Network,Critical
+"Unauthorized USB storage drive plugged into secure air-gapped PC","DLP agent alerted that an unapproved USB drive was connected to secure computer.",Security,Critical
+"Laptop screen backlight completely dead with image faintly visible","Laptop boots and external display works, but internal display backlight is off.",Hardware,Medium
+"Database collation mismatch error during SQL query execution join","Query joining customer tables fails with Illegal mix of collations error.",Database,Low
+"Single Sign-On SSO redirect URI mismatch error on Google Workspace login","Employees clicking Log in with Google receive Error 400: redirect_uri_mismatch.",Authentication,High
+"Web application CSS layout broken on Safari mobile browser portrait","Flexbox layout on customer portal checkout page collapses on iOS Safari.",Application,Medium
+"DNS cache poisoning attempt detected by network intrusion prevention","Snort IDS flagged spoofed DNS response packets attempting domain redirection.",Security,Critical
+"Computer power supply cable sparking when plugged into wall outlet","Wall plug prong on desktop power cord is blackened and sparked when inserted.",Hardware,High
+"Wi-Fi network SSID not broadcasting in floor 3 west wing","The corporate Wi-Fi SSID disappeared from list of available networks for users.",Network,Medium
+"Postgres slow query log consuming 40GB of disk space on root volume","Database server partition filled up because postgresql.log had debug query logging.",Database,Medium
+"User forgot MFA secret seed and cannot register newly purchased phone","Employee got a new phone and cannot transfer Microsoft Authenticator without reset.",Authentication,Medium
+"Production worker queue clogged with 150,000 unread messages in RabbitMQ","Message queue for processing image uploads is growing rapidly and workers stalled.",Application,Critical
+"Corporate laptop recovered from malware infection requires clean wipe","Machine was infected with rootkit and requires complete DoD wipe and reinstall.",Security,Medium
+"External USB hard drive not spinning up and making faint beeping sound","External 4TB backup hard drive does not spin up and makes beeping noise.",Hardware,Low
+"Router firmware vulnerability CVE announced requiring urgent patch","Cisco published critical advisory for remote code execution in IOS-XE web UI.",Network,Critical
+"PostgreSQL sequence reached maximum value int4 integer overflow","Table ID column was defined as INTEGER and next INSERT failed with out of range.",Database,Critical
+"Employee Active Directory account password reset request after lockout","User locked out after typing wrong password 3 times on Monday morning.",Authentication,Low
+"Production website returning blank white screen due to missing chunk","Webpack bundle failed to load due to missing vendor chunk on static CDN.",Application,High
+"Ethernet wall port 304 in engineering lab has broken retention clip","Plastic RJ45 retention clip inside wall plate is broken and cable falls out.",Hardware,Low
+"Firewall dropping all UDP traffic on corporate voice VLAN","VoIP desk phones cannot place external calls because firewall drops SIP packets.",Network,High
+"Suspected credential stuffing attack targeting customer login page","Tens of thousands of failed login attempts from botnet rotating residential proxies.",Security,Critical
+"Database index fragmentation exceeding 80% on primary orders table","SQL Server index fragmentation is causing slow range scans during nightly reports.",Database,Medium
+"VPN client gives Error 412: The remote peer is no longer responding","Connecting to corporate VPN connects for 5 seconds then drops with Error 412.",Network,Medium
+"User cannot access shared network drive with Access is Denied error","Employee moved to new department and lost NTFS permissions to shared marketing folder.",Authentication,Low
+"Application memory leak causing out of memory OOM killer activation","Linux kernel killed main web service process after resident memory reached limit.",Application,Critical
+"Laptop display screen flickering rapidly at 60Hz rate","Screen on Lenovo laptop flickers violently with horizontal lines unless external display used.",Hardware,Medium
+"Unauthorized AWS IAM user created with AdministratorAccess policy","Security audit found an unauthorized IAM user created without MFA.",Security,Critical
+"Postgres deadlocks occurring during concurrent order updates in batch job","Two background jobs updating invoice status in different order trigger deadlocks.",Database,High
+"VoIP phone displays No Service and fails to acquire DHCP address","Desk phone in conference room cannot obtain IP address from voice VLAN DHCP pool.",Network,Medium
+"Self-service password reset portal returning HTTP 500 error","Employees cannot reset forgotten passwords because identity management service is down.",Authentication,High
+"Docker container cannot resolve external domain names from host","Containers running on production host cannot resolve external APIs due to resolv.conf.",Application,Medium
+"Hard drive clicking noise and Windows freezing on file access operations","Mechanical hard drive in CAD workstation makes repetitive clicking sound.",Hardware,High
+"Phishing landing page targeting employee Microsoft 365 credentials","Threat actors cloned corporate login page on deceptive domain and sent mass emails.",Security,Critical
+"Postgres wal_keep_size setting causing disk exhaustion on primary","Database primary server ran out of disk space because old WAL files were preserved.",Database,High
+"Wi-Fi authentication rejected due to expired NPS radius certificate","Windows Network Policy Server failed to authenticate laptops due to expired cert.",Network,Critical
+"Okta session expired prompt repeating every 10 seconds in loop","Employees logged into Okta dashboard are stuck in infinite refresh loop.",Authentication,High
+"Critical database table accidentally dropped without recent backup","Junior developer ran DROP TABLE customers on staging database linked to production.",Database,Critical
+"High latency on storage area network SAN fiber channel switch port","SAN switch reports CRC errors on port 12 connected to primary storage array.",Hardware,High
+"DDoS attack targeting DNS authoritative name servers with UDP flood","External DNS name servers for company domain flooded with UDP query amplification.",Security,Critical
+"Application background worker threads permanently hung on external HTTP call","Python requests call without timeout parameter caused all worker threads to hang.",Application,Critical
+"VLAN 10 traffic leaking into VLAN 20 due to switch port misconfiguration","Security audit discovered trunk port configured as access port with wrong PVID.",Network,High
+"User cannot open encrypted BitLocker external drive on home PC","BitLocker drive created on enterprise PC cannot be opened on personal computer.",Authentication,Low
+"Laptop battery charging port loose and wiggles during connection","USB-C power delivery charging port on Dell Latitude has loose internal solder connection.",Hardware,Medium
+"Database vacuum fails with error: out of shared memory on partitioned table","Vacuuming 50 million row partitioned table fails due to max_locks_per_transaction limit.",Database,Medium
+"Rogue DHCP server detected on office LAN handing out wrong IP addresses","Employee plugged personal home Wi-Fi router into wall jack causing IP conflicts.",Network,Critical
+"Stolen API secret keys used to launch unauthorized GPU instances in AWS","Compromised AWS secret key used to spawn 50 p3.16xlarge GPU instances for crypto mining.",Security,Critical
+"Windows 11 update failed with error code 0x80070002 on reboot","Monthly cumulative security update fails to install and rolls back on reboot.",Software,Low
+"Dual monitors arranged in wrong order in display settings arrangement","Mouse cannot move naturally between left and right screens because desktop inverted.",Hardware,Low
+"Redis cluster failing to elect new master node after primary crash","Redis Sentinel quorum threshold not met because only 1 sentinel node out of 3 running.",Database,High
+"Employee Active Directory account locked due to phone sync attempts","User changed Windows password but tablet was trying old password in background.",Authentication,Medium
+"Website shopping cart checkout button non-responsive on mobile devices","JavaScript syntax error in bundle prevented checkout button event listener from firing.",Application,High
+"Core router CPU at 99% due to high interrupt processing on packets","Router software forwarding packets due to disabled hardware CEF forwarding.",Network,Critical
+"Malware trojan injected into developer bash profile file","Security tool detected curl piping unknown shell script into bash in developer .bashrc.",Security,Critical
+"Printer error: drum unit life exceeded replace drum unit","Department office printer halts all print jobs with message: Drum Unit Expired.",Hardware,Low
+"Postgres database connection refused on port 5432 after disk full","Postgres service stopped automatically after server ran out of disk space.",Database,Critical
+"SSO SAML signature algorithm deprecation warning SHA-1 to SHA-256","Identity provider will reject SAML assertions signed with SHA-1 starting next month.",Authentication,Medium
+"NodeJS API gateway throwing unhandled promise rejection crash on bad JSON","Uncaught exception in error handler crashes Node process under malformed payload.",Application,High
+"Direct Connect dedicated cloud fiber circuit down between Equinix and AWS","Physical fiber link to cloud provider down. BGP failed over to backup IPsec VPN.",Network,High
+"Unapproved remote desktop software TeamViewer detected on workstation","Endpoint agent alerted that TeamViewer was installed without IT approval.",Security,High
+"Mechanical keyboard keys chattering and typing double letters repeatedly","Mechanical switches on keyboard intermittently send two keystrokes on single press.",Hardware,Low
+"Database query execution plan regression after PostgreSQL major upgrade","Query that took 100ms in PostgreSQL 14 now takes 18 seconds in PostgreSQL 16.",Database,Medium
+"Employee cannot login to VPN with error: Certificate Revoked","VPN gateway reports that user client certificate has been placed on CRL revocation list.",Authentication,Medium
+"Frontend web app memory leak causing Chrome tab crash with Out of Memory","Single Page Application DOM nodes not being garbage collected after navigating.",Application,High
+"Fiber optic transceiver SFP module failure on core switch interface","Switch interface TenGigabitEthernet 1/1/1 link down due to failed optical module.",Hardware,High
+"Corporate DNS amplification attack reported by upstream internet provider","Company authoritative DNS server being used as open reflector for DDoS attack.",Security,Critical
+"Wi-Fi connection drops in executive boardroom whenever door closes","Boardroom has sound-insulating metallic foil in walls attenuating Wi-Fi signal.",Network,Low
+"Postgres streaming replication slot consuming 80GB disk space on volume","Inactive replication slot is retaining WAL segments preventing automatic cleanup.",Database,High
+"Need Visual Studio Community installed on intern workstation computer","New intern joining frontend team needs IDE and git configured on loaner laptop.",Software,Low
+"Two-Factor Authentication 2FA secret reset request after factory reset","User wiped phone and needs QR code re-generated for internal Authenticator app.",Authentication,Medium
+"Web application payment form submitting duplicate orders under slow connection","Users clicking Submit button multiple times because button is not disabled during fetch.",Application,High
+"Port security violation shutting down switch interface on floor 2","Switch port automatically disabled itself after unauthorized laptop plugged in.",Network,Medium
+"Phishing email with malicious macro attachment caught by spam filter","Employee reporting email with invoice.xlsm attachment asking if it is legitimate.",Security,Medium
+"Trackpad on loaner laptop completely unresponsive to touch gestures","Cursor does not move at all when touching trackpad. External USB mouse works.",Hardware,Low
+"Database connection pool exhausted during database migration lock","Running Alembic migration locked tables and queued 300 backend database connections.",Database,High
+"Employee name change update in Active Directory and email alias","User got married and requested corporate email alias update and display name change.",Authentication,Low
+"Web application CSS z-index bug obscuring navigation dropdown menu","Modal overlay has z-index 1000 while navigation dropdown has z-index 999.",Application,Low
+"Network latency spike on transatlantic fiber circuit due to subsea cut","Undersea cable cut in Atlantic ocean causing traffic rerouting with additional latency.",Network,High
+"Keylogger malware detected on executive assistant computer by EDR","CrowdStrike identified and terminated keyboard hook injecting malicious DLL.",Security,Critical
+"Monitor power button stuck in pressed down position on display","Physical power toggle on Acer monitor is jammed and screen turns on and off.",Hardware,Low
+"PostgreSQL database query deadlock in automated billing worker job","Two concurrent billing worker threads locked accounts table in reverse sequence.",Database,High
+"Active Directory replication failing with DNS lookup error on DC02","Secondary domain controller cannot resolve GUID DNS record of primary controller.",Authentication,High
+"Production API returning 401 Unauthorized for all customer requests","JWT token signing secret was rotated in backend without updating auth service key.",Application,Critical
+"Ethernet cable clip broken causing cable to easily unplug from wall jack","Cat6 network patch cable in conference room slips out of wall jack when moved.",Hardware,Low
+"Corporate website DNS hijacked and pointing to malicious foreign IP","Domain registrar account compromised and NS records modified to malicious servers.",Security,Critical
+"BGP route flap causing intermittent packet loss for Australian customers","Upstream transit provider in Sydney experiencing BGP flapping with edge routers.",Network,High
+"MySQL query cache fragmentation causing memory allocation errors","Legacy database server failing to allocate query cache blocks due to fragmentation.",Database,Low
+"Employee password expired while traveling without VPN connection access","User cannot log into local Windows profile because domain password change needed.",Authentication,Medium
+"Web application dropdown menu overflowing offscreen on tablet devices","Mobile responsive CSS media query missing for 768px tablet portrait resolution.",Application,Low
+"Unpatched Apache Struts vulnerability detected on legacy payroll server","Internal vulnerability assessment flagged critical remote code execution flaw.",Security,Critical
+"Laptop cooling fan running at maximum RPM continuously even at idle","CPU temperature sensor reporting inaccurate 99C value causing fan to scream.",Hardware,Low
+"Postgres table index missing on high frequency audit query filter","Query scanning 25 million records takes 14 seconds without index on created_at.",Database,Medium
+"Employee cannot connect to enterprise Wi-Fi after Windows 11 update","WPA3 enterprise 802.1x handshake fails after major Windows operating system upgrade.",Network,Medium
+"Two-Factor Authenticator app generating wrong codes due to clock drift","Mobile device clock drifted by 90 seconds causing all TOTP codes to be rejected.",Authentication,Medium
+"Production Kubernetes node disk pressure evicting pods rapidly","Container runtime storage filled with unpruned dangling container images on node.",Application,High
+"Malicious USB drop attack: unbranded USB drive found in parking lot","Employee turned in unlabeled flash drive found outside office entrance for analysis.",Security,High
+"External mechanical keyboard spacebar stabilizer popped out of socket","Wire stabilizer bar on mechanical keyboard popped out causing spacebar to stick.",Hardware,Low
+"PostgreSQL transaction log archive disk usage at 98% on primary","Archiver process falling behind in moving WAL files to Amazon S3 bucket.",Database,High
+"Need Zoom Rooms software updated on conference room tablet controller","Conference room iPad displays message: Please update Zoom Rooms app to join.",Software,Low
+"Core router VRRP virtual IP flapping between master and backup nodes","Keepalive heartbeat packets between redundant core routers delayed by high CPU.",Network,Critical
+"Active Directory Kerberos pre-authentication failure audit alert spike","Over 500 Kerberos pre-auth failures logged in 5 minutes against service account.",Authentication,High
+"Memory leak in Python data pipeline workers consuming 64GB RAM memory","Pandas DataFrame concat in loop retains memory without garbage collection running.",Application,High
+"Ransomware attempt detected: rapid file renaming detected on NAS share","EDR sensor halted network access for workstation that renamed 500 files.",Security,Critical
+"Desktop computer will not power on with no lights or fan spin","Pressing power button on HP desktop workstation produces no response. Cable verified.",Hardware,High
+"PostgreSQL database vacuum blocked by prepared transaction locks","Forgotten two-phase commit prepared transaction preventing vacuum from cleaning tuples.",Database,High
+"User unable to access intranet portal after department transfer in HR","Active Directory group membership was not updated during HR transfer to finance.",Authentication,Low
+"API gateway returning 503 Service Unavailable under traffic peak spike","Kubernetes horizontal pod autoscaler HPA scaling too slowly to absorb traffic.",Application,Critical
+"Wi-Fi signal completely dead on 2nd floor west quadrant offices","PoE switch port supplying power to access point AP-2W tripped on overcurrent.",Network,High
+"Suspected insider threat: unauthorized bulk download of customer database","Employee who submitted two weeks notice downloaded 50,000 customer records.",Security,Critical
+"Laptop webcam produces flickering green lines during Microsoft Teams call","Built-in webcam sensor or ribbon cable is faulty causing distorted video.",Hardware,Low
+"Database index rebuild required on SQL Server customer table fragmentation","Fragmented index causing queries that should take 5ms to take 600ms on production.",Database,Medium
+"SAML authentication assertion consumer service URL expired on portal","SAML metadata certificate expired causing SSO logins to fail across all cloud apps.",Authentication,Critical
+"Application Docker container crashing with code 137 OOMKilled by kernel","NodeJS backend process exceeded 2GB container memory limit and was killed.",Application,High
+"Fiber optic cable crushed by maintenance ladder in riser room by contractor","Facilities contractor pinched main fiber backbone cable connecting floor switches.",Network,Critical
+"Cryptocurrency mining malware quarantined on graphics design workstation","GPU miner installed via cracked Photoshop plugin detected and quarantined.",Security,Critical
+"Laptop power supply brick gets burning hot to touch during charging","AC adapter casing reaches over 70C during charging. Requesting replacement.",Hardware,Medium
+"Postgres query taking 30 seconds due to stale table statistics estimates","Postgres planner estimated 1 row instead of 500,000 rows. Running ANALYZE needed.",Database,Medium
+"Employee cannot login after password reset: Account is Disabled in AD","Active Directory account was accidentally disabled by helpdesk during reset.",Authentication,Medium
+"Frontend application assets taking 12 seconds to load over CDN edge","Static assets cache control headers set to max-age=0 causing cache misses.",Application,Medium
+"Default gateway router ping drops 40% of packets due to duplex mismatch","ICMP packet loss between floor switch and default gateway router.",Network,High
+"Phishing email impersonating IT helpdesk asking users to verify passwords","Mass email sent to all staff claiming email will be shut down unless link clicked.",Security,Critical
+"Computer monitor screen has permanent burned-in image retention display","IPS monitor displays ghostly outlines of previous windows even when turned off.",Hardware,Low
+"Postgres replication connection closed by remote peer timeout","Primary database terminated replication connection because standby took too long.",Database,High
+"Employee Active Directory account locked out by Mac OS keychain cache","Mac Keychain has old saved password and repeatedly attempts authentication.",Authentication,Medium
+"Production checkout service returning 500 error on credit card processing","Stripe webhook endpoint threw unhandled exception when processing payment.",Application,Critical
+"Ethernet link speed negotiating at 100Mbps instead of Gigabit 1000Mbps","Damaged pair in Cat5e wall cable prevents link from negotiating at Gigabit speed.",Network,Low
+"Unauthorized SSH key added to root authorized_keys file on server","File integrity monitoring detected addition of unknown RSA public key in root directory.",Security,Critical
+"Laptop keyboard key T popped off and scissor mechanism broken inside","Physical keycap for letter T broke off and internal silicone cup is torn.",Hardware,Low
+"PostgreSQL transaction ID wraparound emergency vacuum in progress shutdown","Database entered emergency single-user mode to prevent TXID wraparound.",Database,Critical
+"User unable to access VPN: certificate validation failed due to clock","Client machine system clock was set to year 2020 causing TLS certificate to fail.",Authentication,Medium
+"Single Page Application routing broken on page refresh with 404 error","Nginx server configuration missing try_files directive for React router.",Application,Medium
+"Switch interface flapping continuously due to faulty patch cord wire","Interface GigabitEthernet 0/12 transitions between UP and DOWN every 5 seconds.",Network,Medium
+"Trojan dropper detected in email attachment quarantined by Microsoft Defender","Attachment named remittance_advice.exe was blocked and deleted by email gateway.",Security,Critical
+"External USB hub causing computer to reboot on plug-in short circuit","Plugging USB-C hub into laptop causes immediate power short and motherboard reboot.",Hardware,High
+"Database buffer pool dirty pages exceeding 70% threshold stalls","MySQL InnoDB engine unable to flush dirty pages to disk quickly enough.",Database,Medium
+"Active Directory password complexity requirements not displayed on reset","Password reset page gives generic error without stating 12 character rules.",Authentication,Low
+"Customer data export taking 3 hours and locking tables in database","Export query runs SELECT * without pagination holding shared locks.",Application,High
+"Network core router BGP route table memory full crashing process","Edge router BGP process ran out of RAM after receiving full internet routing table.",Network,Critical
+"Unauthorized network port scan detected originating from workstation 44","Internal network IDS alerted that workstation 44 is scanning subnet for open SMB.",Security,Critical
+"Wireless mouse cursor jumping erratically across screen display","Optical sensor lens on wireless mouse has dust or hair obstructing laser tracking.",Hardware,Low
+"PostgreSQL database query planner cost estimation inaccurate plan","Planner chose nested loop join over hash join resulting in 200x slower query.",Database,Medium
+"Employee multi-factor authentication SMS verification code not arriving","Cellular carrier filtering automated shortcode SMS messages as spam.",Authentication,Medium
+"Web application search endpoint returning SQL syntax error exception","Improperly sanitized search parameter causes syntax error in SQL query string.",Application,High
+"Fiber optic link attenuation high due to dirty LC connector port","Optical power meter reads -28dBm on 10G link. Connector requires alcohol cleaning.",Network,Medium
+"Zero-day remote code execution vulnerability in enterprise VPN client","Vendor issued emergency patch for buffer overflow in VPN client software.",Security,Critical
+"Laptop touchpad physically unresponsive to clicks on bottom edge","Trackpad touch tracking works, but physical click mechanism is jammed with debris.",Hardware,Low
+"Database checkpoint duration exceeding 15 minutes saturating IOPS","PostgreSQL checkpoint taking too long and saturating disk IOPS during peak hours.",Database,Medium
+"User account disabled due to 90-day inactivity policy in Active Directory","Contractor returning to work finds Active Directory account disabled by script.",Authentication,Low
+"API response time degraded from 120ms to 4500ms under load spike","Thread pool exhaustion in Java Spring backend causing HTTP requests to queue up.",Application,High
+"Spanning tree topology change storm causing campus-wide network drops","Old unmanaged Netgear switch plugged into network port causing constant STP loops.",Network,Critical
+"Ransomware encryption detected on file server partition with .crypt","File server alert: 1,000 files modified with .crypt extension within 60 seconds.",Security,Critical
+"Desktop computer chassis power button stuck inside front panel plastic","Plastic spring behind power button broke and button remains pushed in.",Hardware,Low
+"Postgres table autovacuum not running on heavily updated table flag","Table autovacuum_enabled was accidentally set to false during batch load.",Database,Medium
+"Employee cannot authenticate with Smart Card PKI certificate reader","Smart card reader driver missing in Windows 11 after clean operating system install.",Authentication,Medium
+"Web server returning 413 Payload Too Large on document upload limit","Nginx client_max_body_size set to 1M preventing employees from uploading 5MB PDF.",Application,Low
+"Intermittent packet drops on voice VLAN causing robotic audio calls","Switch QoS priority queuing misconfigured: voice packets placed in best-effort queue.",Network,High
+"Privilege escalation exploit detected on production web server kernel","Linux kernel vulnerability Dirty COW exploit attempt logged and blocked by agent.",Security,Critical
+"Laptop screen hinge cracked and making cracking sound when opened","Display hinge stiffened and is bending the aluminum chassis whenever opened.",Hardware,Low
+"Database sequence out of sync with actual maximum table ID column","Manual insert with explicit ID caused nextval() to produce duplicate key error.",Database,High
+"Single Sign-On login looping back to login screen on Google Chrome","Chrome third-party cookie blocking policy preventing SSO session cookie from storing.",Authentication,Medium
+"Microservice communication failing with Connection Refused on internal port","Backend worker cannot connect to inventory service because pod in CrashLoopBackOff.",Application,High
+"Core network firewall running at 98% memory usage session table","Firewall session state table filled with 2 million abandoned TCP connections.",Network,Critical
+"Unauthorized credential dump using Mimikatz detected on domain controller","Endpoint protection blocked and quarantined mimikatz.exe attempting LSASS dump.",Security,Critical
+"USB keyboard drops random keystrokes when typing quickly on desktop","Keyboard USB polling rate or faulty controller skipping characters during typing.",Hardware,Low
+"PostgreSQL database transaction log disk full shutting down server","Database entered emergency read-only mode because disk partition for pg_wal reached 100%.",Database,Critical
+"Employee locked out of all corporate accounts after SIM swap attack","Attacker hijacked employee phone number and initiated password resets across accounts.",Authentication,Critical
+"Customer checkout failing due to unhandled currency conversion error","API threw ValueError when converting EUR price to USD without exchange rate loaded.",Application,High
+"Network cable disconnected alert on core switch port 24 to array","Port 24 connecting backup storage array transitioned to DOWN state unexpectedly.",Network,Medium
+"Malicious PowerShell script downloaded via Excel macro attachment","Defender for Endpoint terminated Word process that spawned PowerShell with encoded cradle.",Security,Critical
+"Laptop screen flickering when brightness is set below 50% PWM","LED backlight pulse-width modulation circuit failing causing screen to strobe.",Hardware,Low
+"Database connection pool starvation in FastAPI backend workers","Async database connections not being released back to pool inside exception handler.",Database,High
+"User Active Directory password expired during international flight remote","Employee landed at client site and cannot log into Windows profile without network.",Authentication,Medium
+"Frontend application build failing with Webpack out of memory error","Node process compiling production React bundle ran out of heap memory in Docker build.",Application,Medium
+"DNS server recursive resolver cache poisoned with fake records","Internal DNS server answering false IP addresses for external cloud services.",Network,Critical
+"Vulnerability in sudo package allowing root privilege escalation (Baron Samedit)","Security scan identified Baron Samedit vulnerability on unpatched Linux servers.",Security,Critical
+"Dual monitor display turns off whenever phone is placed near dock","Electromagnetic interference from cell phone radio causes USB-C video signal to drop.",Hardware,Low
+"Postgres query taking 12 seconds due to missing composite index on tenant","Query filtering on both tenant_id and status performs sequential scan on 10M rows.",Database,Medium
+"Employee cannot receive Duo MFA push notification while roaming abroad","International roaming data disabled on company phone preventing push alerts.",Authentication,Medium
+"Production database replica disconnected and falling behind primary","Replication lag on analytics replica exceeded 12 hours due to bandwidth saturation.",Database,High
+"Core switch redundancy VRRP master router failed to transition backup","Backup router did not take over active routing after primary switch suffered power loss.",Network,Critical
+"Malware trojan horse detected inside zip archive in email attachment","Email security gateway quarantined password-protected zip file containing executable.",Security,High
+"Laptop battery health degraded to 32% of original capacity draining fast","Battery drains from 100% to 0% in under 25 minutes of normal office use.",Hardware,Medium
+"Web application returning 500 error due to missing environment variable S3","Production release deployed without required AWS_S3_BUCKET_NAME configuration set.",Application,High
+"Access Point radio power set too low causing dead zones in building","Enterprise Wi-Fi controller misconfigured transmit power resulting in weak coverage.",Network,Low
+"Employee Active Directory credentials compromised in credential dump online","User password appeared in public breach dump from third-party website.",Security,Critical
+"Database connection timeout when executing complex financial report query","Reporting query runs for over 300 seconds and is terminated by statement_timeout.",Database,Medium
+"Two-Factor Authenticator backup codes exhausted by user locked out","Employee used all 10 one-time emergency backup codes and has no active phone registered.",Authentication,Medium
+"Web application shopping cart items disappearing on page navigation session","Session cookies configured without SameSite attribute causing session loss in cross-site requests.",Application,Medium
+"Switch interface error counters incrementing rapidly with FCS errors","Damaged copper Ethernet patch cable causing high frame check sequence FCS error count.",Network,Medium
+"Suspected cryptomining script embedded in marketing blog post injected","WordPress site hacked and injected with Coinhive JavaScript miner running in visitor browsers.",Security,Critical
+"Desktop computer monitor stand tilt mechanism loose and drooping down","Monitor continuously tilts downward to desk because hinge tension screw is stripped.",Hardware,Low
+"PostgreSQL database query buffer cache hit ratio at 55% with slow reads","Database server needs additional RAM allocated to shared_buffers to prevent slow disk reads.",Database,Medium
+"Employee unable to decrypt corporate email on Outlook mobile iOS","Exchange ActiveSync certificate profile missing from employee iPhone.",Authentication,Low
+"Production service memory leak in Go microservice goroutines climbing","Goroutine count steadily climbs from 50 to 50,000 causing process to crash with OOM.",Application,Critical
+"Wi-Fi network authentication failing due to expired intermediate CA cert","Intermediate Certificate Authority on RADIUS server expired causing 802.1x handshake failure.",Network,Critical
+"Data exfiltration alert: 10GB uploaded to unauthorized cloud storage Mega","Employee uploaded massive archive of company engineering files to personal Mega.nz account.",Security,Critical
+"Laptop headphone jack physically broken with tip lodged inside port","3.5mm audio jack snapped off inside laptop headphone port blocking audio output.",Hardware,Low
+"PostgreSQL table vacuum fails with out of disk space error partition","Vacuum full requires free disk space equal to table size which is unavailable on partition.",Database,High
+"SAML authentication fails with error: Response has expired clock drift","SAML response issue instant was 5 minutes in the past due to server clock drift.",Authentication,Medium
+"Customer facing mobile app crashing on startup after release deploy","Mobile app update missing backward compatible database migration crashing on launch.",Application,Critical
+"Enterprise core router experiencing packet loss during peak business hours","Router interface buffer overflow dropping packets during daily 10:00 AM traffic surge.",Network,High
+"Unauthorized admin user created in PostgreSQL database by attacker","Audit log detected CREATE USER superadmin WITH SUPERUSER executed from unapproved host.",Security,Critical
+"Computer keyboard spacebar produces double spaces when pressed once switch","Mechanical switch key chatter causing spacebar to register duplicate keystrokes.",Hardware,Low
+"PostgreSQL database slow query log filled with sequential scans on foreign keys","Queries lacking indexes on foreign key columns are degrading overall database throughput.",Database,Medium
+"User forgot password and account locked out after failed attempts Monday","Employee returning from vacation forgot password and needs reset by IT support.",Authentication,Low
+"Web application returning 502 Bad Gateway due to upstream crash Gunicorn","Gunicorn Python worker processes died from uncaught exception under high load.",Application,Critical
+"Wi-Fi connection drops whenever walking near microwave in breakroom 2.4GHz","2.4GHz Wi-Fi spectrum heavily interfered with by 1000W microwave radiation.",Network,Low
+"Malicious macro in Word document attempted to execute PowerShell script","Attack payload blocked by Microsoft Defender Attack Surface Reduction ASR rule.",Security,Critical
+"Laptop power cord insulation stripped near adapter plug sparking","Exposed copper wires visible on power brick cable presenting electrical safety hazard.",Hardware,High
+"Database read replica lagging by 4 hours behind primary node stream","Network saturation between AWS US-East and US-West slowing down WAL replication stream.",Database,High
+"Employee Active Directory account locked out due to phone caching old password","User changed domain password but forgotten tablet kept attempting logins with old credentials.",Authentication,Medium
+"Production backend API throwing 500 error on user profile update validation","Database column constraint violation caused by unvalidated null value in phone number field.",Application,High
+"Direct Connect dedicated fiber link down between corporate office and AWS","Physical fiber link to cloud provider down. BGP failed over to backup IPsec VPN tunnel.",Network,High
+"Ransomware note displayed on fileshare server desktop with .locked","All files on shared drive encrypted with extension .locked. Incident response initiated immediately.",Security,Critical
+"Laptop internal cooling fan making loud rattling noise and overheating","Cooling fan bearing has failed inside laptop chassis and CPU temperature is spiking.",Hardware,Medium
+"Postgres autovacuum worker saturating disk IOPS during business hours limit","Autovacuum cost limit setting too aggressive causing heavy disk read and write operations.",Database,Medium
+"SAML Single Sign-On certificate expired across all SaaS applications IdP","Identity Provider IdP certificate expired at midnight locking all employees out of cloud apps.",Authentication,Critical
+"Web application customer search returning 504 Gateway Timeout unindexed","Unindexed LIKE %query% search against 5 million customer records timing out upstream proxy.",Application,High
+"Network switch port error disabled due to BPDU guard violation loop","Someone connected an unauthorized switch into wall port causing BPDU guard to shut down port.",Network,Medium
+"Suspicious brute force attack on corporate SSH bastion host dictionary","Over 50,000 failed SSH login attempts from distributed botnet targeting root and ubuntu users.",Security,Critical
+"External monitor black screen when connected to docking station Thunderbolt","Thunderbolt dock firmware needs update to support dual 4K monitors on Windows 11.",Hardware,Low
+"PostgreSQL database primary server crash due to kernel panic parity","Hardware memory parity error triggered Linux kernel panic on primary database host.",Database,Critical
+"Employee lost corporate smartphone configured with Duo MFA remote wipe","Lost device reported by sales executive. Needs device remote wipe and MFA token deregistration.",Authentication,High
+"Production order checkout failing due to third party API downtime Stripe","Payment processor API is completely down and application lacks fallback queue mechanism.",Application,Critical
+"Wi-Fi network SSID disappeared from floor 2 after power surge PoE","Access point power over ethernet PoE injector died after building electrical power surge.",Network,High
+"Trojan horse executable detected in temporary folder by EDR agent quarantined","Endpoint security agent quarantined suspicious binary dropped in AppData/Local/Temp.",Security,Critical
+"Laptop screen hinge cracked and plastic casing separating bezel","Mechanical hinge on Dell laptop is broken and lifting screen separates the bezel.",Hardware,Low
+"Postgres transaction ID wraparound emergency vacuum in progress shutdown alert","Database operating in emergency vacuum mode and rejecting new write transactions.",Database,Critical
+"Single Sign-On login failing with error invalid audience in SAML response IdP","SAML configuration entity ID mismatch between corporate IdP and cloud service provider.",Authentication,Medium
+"Web application memory usage climbs continuously until container killed leak","NodeJS application leaking event listeners on every incoming WebSocket connection.",Application,High
+"Core network firewall dropping valid traffic due to out of state sessions ACK","Asymmetric routing causing firewall to drop TCP ACK packets with Invalid State error.",Network,High
+"Critical zero day remote code execution vulnerability in OpenSSH regreSSHion","OpenSSH vulnerability CVE-2024-6387 regreSSHion announced. Urgent patching required across fleet.",Security,Critical
+"Desktop PC refuses to power on: power supply fan does not spin dead","Workstation completely dead after thunderstorm. Power supply unit suspected blown.",Hardware,High
+"PostgreSQL connection pool exhausted by idle in transaction queries unclosed","Application sessions opening transactions without committing or rolling back.",Database,Critical
+"Employee Active Directory account disabled by automated security script inactive","Account disabled because user did not log in for 60 consecutive days.",Authentication,Low
+"Production web application serving outdated cached assets CDN Cloudflare","Cloudflare CDN edge cache not purging after deployment due to expired API token.",Application,Medium
+"Subnet routing table missing default route to internet gateway 0.0.0.0/0","Instances launched in new subnet cannot access external internet or download packages.",Network,High
+"DDoS attack targeting corporate customer portal login page HTTP flood","Volumetric HTTP flood with 200,000 requests per second overwhelming Nginx edge reverse proxy.",Security,Critical
+"Mechanical keyboard keys typing multiple characters on single tap chatter","Key switch chatter causing keyboard to type letters repeatedly (e.g. 'eerror').",Hardware,Low
+"Postgres database slow query execution due to missing foreign key indexes cascade","Foreign key columns without indexes causing table lock waits during cascades.",Database,Medium
+"User cannot log into workstation: The trust relationship between this workstation and domain","Machine account password out of sync with Active Directory domain controller.",Authentication,High
+"Production API endpoint returning 500 error due to database schema mismatch column","Code deployed before database migration ran causing missing column exceptions.",Application,Critical
+"Wi-Fi network latency high and constant packet drops during all-hands meeting AP","Too many devices connected to single access point in auditorium exceeding capacity.",Network,Medium
+"Phishing email targeting finance team with fake vendor invoice wire","Fraudulent email requesting payment destination bank account change detected and reported.",Security,Critical
+"Laptop battery swelling and lifting keyboard top case aluminum","Swollen lithium battery is warping the aluminum top case of employee MacBook.",Hardware,Critical
+"PostgreSQL write-ahead log disk usage exceeded 90% threshold archive","Archive command failing causing WAL files to accumulate on primary database storage.",Database,High
+"Employee Active Directory password expired while working remotely without VPN connection","User cannot change password because machine cannot reach corporate domain controller.",Authentication,Medium
+"Mobile app crashes instantly when customer opens push notification null","Push notification payload contains unexpected null field crashing mobile JSON parser.",Application,High
+"Network cable between distribution switch and core switch damaged duplex","Physical Cat6 cable link negotiating at 10Mbps half duplex with high collision rate.",Network,High
+"Ransomware canary file modified in corporate network share tripwire alarm","Tripwire monitoring detected immediate file encryption attempt on shared file server.",Security,Critical
+"Laptop screen displays horizontal flickering pink lines across display GPU","Faulty display cable or damaged GPU causing video artifacting on internal screen.",Hardware,Medium
+"Database query execution time regressed from 50ms to 9000ms after data growth scan","Query missing index on created_at date column now scanning 15 million rows.",Database,High
+"Two-Factor Authenticator push notification timeout on corporate mobile device Duo","Duo push notifications fail to arrive due to battery saver background data restriction.",Authentication,Medium
+"Production backend throwing 500 error on payment processing checkout webhook","Stripe webhook endpoint failed with unhandled exception when processing payment intent.",Application,Critical
+"BGP peering session flap causing packet loss to Europe data center transit","Intermittent fiber cut in Atlantic transit route causing BGP route oscillations.",Network,High
+"Security agent alerted to unauthorized privilege escalation attempt on Linux server root","User attempted to run local root exploit against unpatched Linux kernel vulnerability.",Security,Critical

@@ -42,14 +42,32 @@ def calculate_due_date(priority: TicketPriority, start_time: datetime) -> dateti
 def create_ticket(db: Session, ticket_in: TicketCreate, user: User) -> Ticket:
     now = datetime.now(timezone.utc)
     ticket_num = generate_ticket_number(db)
-    due_date = calculate_due_date(ticket_in.priority, now)
+
+    category = ticket_in.category
+    priority = ticket_in.priority
+
+    # Automatic Machine Learning Classification if category is default 'Other'
+    if category == TicketCategory.OTHER:
+        try:
+            from app.ml.predict import get_model_manager
+            manager = get_model_manager()
+            pred = manager.predict_category(f"{ticket_in.title} {ticket_in.description}")
+            predicted_cat = pred.get("predicted_category")
+            for cat_enum in TicketCategory:
+                if cat_enum.value.lower() == str(predicted_cat).lower():
+                    category = cat_enum
+                    break
+        except Exception:
+            pass
+
+    due_date = calculate_due_date(priority, now)
 
     ticket = Ticket(
         ticket_number=ticket_num,
         title=ticket_in.title,
         description=ticket_in.description,
-        category=ticket_in.category,
-        priority=ticket_in.priority,
+        category=category,
+        priority=priority,
         status=TicketStatus.OPEN,
         created_by_id=user.id,
         due_date=due_date,

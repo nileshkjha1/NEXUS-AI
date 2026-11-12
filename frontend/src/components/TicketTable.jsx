@@ -120,3 +120,4 @@ export const TicketTable = ({ tickets, onSelectTicket }) => {
     </div>
   );
 };
+

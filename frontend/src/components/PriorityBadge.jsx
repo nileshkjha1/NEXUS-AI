@@ -10,3 +10,4 @@ export const PriorityBadge = ({ priority }) => {
 
   return <span className={`badge ${badgeClass}`}>{priority || 'Medium'}</span>;
 };
+

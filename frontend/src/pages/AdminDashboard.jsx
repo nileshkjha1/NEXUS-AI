@@ -244,3 +244,4 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
     </div>
   );
 };
+

@@ -168,3 +168,4 @@ export const AnalyticsPage = () => {
     </div>
   );
 };
+
