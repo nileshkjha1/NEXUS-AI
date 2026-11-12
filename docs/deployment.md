@@ -153,3 +153,4 @@ Located at [`.github/workflows/ci.yml`](file:///.github/workflows/ci.yml), every
    - Runs `npm ci` and verifies that Vite builds the React bundle with 0 errors.
 3. **`docker-validation`**:
    - Executes `docker compose config` to guarantee zero syntax or indentation errors in Compose definitions.
+
