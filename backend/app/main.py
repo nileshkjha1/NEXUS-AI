@@ -1,7 +1,21 @@
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from app.config import settings
+from app.database.session import engine, Base
+from app.api.api import api_router
+# Import models to ensure they are registered with Base.metadata
+import app.models  # noqa: F401
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Ensure database tables exist on application startup
+    Base.metadata.create_all(bind=engine)
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -13,6 +27,7 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
     openapi_url="/openapi.json",
+    lifespan=lifespan,
 )
 
 # Enable CORS for frontend integration
@@ -24,6 +39,9 @@ if settings.cors_origins:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+# Mount API v1 router
+app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
 @app.get("/", tags=["System"])
@@ -39,6 +57,7 @@ def read_root():
         "description": "Enterprise AI-Powered IT Service Management & Automated Incident Resolution Platform",
         "documentation": "/docs",
         "health": "/health",
+        "api_v1": settings.API_V1_STR,
     }
 
 

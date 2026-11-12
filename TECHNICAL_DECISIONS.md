@@ -15,3 +15,15 @@
 ### TD-004: Version-Tagged Health Check & Dual Endpoint Route
 - **Decision**: Provided both `/health` and `/api/v1/health` with UTC timestamp and application status.
 - **Rationale**: Supports standard Kubernetes/Docker liveness probes at `/health` while keeping API-namespaced observability consistent under `/api/v1`.
+
+### TD-005: Dual-Dialect Database Support (PostgreSQL & SQLite)
+- **Decision**: Implemented dialect-agnostic SQLAlchemy configurations with automatic fallback to SQLite for zero-setup local developer onboarding and rapid testing, while full PostgreSQL connection string is switchable via `DATABASE_URL`.
+- **Rationale**: Enables beginners to start immediately without configuring a local PostgreSQL service, while maintaining 100% production compatibility with PostgreSQL for Docker and cloud deployments.
+
+### TD-006: Direct Bcrypt and PyJWT for Authentication
+- **Decision**: Used `bcrypt` directly alongside `pyjwt` rather than legacy `passlib`.
+- **Rationale**: Passlib has known unmaintained compatibility issues with Python 3.12 and bcrypt 4.x. Direct `bcrypt` and `pyjwt` are actively maintained, lightweight, and standard enterprise practice.
+
+### TD-007: Granular Audit History & Role-Based Access Control
+- **Decision**: Created dedicated `TicketHistory` and `Assignment` entities triggered whenever ticket state, priority, category, or assignment changes. Also implemented visibility tiers (e.g. internal comments hidden from regular Employees).
+- **Rationale**: Fulfills enterprise ITSM compliance requirements, preserves accountability, and mirrors enterprise platforms like Jira and ServiceNow.

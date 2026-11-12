@@ -38,3 +38,4 @@ def test_openapi_schema():
     assert schema["info"]["title"] == "NEXUS AI"
     assert "/health" in schema["paths"]
     assert "/" in schema["paths"]
+

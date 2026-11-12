@@ -14,6 +14,14 @@ class Settings(BaseSettings):
     PORT: int = 8000
     ALLOWED_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000"
 
+    # Database Configuration (PostgreSQL in production/Docker, SQLite for zero-setup local dev & testing)
+    DATABASE_URL: str = "sqlite:///./nexus_ai.db"
+
+    # JWT Authentication Configuration
+    JWT_SECRET_KEY: str = "dev-jwt-secret-key-nexus-ai-change-in-production-123456789"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
