@@ -173,6 +173,36 @@ class ApiService {
     return await this.request('/ml/metrics');
   }
 
+  // --- AI & RAG APIs ---
+  async generateAIRecommendation(ticketId) {
+    return await this.request(`/ai/recommend/${ticketId}`, {
+      method: 'POST',
+    });
+  }
+
+  async getAIRecommendations(ticketId) {
+    return await this.request(`/ai/recommendations/${ticketId}`);
+  }
+
+  async reviewAIRecommendation(recommendationId, status, reviewNotes = '', applyToTicket = false) {
+    return await this.request(`/ai/review/${recommendationId}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        status,
+        review_notes: reviewNotes,
+        apply_to_ticket: applyToTicket,
+      }),
+    });
+  }
+
+  async getSimilarIncidents(ticketId) {
+    return await this.request(`/ai/similar-incidents/${ticketId}`);
+  }
+
+  async searchKnowledgeBase(query) {
+    return await this.request(`/ai/knowledge?q=${encodeURIComponent(query)}`);
+  }
+
   // --- System Health ---
   async getHealth() {
     return await this.request('/health');

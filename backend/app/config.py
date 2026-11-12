@@ -1,5 +1,5 @@
 from functools import lru_cache
-from typing import List
+from typing import List, Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -21,6 +21,12 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str = "dev-jwt-secret-key-nexus-ai-change-in-production-123456789"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
+
+    # AI & RAG Configuration
+    GEMINI_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = None
+    LLM_PROVIDER: str = "auto"  # 'auto', 'gemini', 'openai', 'fallback'
+    RAG_TOP_K: int = 3
 
     model_config = SettingsConfigDict(
         env_file=".env",

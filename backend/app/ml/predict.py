@@ -108,3 +108,4 @@ class MLModelManager:
 
 def get_model_manager() -> MLModelManager:
     return MLModelManager.get_instance()
+

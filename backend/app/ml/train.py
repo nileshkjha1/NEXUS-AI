@@ -154,3 +154,4 @@ def train_models(data_path: str = DEFAULT_DATA_PATH, model_dir: str = DEFAULT_MO
 
 if __name__ == "__main__":
     train_models()
+

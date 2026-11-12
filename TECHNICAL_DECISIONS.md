@@ -43,3 +43,11 @@
 ### TD-011: Text Preprocessing & Non-Destructive Technical Filtering
 - **Decision**: Tailored `clean_text` to preserve technical identifiers (e.g. replacing raw IP addresses with an `ipaddress` token, converting URLs to generic tokens) while removing conversational filler and punctuation.
 - **Rationale**: Prevents overfitting to specific server IP addresses or unique URLs while maximizing semantic generalization across IT infrastructure domains.
+
+### TD-012: FAISS IndexFlatIP Cosine Vector Search & Dense Projection
+- **Decision**: Used `faiss-cpu` with normalized 128-dimensional dense vectors indexed via `faiss.IndexFlatIP`.
+- **Rationale**: Inner product over $L_2$-normalized vectors is mathematically identical to exact cosine similarity, providing sub-millisecond retrieval across the troubleshooting SOP corpus without requiring GPU resources.
+
+### TD-013: Resilient LLM Provider Abstraction with Offline Fallback
+- **Decision**: Abstracted LLM resolution generation behind `BaseLLMProvider`, integrating Google Gemini when `GEMINI_API_KEY` is present, and gracefully falling back to `RetrievalFallbackProvider` when offline.
+- **Rationale**: Satisfies enterprise reliability requirements; the platform remains 100% usable for developers without requiring paid API credits, and prevents ungrounded hallucinations by strictly citing retrieved documents.

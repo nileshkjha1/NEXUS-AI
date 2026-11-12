@@ -115,3 +115,4 @@ def test_auto_classification_on_ticket_creation(client, auth_headers):
     data = resp.json()
     # Should be auto-classified as Hardware instead of staying as Other
     assert data["category"] == "Hardware"
+
