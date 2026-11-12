@@ -72,3 +72,4 @@ def get_embedding_encoder() -> DenseEmbeddingEncoder:
     if _encoder_instance is None:
         _encoder_instance = DenseEmbeddingEncoder()
     return _encoder_instance
+

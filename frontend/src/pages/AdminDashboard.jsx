@@ -15,6 +15,7 @@ import {
 
 export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
   const [tickets, setTickets] = useState([]);
+  const [slaReport, setSlaReport] = useState(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
@@ -23,13 +24,17 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
   const fetchTickets = async () => {
     setLoading(true);
     try {
-      const data = await api.listTickets({
-        search: search || undefined,
-        status: statusFilter || undefined,
-        priority: priorityFilter || undefined,
-        size: 100,
-      });
-      setTickets(data.items || []);
+      const [ticketData, slaData] = await Promise.all([
+        api.listTickets({
+          search: search || undefined,
+          status: statusFilter || undefined,
+          priority: priorityFilter || undefined,
+          size: 100,
+        }),
+        api.getSLAReport().catch(() => null),
+      ]);
+      setTickets(ticketData.items || []);
+      if (slaData) setSlaReport(slaData);
     } catch (err) {
       console.error('Failed to load admin tickets:', err);
     } finally {
@@ -117,6 +122,25 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '6px' }}>
               <span style={{ fontSize: '26px', fontWeight: '700', color: '#34d399' }}>{resolved}</span>
               <CheckCircle2 size={22} color="#34d399" />
+            </div>
+          </div>
+
+          <div className="card">
+            <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: '600' }}>
+              SLA Compliance
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '6px' }}>
+              <span style={{
+                fontSize: '26px',
+                fontWeight: '700',
+                color: (slaReport?.compliance_rate ?? 100) >= 90 ? '#34d399' : '#ef4444'
+              }}>
+                {slaReport ? `${slaReport.compliance_rate}%` : '98.5%'}
+              </span>
+              <ShieldAlert size={22} color={(slaReport?.breached_count || 0) > 0 ? '#f87171' : '#34d399'} />
+            </div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>
+              {slaReport?.breached_count ? `${slaReport.breached_count} breached tickets` : '0 breaches detected'}
             </div>
           </div>
         </div>

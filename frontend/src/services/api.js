@@ -203,6 +203,36 @@ class ApiService {
     return await this.request(`/ai/knowledge?q=${encodeURIComponent(query)}`);
   }
 
+  // --- Enterprise Analytics & SLA APIs ---
+  async getAnalyticsOverview() {
+    return await this.request('/analytics/overview');
+  }
+
+  async getSLAReport() {
+    return await this.request('/analytics/sla');
+  }
+
+  async getAuditTrail(limit = 50) {
+    return await this.request(`/analytics/audit-logs?limit=${limit}`);
+  }
+
+  // --- Notification APIs ---
+  async getNotifications(unreadOnly = false, limit = 50) {
+    return await this.request(`/notifications?unread_only=${unreadOnly}&limit=${limit}`);
+  }
+
+  async markNotificationRead(notificationId) {
+    return await this.request(`/notifications/${notificationId}/read`, {
+      method: 'PATCH',
+    });
+  }
+
+  async markAllNotificationsRead() {
+    return await this.request('/notifications/mark-all-read', {
+      method: 'POST',
+    });
+  }
+
   // --- System Health ---
   async getHealth() {
     return await this.request('/health');

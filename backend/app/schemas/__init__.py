@@ -20,6 +20,10 @@ from app.schemas.ticket import (
     TicketCommentResponse,
     TicketHistoryResponse,
 )
+from app.schemas.notification import (
+    NotificationResponse,
+    NotificationListResponse,
+)
 
 __all__ = [
     "UserBase",
@@ -40,5 +44,7 @@ __all__ = [
     "TicketCommentCreate",
     "TicketCommentResponse",
     "TicketHistoryResponse",
+    "NotificationResponse",
+    "NotificationListResponse",
 ]
 

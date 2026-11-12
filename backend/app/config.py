@@ -28,6 +28,14 @@ class Settings(BaseSettings):
     LLM_PROVIDER: str = "auto"  # 'auto', 'gemini', 'openai', 'fallback'
     RAG_TOP_K: int = 3
 
+    # Email & Notification Configuration
+    SMTP_HOST: Optional[str] = None
+    SMTP_PORT: int = 587
+    SMTP_USER: Optional[str] = None
+    SMTP_PASSWORD: Optional[str] = None
+    EMAILS_FROM: str = "nexus-notifications@company.com"
+    EMAILS_ENABLED: bool = False
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

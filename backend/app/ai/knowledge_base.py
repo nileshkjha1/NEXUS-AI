@@ -238,3 +238,4 @@ def get_all_knowledge_docs():
     Returns the standard knowledge corpus.
     """
     return KNOWLEDGE_DOCUMENTS_CORPUS
+

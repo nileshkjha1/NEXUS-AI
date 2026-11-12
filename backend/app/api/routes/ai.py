@@ -152,3 +152,4 @@ def search_knowledge_base(
     """
     rag = get_rag_engine()
     return rag.search_knowledge(query=q, top_k=top_k)
+

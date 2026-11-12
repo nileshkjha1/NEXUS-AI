@@ -86,6 +86,13 @@ def create_ticket(db: Session, ticket_in: TicketCreate, user: User) -> Ticket:
     db.add(history)
     db.commit()
     db.refresh(ticket)
+
+    try:
+        from app.services.notification_service import notify_ticket_created
+        notify_ticket_created(ticket=ticket, creator=user, db=db)
+    except Exception as e:
+        print(f"[NOTIFICATION ERROR] Failed to dispatch ticket creation notification: {e}")
+
     return ticket
 
 
@@ -164,6 +171,7 @@ def update_ticket(
     user: User,
 ) -> Ticket:
     now = datetime.now(timezone.utc)
+    old_status = ticket.status.value if hasattr(ticket.status, "value") else str(ticket.status)
     update_data = ticket_in.model_dump(exclude_unset=True)
 
     for field, new_val in update_data.items():
@@ -180,7 +188,11 @@ def update_ticket(
             )
 
     # Check status transitions
+    status_changed = False
     if "status" in update_data:
+        new_status_val = update_data["status"].value if hasattr(update_data["status"], "value") else str(update_data["status"])
+        if old_status != new_status_val:
+            status_changed = True
         if update_data["status"] == TicketStatus.RESOLVED and not ticket.resolved_at:
             ticket.resolved_at = now
         elif update_data["status"] == TicketStatus.CLOSED and not ticket.closed_at:
@@ -189,6 +201,21 @@ def update_ticket(
     ticket.updated_at = now
     db.commit()
     db.refresh(ticket)
+
+    if status_changed:
+        try:
+            from app.services.notification_service import notify_ticket_status_changed
+            new_status_val = ticket.status.value if hasattr(ticket.status, "value") else str(ticket.status)
+            notify_ticket_status_changed(
+                ticket=ticket,
+                old_status=old_status,
+                new_status=new_status_val,
+                changed_by=user,
+                db=db
+            )
+        except Exception as e:
+            print(f"[NOTIFICATION ERROR] Failed to dispatch ticket status update notification: {e}")
+
     return ticket
 
 
@@ -232,6 +259,15 @@ def assign_ticket(
     ticket.updated_at = now
     db.commit()
     db.refresh(ticket)
+
+    try:
+        from app.services.notification_service import notify_ticket_assigned
+        assignee = db.query(User).filter(User.id == assign_in.assigned_to_id).first()
+        if assignee:
+            notify_ticket_assigned(ticket=ticket, assignee=assignee, assigned_by=assigned_by, db=db)
+    except Exception as e:
+        print(f"[NOTIFICATION ERROR] Failed to dispatch ticket assignment notification: {e}")
+
     return ticket
 
 

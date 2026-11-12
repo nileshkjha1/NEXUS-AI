@@ -82,3 +82,4 @@ def test_api_knowledge_search(client, auth_headers):
     docs = resp.json()
     assert len(docs) > 0
     assert any("KB-HW-03" == d["doc_id"] for d in docs)
+

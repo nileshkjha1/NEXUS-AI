@@ -181,3 +181,4 @@ def get_llm_provider() -> BaseLLMProvider:
         return GeminiLLMProvider(api_key=gemini_key)
 
     return RetrievalFallbackProvider()
+

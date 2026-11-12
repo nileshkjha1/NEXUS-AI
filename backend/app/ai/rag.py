@@ -157,3 +157,4 @@ class RAGEngine:
 
 def get_rag_engine() -> RAGEngine:
     return RAGEngine.get_instance()
+

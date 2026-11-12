@@ -51,3 +51,12 @@
 ### TD-013: Resilient LLM Provider Abstraction with Offline Fallback
 - **Decision**: Abstracted LLM resolution generation behind `BaseLLMProvider`, integrating Google Gemini when `GEMINI_API_KEY` is present, and gracefully falling back to `RetrievalFallbackProvider` when offline.
 - **Rationale**: Satisfies enterprise reliability requirements; the platform remains 100% usable for developers without requiring paid API credits, and prevents ungrounded hallucinations by strictly citing retrieved documents.
+
+### TD-014: Real-Time SLA Engine & Granular Risk Categorization
+- **Decision**: Implemented dynamic SLA computation evaluating active tickets against configured resolution deadlines (Critical: 4h, High: 8h, Medium: 24h, Low: 48h) with 3 real-time states: `On Track`, `At Risk` (< 2h remaining), and `Breached`.
+- **Rationale**: Provides IT managers with actionable foresight rather than retrospective alerts, allowing teams to intervene before SLA violations incur contractual or operational penalties.
+
+### TD-015: Dual-Channel Notification Engine with Event Triggers
+- **Decision**: Created an event-driven notification architecture persisting alerts directly to the database for real-time frontend in-app polling, accompanied by an SMTP email dispatcher that switches automatically to structured mock console logging when SMTP is offline.
+- **Rationale**: Guarantees zero runtime errors for developers testing locally without an SMTP server while preserving an enterprise-ready pipeline for production environments (SendGrid, AWS SES, or corporate SMTP).
+
