@@ -41,3 +41,4 @@ def get_audit_trail_endpoint(
     Retrieve global system audit logs tracking changes to ticket fields (Administrator only).
     """
     return analytics_service.get_audit_trail(db=db, limit=limit)
+

@@ -111,3 +111,4 @@ def get_sla_report(db: Session) -> Dict[str, Any]:
         "compliance_rate": compliance_rate,
         "breached_tickets": breached_tickets,
     }
+

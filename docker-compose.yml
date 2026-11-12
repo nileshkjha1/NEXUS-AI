@@ -1,0 +1,99 @@
+version: '3.8'
+
+# ==============================================================================
+# NEXUS AI — Enterprise Production Docker Compose Orchestration
+# Services:
+#   1. db: PostgreSQL 16 Relational Database Engine
+#   2. backend: FastAPI + PyTorch/Scikit-learn + FAISS AI Platform Engine
+#   3. frontend: Nginx Reverse Proxy + React Production Application
+# ==============================================================================
+
+services:
+  # --- Relational Database: PostgreSQL 16 ---
+  db:
+    image: postgres:16-alpine
+    container_name: nexus_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-nexus}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nexus_password}
+      POSTGRES_DB: ${POSTGRES_DB:-nexus_db}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - nexus_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nexus} -d ${POSTGRES_DB:-nexus_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - nexus_network
+
+  # --- Backend API & AI Engine: FastAPI ---
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: nexus_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: production
+      DEBUG: "False"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-nexus}:${POSTGRES_PASSWORD:-nexus_password}@db:5432/${POSTGRES_DB:-nexus_db}
+      SECRET_KEY: ${SECRET_KEY:-nexus-production-secret-key-change-in-prod-987654321}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-nexus-jwt-production-secret-key-change-in-prod-987654321}
+      ALLOWED_ORIGINS: "http://localhost,http://localhost:80,http://127.0.0.1,http://localhost:5173"
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-auto}
+      EMAILS_ENABLED: ${EMAILS_ENABLED:-False}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "python -m app.database.seed &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    networks:
+      - nexus_network
+
+  # --- Frontend Web Application & Reverse Proxy: React + Nginx ---
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: nexus_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - nexus_network
+
+volumes:
+  nexus_pgdata:
+    name: nexus_postgres_data
+    driver: local
+
+networks:
+  nexus_network:
+    name: nexus_internal_network
+    driver: bridge

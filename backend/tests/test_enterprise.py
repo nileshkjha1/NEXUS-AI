@@ -171,3 +171,4 @@ def test_notifications_api(client):
     )
     assert resp_mark.status_code == 200
     assert "updated_count" in resp_mark.json()
+

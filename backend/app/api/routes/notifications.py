@@ -64,3 +64,4 @@ def mark_all_read_endpoint(
         user_id=current_user.id,
     )
     return {"message": "All notifications marked as read", "updated_count": count}
+

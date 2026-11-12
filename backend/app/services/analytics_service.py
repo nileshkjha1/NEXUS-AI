@@ -127,3 +127,4 @@ def get_audit_trail(db: Session, limit: int = 50) -> List[Dict[str, Any]]:
             "timestamp": r.created_at,
         })
     return trail
+

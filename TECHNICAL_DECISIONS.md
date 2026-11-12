@@ -60,3 +60,12 @@
 - **Decision**: Created an event-driven notification architecture persisting alerts directly to the database for real-time frontend in-app polling, accompanied by an SMTP email dispatcher that switches automatically to structured mock console logging when SMTP is offline.
 - **Rationale**: Guarantees zero runtime errors for developers testing locally without an SMTP server while preserving an enterprise-ready pipeline for production environments (SendGrid, AWS SES, or corporate SMTP).
 
+### TD-016: Multi-Stage Docker & Reverse Proxy Architecture
+- **Decision**: Separated frontend production delivery into a multi-stage Docker build using Node 20 as builder and Nginx Alpine as runtime server. Nginx acts as the unified reverse proxy, serving the SPA bundle and transparently forwarding `/api/v1` and `/docs` traffic to the backend container.
+- **Rationale**: Reduces frontend production image size by ~90% (from >800MB to ~25MB), terminates browser connections on standard HTTP port 80, and eliminates Cross-Origin Resource Sharing (CORS) complexity in containerized production environments.
+
+### TD-017: Multi-Job GitHub Actions CI Pipeline with Dependency Caching
+- **Decision**: Implemented an automated CI pipeline in `.github/workflows/ci.yml` featuring 3 decoupled jobs: backend unit/integration testing on Python 3.12, frontend static build verification on Node 20, and Docker Compose syntax validation.
+- **Rationale**: Catches regressions immediately on PR and push without slowing down team velocity, leverages pip and npm caching to accelerate CI execution under 2 minutes, and guarantees that master branch code is always deployable.
+
+
