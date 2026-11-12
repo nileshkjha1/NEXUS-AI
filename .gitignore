@@ -1,0 +1,47 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment Variables & Secrets
+.env
+*.env
+!*.env.example
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.npm
+*.log
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# ML artifacts / Cache
+*.pkl
+*.joblib
+faiss_index/
+vector_store/
+
+# Operating System
+.DS_Store
+Thumbs.db
