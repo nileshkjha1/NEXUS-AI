@@ -27,3 +27,11 @@
 ### TD-007: Granular Audit History & Role-Based Access Control
 - **Decision**: Created dedicated `TicketHistory` and `Assignment` entities triggered whenever ticket state, priority, category, or assignment changes. Also implemented visibility tiers (e.g. internal comments hidden from regular Employees).
 - **Rationale**: Fulfills enterprise ITSM compliance requirements, preserves accountability, and mirrors enterprise platforms like Jira and ServiceNow.
+
+### TD-008: React 18 + Vite SPA Architecture with Proxy Middleware
+- **Decision**: Built the frontend using React 18 and Vite with a reverse-proxy forwarding `/api` calls directly to the FastAPI server running on port 8000.
+- **Rationale**: Eliminates Cross-Origin Resource Sharing (CORS) development issues, enables lightning-fast Hot Module Replacement (HMR), and yields highly optimized production bundles.
+
+### TD-009: In-Memory SQLite Pytest Isolation Fixture
+- **Decision**: Added `backend/tests/conftest.py` with static in-memory SQLite (`sqlite:///:memory:`) and FastAPI dependency overrides for `get_db`.
+- **Rationale**: Guarantees that automated backend test suites run completely isolated from developer database state, preventing test flakes and ensuring 100% repeatable execution.

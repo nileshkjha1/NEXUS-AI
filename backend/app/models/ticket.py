@@ -110,3 +110,4 @@ class Assignment(Base):
     ticket = relationship("Ticket", back_populates="assignments")
     assigned_to = relationship("User", foreign_keys=[assigned_to_id])
     assigned_by = relationship("User", foreign_keys=[assigned_by_id])
+

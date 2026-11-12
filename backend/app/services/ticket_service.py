@@ -234,3 +234,4 @@ def add_ticket_comment(
     db.commit()
     db.refresh(comment)
     return comment
+

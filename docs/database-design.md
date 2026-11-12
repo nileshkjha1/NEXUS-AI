@@ -153,3 +153,4 @@ Migrations are managed with Alembic:
 - Configuration: `backend/alembic.ini` and `backend/alembic/env.py`
 - Version scripts: `backend/alembic/versions/`
 - Upgrade command: `alembic upgrade head`
+

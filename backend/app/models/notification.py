@@ -18,3 +18,4 @@ class Notification(Base):
 
     user = relationship("User", back_populates="notifications")
     ticket = relationship("Ticket")
+

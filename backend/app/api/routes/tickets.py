@@ -296,3 +296,4 @@ def delete_incident(
     db.delete(ticket)
     db.commit()
     return None
+

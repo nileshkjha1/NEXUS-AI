@@ -35,3 +35,4 @@ class User(Base):
     comments = relationship("TicketComment", back_populates="author")
     history_records = relationship("TicketHistory", back_populates="changed_by")
     notifications = relationship("Notification", back_populates="user")
+

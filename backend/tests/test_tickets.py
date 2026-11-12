@@ -1,12 +1,8 @@
 import pytest
-from fastapi.testclient import TestClient
-from app.main import app
-
-client = TestClient(app)
 
 
-@pytest.fixture(scope="module")
-def admin_token():
+@pytest.fixture
+def admin_token(client):
     resp = client.post(
         "/api/v1/auth/login",
         json={"email": "admin@nexusai.com", "password": "Admin@123456"},
@@ -14,8 +10,8 @@ def admin_token():
     return resp.json()["access_token"]
 
 
-@pytest.fixture(scope="module")
-def agent_token():
+@pytest.fixture
+def agent_token(client):
     resp = client.post(
         "/api/v1/auth/login",
         json={"email": "agent@nexusai.com", "password": "Agent@123456"},
@@ -23,8 +19,8 @@ def agent_token():
     return resp.json()["access_token"]
 
 
-@pytest.fixture(scope="module")
-def employee_token():
+@pytest.fixture
+def employee_token(client):
     resp = client.post(
         "/api/v1/auth/login",
         json={"email": "employee@nexusai.com", "password": "Employee@123456"},
@@ -32,7 +28,7 @@ def employee_token():
     return resp.json()["access_token"]
 
 
-def test_create_ticket(employee_token):
+def test_create_ticket(client, employee_token):
     resp = client.post(
         "/api/v1/tickets",
         json={
@@ -51,8 +47,7 @@ def test_create_ticket(employee_token):
     assert data["due_date"] is not None
 
 
-def test_list_tickets(employee_token, admin_token):
-    # Employee view
+def test_list_tickets(client, employee_token, admin_token):
     emp_resp = client.get(
         "/api/v1/tickets",
         headers={"Authorization": f"Bearer {employee_token}"},
@@ -62,7 +57,6 @@ def test_list_tickets(employee_token, admin_token):
     assert "items" in emp_data
     assert "total" in emp_data
 
-    # Admin view
     admin_resp = client.get(
         "/api/v1/tickets",
         headers={"Authorization": f"Bearer {admin_token}"},
@@ -72,8 +66,7 @@ def test_list_tickets(employee_token, admin_token):
     assert admin_data["total"] >= emp_data["total"]
 
 
-def test_ticket_detail_with_comment(employee_token, agent_token):
-    # Create ticket
+def test_ticket_detail_with_comment(client, employee_token, agent_token):
     create_resp = client.post(
         "/api/v1/tickets",
         json={
@@ -86,7 +79,6 @@ def test_ticket_detail_with_comment(employee_token, agent_token):
     )
     ticket_id = create_resp.json()["id"]
 
-    # Agent adds an internal comment
     comm_resp = client.post(
         f"/api/v1/tickets/{ticket_id}/comments",
         json={
@@ -97,7 +89,6 @@ def test_ticket_detail_with_comment(employee_token, agent_token):
     )
     assert comm_resp.status_code == 201
 
-    # Employee views ticket: internal comment should NOT be visible
     emp_view = client.get(
         f"/api/v1/tickets/{ticket_id}",
         headers={"Authorization": f"Bearer {employee_token}"},
@@ -106,7 +97,6 @@ def test_ticket_detail_with_comment(employee_token, agent_token):
     comments = emp_view.json()["comments"]
     assert len([c for c in comments if c["is_internal"]]) == 0
 
-    # Agent views ticket: internal comment IS visible
     agent_view = client.get(
         f"/api/v1/tickets/{ticket_id}",
         headers={"Authorization": f"Bearer {agent_token}"},
@@ -116,16 +106,13 @@ def test_ticket_detail_with_comment(employee_token, agent_token):
     assert any(c["is_internal"] for c in agent_comments)
 
 
-def test_assign_ticket(admin_token, agent_token):
-    # Admin assigns ticket to Agent
-    # First get agent user ID
+def test_assign_ticket(client, admin_token, agent_token):
     users_resp = client.get(
         "/api/v1/users?role=IT%20Support%20Agent",
         headers={"Authorization": f"Bearer {admin_token}"},
     )
     agent_id = users_resp.json()[0]["id"]
 
-    # Assign INC-1001 (id 1)
     assign_resp = client.post(
         "/api/v1/tickets/1/assign",
         json={"assigned_to_id": agent_id, "notes": "Please look into database connectivity."},
@@ -136,7 +123,7 @@ def test_assign_ticket(admin_token, agent_token):
     assert assign_resp.json()["status"] == "Assigned"
 
 
-def test_update_ticket_status_to_resolved(agent_token):
+def test_update_ticket_status_to_resolved(client, agent_token):
     resp = client.patch(
         "/api/v1/tickets/1/status",
         json={
@@ -152,17 +139,30 @@ def test_update_ticket_status_to_resolved(agent_token):
     assert data["resolution_notes"] is not None
 
 
-def test_delete_ticket_permission(employee_token, admin_token):
-    # Employee cannot delete ticket
+def test_delete_ticket_permission(client, employee_token, admin_token):
+    # Create ticket to delete
+    create_resp = client.post(
+        "/api/v1/tickets",
+        json={
+            "title": "Temporary ticket to test deletion",
+            "description": "This ticket will be deleted by the test.",
+            "category": "Other",
+            "priority": "Low",
+        },
+        headers={"Authorization": f"Bearer {employee_token}"},
+    )
+    t_id = create_resp.json()["id"]
+
+    # Employee cannot delete
     emp_del = client.delete(
-        "/api/v1/tickets/2",
+        f"/api/v1/tickets/{t_id}",
         headers={"Authorization": f"Bearer {employee_token}"},
     )
     assert emp_del.status_code == 403
 
-    # Admin can delete ticket
+    # Admin can delete
     admin_del = client.delete(
-        "/api/v1/tickets/2",
+        f"/api/v1/tickets/{t_id}",
         headers={"Authorization": f"Bearer {admin_token}"},
     )
     assert admin_del.status_code == 204

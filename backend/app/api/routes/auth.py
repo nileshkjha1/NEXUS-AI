@@ -107,3 +107,4 @@ def logout(current_user: User = Depends(get_current_active_user)) -> Any:
     Logout user endpoint (client should discard token).
     """
     return {"message": "Successfully logged out", "user_id": current_user.id}
+
