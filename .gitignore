@@ -39,6 +39,8 @@ build/
 # ML artifacts / Cache
 *.pkl
 *.joblib
+!backend/app/ml/models/*.joblib
+!data/processed/model_metrics.json
 faiss_index/
 vector_store/
 

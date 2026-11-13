@@ -24,8 +24,16 @@ class MLModelManager:
 
     def load_models(self):
         """
-        Load persisted models from disk if they exist.
+        Load persisted models from disk if they exist, or trigger initial training.
         """
+        if not os.path.exists(CATEGORY_MODEL_PATH) or not os.path.exists(PRIORITY_MODEL_PATH):
+            try:
+                from app.ml.train import train_models
+                print("ML models not found on disk. Initiating automatic training...")
+                train_models()
+            except Exception as e:
+                print(f"Warning: Automatic model training fallback failed: {e}")
+
         if os.path.exists(CATEGORY_MODEL_PATH):
             try:
                 self.category_model = joblib.load(CATEGORY_MODEL_PATH)
