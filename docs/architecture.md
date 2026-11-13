@@ -156,3 +156,4 @@ sequenceDiagram
 | **Employee** | Create tickets, view owned tickets, add public comments | Self profile only | Read-only | None |
 | **IT Support Agent** | View all tickets, update status/priority, assign self, add internal comments | View active agents | Approve / Reject AI proposals | View operational overview & SLA reports |
 | **Administrator** | Full CRUD, delete tickets, override priority/category | Full CRUD (Create, update role/department, deactivate) | Approve / Reject AI proposals | Full access to overview, SLA reports, and complete Audit Trail |
+

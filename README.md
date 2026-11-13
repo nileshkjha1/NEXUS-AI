@@ -418,3 +418,4 @@ Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](file
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+

@@ -205,3 +205,4 @@ Tokens are signed using `HS256` with a configurable expiration window (default: 
 | `GET` | `/` | Root metadata endpoint with documentation links | Public |
 | `GET` | `/health` | Container liveness probe endpoint (UTC timestamp & status) | Public |
 | `GET` | `/api/v1/health` | API version-scoped health check endpoint | Public |
+

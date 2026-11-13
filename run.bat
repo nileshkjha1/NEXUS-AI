@@ -24,3 +24,4 @@ echo NEXUS AI is running!
 echo Frontend:  http://localhost:5173
 echo API Docs:  http://localhost:8000/docs
 echo ===================================================
+

@@ -25,3 +25,4 @@ Write-Host "NEXUS AI is running!" -ForegroundColor Green
 Write-Host "Frontend: http://localhost:5173" -ForegroundColor White
 Write-Host "API Docs: http://localhost:8000/docs" -ForegroundColor White
 Write-Host "===================================================" -ForegroundColor Cyan
+
