@@ -12,10 +12,11 @@ import {
   Shield,
   Headphones,
   FileText,
+  X,
 } from 'lucide-react';
 
 export const Sidebar = ({ currentView, onViewChange }) => {
-  const { user, isEmployee, isAgent, isAdmin, logout } = useAuth();
+  const { user, isEmployee, isAgent, isAdmin, logout, sidebarOpen, closeSidebar } = useAuth();
 
   const navItems = [
     // Employee & Shared Views
@@ -53,98 +54,127 @@ export const Sidebar = ({ currentView, onViewChange }) => {
   ];
 
   return (
-    <aside style={{
-      width: '260px',
-      backgroundColor: 'var(--bg-secondary)',
-      borderRight: '1px solid var(--border-color)',
-      display: 'flex',
-      flexDirection: 'column',
-      flexShrink: 0,
-      minHeight: '100vh',
-    }}>
-      {/* Brand Header */}
-      <div style={{
-        padding: '24px 20px',
+    <>
+      <div
+        className={`sidebar-backdrop ${sidebarOpen ? 'active' : ''}`}
+        onClick={closeSidebar}
+        aria-hidden="true"
+      />
+      <aside className={`app-sidebar ${sidebarOpen ? 'open' : ''}`} style={{
+        backgroundColor: 'var(--bg-secondary)',
+        borderRight: '1px solid var(--border-color)',
         display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-        borderBottom: '1px solid var(--border-color)',
+        flexDirection: 'column',
+        flexShrink: 0,
       }}>
+        {/* Brand Header */}
         <div style={{
-          width: '36px',
-          height: '36px',
-          borderRadius: '8px',
-          background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+          padding: '20px 16px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 0 12px rgba(59, 130, 246, 0.4)',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid var(--border-color)',
         }}>
-          <Bot size={20} color="#ffffff" />
-        </div>
-        <div>
-          <div style={{ fontSize: '16px', fontWeight: '700', letterSpacing: '-0.02em', color: '#f8fafc' }}>
-            NEXUS <span style={{ color: '#3b82f6' }}>AI</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 0 12px rgba(59, 130, 246, 0.4)',
+            }}>
+              <Bot size={20} color="#ffffff" />
+            </div>
+            <div>
+              <div style={{ fontSize: '16px', fontWeight: '700', letterSpacing: '-0.02em', color: '#f8fafc' }}>
+                NEXUS <span style={{ color: '#3b82f6' }}>AI</span>
+              </div>
+              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>
+                ITSM & Incident Platform
+              </div>
+            </div>
           </div>
-          <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>
-            ITSM & Incident Platform
-          </div>
-        </div>
-      </div>
 
-      {/* Navigation List */}
-      <nav style={{ padding: '16px 12px', flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
-        <div style={{
-          fontSize: '11px',
-          fontWeight: '600',
-          textTransform: 'uppercase',
-          color: 'var(--text-subtle)',
-          letterSpacing: '0.06em',
-          padding: '8px 12px 4px',
-        }}>
-          Main Menu
+          <button
+            type="button"
+            onClick={closeSidebar}
+            className="sidebar-close-btn"
+            aria-label="Close navigation"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--text-muted)',
+              cursor: 'pointer',
+              padding: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '4px',
+            }}
+          >
+            <X size={20} />
+          </button>
         </div>
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = currentView === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => onViewChange(item.id)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '10px 14px',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '13px',
-                fontWeight: isActive ? '600' : '500',
-                backgroundColor: isActive ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
-                color: isActive ? '#60a5fa' : 'var(--text-muted)',
-                border: isActive ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid transparent',
-                textAlign: 'left',
-                width: '100%',
-                transition: 'all 0.15s ease',
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-card)';
-                  e.currentTarget.style.color = 'var(--text-main)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'var(--text-muted)';
-                }
-              }}
-            >
-              <Icon size={18} />
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
-      </nav>
+
+        {/* Navigation List */}
+        <nav style={{ padding: '16px 12px', flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div style={{
+            fontSize: '11px',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            color: 'var(--text-subtle)',
+            letterSpacing: '0.06em',
+            padding: '8px 12px 4px',
+          }}>
+            Main Menu
+          </div>
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentView === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  onViewChange(item.id);
+                  closeSidebar();
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '10px 14px',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '13px',
+                  fontWeight: isActive ? '600' : '500',
+                  backgroundColor: isActive ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
+                  color: isActive ? '#60a5fa' : 'var(--text-muted)',
+                  border: isActive ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid transparent',
+                  textAlign: 'left',
+                  width: '100%',
+                  transition: 'all 0.15s ease',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = 'var(--bg-card)';
+                    e.currentTarget.style.color = 'var(--text-main)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--text-muted)';
+                  }
+                }}
+              >
+                <Icon size={18} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
 
       {/* User Footer Card */}
       <div style={{
@@ -201,6 +231,7 @@ export const Sidebar = ({ currentView, onViewChange }) => {
         </button>
       </div>
     </aside>
-  );
+  </>
+);
 };
 

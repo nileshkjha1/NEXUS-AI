@@ -69,12 +69,7 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
 
       <div className="page-container">
         {/* Executive KPI Stats */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '16px',
-          marginBottom: '24px',
-        }}>
+        <div className="kpi-grid-6">
           <div className="card">
             <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: '600' }}>
               Total Volume
@@ -146,7 +141,7 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
         </div>
 
         {/* Category & Distribution Overview */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+        <div className="grid-2col">
           {/* Category Distribution */}
           <div className="card">
             <h3 style={{ fontSize: '15px', marginBottom: '16px' }}>Category Breakdown</h3>
@@ -200,8 +195,8 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
         {/* Global Ticket Control Center */}
         <div className="card" style={{ padding: '16px', marginBottom: '16px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', flex: 1 }}>
-              <div style={{ position: 'relative', minWidth: '260px' }}>
+            <div className="filter-bar-responsive" style={{ flex: '1 1 280px' }}>
+              <div className="filter-search-box">
                 <input
                   type="text"
                   placeholder="Filter by title, description, or ticket #..."
@@ -218,8 +213,7 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
               </div>
 
               <select
-                className="form-control"
-                style={{ width: '150px' }}
+                className="form-control filter-select"
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
               >
@@ -232,8 +226,7 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
               </select>
 
               <select
-                className="form-control"
-                style={{ width: '150px' }}
+                className="form-control filter-select"
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
               >
@@ -248,7 +241,7 @@ export const AdminDashboard = ({ onSelectTicket, onNavigateCreate }) => {
             <button
               onClick={onNavigateCreate}
               className="btn btn-primary"
-              style={{ padding: '9px 18px' }}
+              style={{ padding: '9px 18px', flexShrink: 0 }}
             >
               <PlusCircle size={16} />
               <span>New Incident</span>

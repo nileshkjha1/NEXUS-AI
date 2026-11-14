@@ -68,8 +68,10 @@ export const AnalyticsPage = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '20px',
+          flexWrap: 'wrap',
+          gap: '12px',
         }}>
-          <div style={{ display: 'flex', gap: '8px' }}>
+          <div className="tabs-scroll-container" style={{ borderBottom: 'none', marginBottom: 0, paddingBottom: 0 }}>
             <button
               onClick={() => setActiveTab('overview')}
               className="btn"
@@ -112,12 +114,7 @@ export const AnalyticsPage = () => {
         {activeTab === 'overview' ? (
           <>
             {/* KPI Row */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-              gap: '16px',
-              marginBottom: '24px',
-            }}>
+            <div className="kpi-grid-4">
               <div className="card">
                 <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: '600' }}>
                   Mean Time to Resolution (MTTR)
@@ -188,7 +185,7 @@ export const AnalyticsPage = () => {
             </div>
 
             {/* Charts & Breakdown */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px' }}>
+            <div className="grid-2col">
               {/* Category Distribution */}
               <div className="card">
                 <h3 style={{ fontSize: '15px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>

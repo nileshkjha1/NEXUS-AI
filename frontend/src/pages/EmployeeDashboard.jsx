@@ -46,12 +46,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
 
       <div className="page-container">
         {/* KPI Metric Cards */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '20px',
-          marginBottom: '28px',
-        }}>
+        <div className="kpi-grid-3">
           <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <div style={{
               width: '44px',
@@ -61,6 +56,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <Clock size={22} color="#60a5fa" />
             </div>
@@ -83,6 +79,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <CheckCircle2 size={22} color="#34d399" />
             </div>
@@ -105,6 +102,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <AlertCircle size={22} color="#fbbf24" />
             </div>
@@ -125,11 +123,11 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '16px',
+          gap: '12px',
           marginBottom: '16px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: '280px' }}>
-            <div style={{ position: 'relative', width: '100%', maxWidth: '340px' }}>
+          <div className="filter-bar-responsive" style={{ flex: '1 1 280px' }}>
+            <div className="filter-search-box">
               <input
                 type="text"
                 placeholder="Search my incidents..."
@@ -146,8 +144,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
             </div>
 
             <select
-              className="form-control"
-              style={{ width: '160px' }}
+              className="form-control filter-select"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
             >
@@ -159,7 +156,13 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
               <option value="Closed">Closed</option>
             </select>
 
-            <button onClick={fetchTickets} className="btn btn-secondary" title="Refresh">
+            <button
+              onClick={fetchTickets}
+              className="btn btn-secondary"
+              title="Refresh"
+              aria-label="Refresh tickets"
+              style={{ minWidth: '40px' }}
+            >
               <RefreshCw size={14} />
             </button>
           </div>
@@ -167,7 +170,7 @@ export const EmployeeDashboard = ({ onNavigateCreate, onSelectTicket }) => {
           <button
             onClick={onNavigateCreate}
             className="btn btn-primary"
-            style={{ padding: '9px 18px' }}
+            style={{ padding: '9px 18px', flexShrink: 0 }}
           >
             <PlusCircle size={16} />
             <span>Report Incident</span>

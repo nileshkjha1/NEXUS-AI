@@ -124,7 +124,7 @@ export const AIResolutionDesk = () => {
           </div>
 
           <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: '300px' }}>
+            <div style={{ flex: '1 1 280px', minWidth: 0 }}>
               <label className="form-label">Active Ticket</label>
               <select
                 className="form-control"
@@ -151,7 +151,7 @@ export const AIResolutionDesk = () => {
               onClick={handleGenerateRecommendation}
               disabled={loading || !selectedTicketId}
               className="btn btn-primary"
-              style={{ padding: '10px 22px' }}
+              style={{ padding: '10px 22px', flexShrink: 0 }}
             >
               {loading ? (
                 <div className="spinner" style={{ width: '16px', height: '16px', borderWidth: '2px' }} />
@@ -172,6 +172,7 @@ export const AIResolutionDesk = () => {
               borderRadius: 'var(--radius-sm)',
               fontSize: '13px',
               color: 'var(--text-muted)',
+              wordBreak: 'break-word',
             }}>
               <strong>Selected Problem Description:</strong> {selectedTicket.description}
             </div>
@@ -179,14 +180,15 @@ export const AIResolutionDesk = () => {
         </div>
 
         {/* Output Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: recommendation ? '2fr 1fr' : '1fr', gap: '24px' }}>
+        <div className={recommendation ? "grid-detail-layout" : ""}>
           {/* Main Resolution Recommendation Card */}
           {recommendation && (
             <div className="card" style={{
               background: 'linear-gradient(180deg, rgba(24, 34, 52, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%)',
               border: '1px solid rgba(59, 130, 246, 0.4)',
+              minWidth: 0,
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{
                     width: '32px',
@@ -296,13 +298,15 @@ export const AIResolutionDesk = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
                 }}>
-                  <div style={{ fontSize: '12px', color: 'var(--text-subtle)' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-subtle)', flex: '1 1 200px' }}>
                     * Human approval required: No destructive action is executed without technician review.
                   </div>
 
                   {(isAgent || isAdmin) && (
-                    <div style={{ display: 'flex', gap: '10px' }}>
+                    <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                       <button
                         type="button"
                         onClick={() => handleReview('Rejected')}

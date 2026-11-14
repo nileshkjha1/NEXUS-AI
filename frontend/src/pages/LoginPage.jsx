@@ -29,18 +29,10 @@ export const LoginPage = ({ onNavigateRegister }) => {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '24px',
-      backgroundColor: 'var(--bg-primary)',
-      background: 'radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(11, 15, 25, 1) 70%)',
-    }}>
-      <div style={{ width: '100%', maxWidth: '440px' }}>
+    <div className="auth-page-container">
+      <div className="auth-card-wrap">
         {/* Brand Header */}
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div style={{
             width: '48px',
             height: '48px',
@@ -49,7 +41,7 @@ export const LoginPage = ({ onNavigateRegister }) => {
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginBottom: '16px',
+            marginBottom: '14px',
             boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)',
           }}>
             <Bot size={28} color="#ffffff" />
@@ -57,13 +49,13 @@ export const LoginPage = ({ onNavigateRegister }) => {
           <h1 style={{ fontSize: '24px', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '8px' }}>
             NEXUS <span style={{ color: '#3b82f6' }}>AI</span>
           </h1>
-          <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
             Enterprise ITSM & Automated Incident Resolution
           </p>
         </div>
 
         {/* Login Card */}
-        <div className="card" style={{ padding: '32px' }}>
+        <div className="card auth-card">
           <h2 style={{ fontSize: '18px', marginBottom: '20px' }}>Sign in to your account</h2>
 
           {error && (
@@ -120,12 +112,12 @@ export const LoginPage = ({ onNavigateRegister }) => {
             <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: '600', marginBottom: '10px' }}>
               Quick Demo Accounts (1-Click Fill):
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(95px, 1fr))', gap: '8px' }}>
               <button
                 type="button"
                 onClick={() => fillQuickLogin('admin@nexusai.com', 'Admin@123456')}
                 className="btn btn-secondary"
-                style={{ fontSize: '11px', padding: '6px 8px' }}
+                style={{ fontSize: '11px', padding: '7px 8px' }}
                 title="Admin: Full System Access"
               >
                 <Shield size={12} color="#3b82f6" />
@@ -135,7 +127,7 @@ export const LoginPage = ({ onNavigateRegister }) => {
                 type="button"
                 onClick={() => fillQuickLogin('agent@nexusai.com', 'Agent@123456')}
                 className="btn btn-secondary"
-                style={{ fontSize: '11px', padding: '6px 8px' }}
+                style={{ fontSize: '11px', padding: '7px 8px' }}
                 title="Support Agent: Manage Queues"
               >
                 <Headphones size={12} color="#10b981" />
@@ -145,7 +137,7 @@ export const LoginPage = ({ onNavigateRegister }) => {
                 type="button"
                 onClick={() => fillQuickLogin('employee@nexusai.com', 'Employee@123456')}
                 className="btn btn-secondary"
-                style={{ fontSize: '11px', padding: '6px 8px' }}
+                style={{ fontSize: '11px', padding: '7px 8px' }}
                 title="Employee: Submit & View Own"
               >
                 <User size={12} color="#f59e0b" />

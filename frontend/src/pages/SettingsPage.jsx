@@ -52,7 +52,7 @@ export const SettingsPage = () => {
               <h3 style={{ fontSize: '16px' }}>Authenticated Account</h3>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="grid-form-2col">
               <div>
                 <label className="form-label">Full Name</label>
                 <input type="text" disabled className="form-control" value={user?.full_name || ''} />
@@ -79,7 +79,7 @@ export const SettingsPage = () => {
               <h3 style={{ fontSize: '16px' }}>Backend API & Health Connection</h3>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', fontSize: '13px' }}>
+            <div className="grid-form-2col" style={{ fontSize: '13px' }}>
               <div style={{ backgroundColor: 'rgba(11, 15, 25, 0.4)', padding: '12px 16px', borderRadius: 'var(--radius-sm)' }}>
                 <div style={{ color: 'var(--text-subtle)', marginBottom: '4px' }}>Platform Version</div>
                 <div style={{ fontWeight: '600', color: 'var(--text-main)' }}>{health?.version || '1.0.0'}</div>
@@ -127,7 +127,7 @@ export const SettingsPage = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div className="card-actions-responsive">
             <button type="submit" className="btn btn-primary" style={{ padding: '10px 24px' }}>
               <Save size={16} />
               <span>Save Preferences</span>

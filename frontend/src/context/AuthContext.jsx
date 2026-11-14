@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(api.getUser());
   const [token, setToken] = useState(api.getToken());
   const [loading, setLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const initializeAuth = async () => {
@@ -45,6 +46,14 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(prev => !prev);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   const value = {
     user,
     token,
@@ -54,6 +63,10 @@ export const AuthProvider = ({ children }) => {
     isAgent: user?.role === 'IT Support Agent',
     isAdmin: user?.role === 'Administrator',
     loading,
+    sidebarOpen,
+    setSidebarOpen,
+    toggleSidebar,
+    closeSidebar,
     login,
     register,
     logout,

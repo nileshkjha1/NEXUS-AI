@@ -80,7 +80,7 @@ export const UserManagementPage = () => {
               <div className="spinner" />
             </div>
           ) : (
-            <div className="table-container">
+            <div className="table-responsive-container">
               <table className="data-table">
                 <thead>
                   <tr>
@@ -95,8 +95,8 @@ export const UserManagementPage = () => {
                 <tbody>
                   {users.map((u) => (
                     <tr key={u.id}>
-                      <td style={{ fontWeight: '600', color: 'var(--text-main)' }}>{u.full_name}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{u.email}</td>
+                      <td className="cell-wrap" style={{ fontWeight: '600', color: 'var(--text-main)' }}>{u.full_name}</td>
+                      <td className="cell-wrap" style={{ color: 'var(--text-muted)' }}>{u.email}</td>
                       <td>{u.department || 'General'}</td>
                       <td>
                         <select

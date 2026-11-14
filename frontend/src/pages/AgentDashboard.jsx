@@ -62,12 +62,7 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
 
       <div className="page-container">
         {/* KPI Metrics */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '16px',
-          marginBottom: '24px',
-        }}>
+        <div className="kpi-grid-4">
           <div className="card">
             <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: '600' }}>
               High & Critical Incidents
@@ -112,7 +107,7 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
         {/* Tab Switcher & Filter Bar */}
         <div className="card" style={{ padding: '16px', marginBottom: '20px' }}>
           {/* Quick Tabs */}
-          <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid var(--border-color)', paddingBottom: '14px', marginBottom: '14px' }}>
+          <div className="tabs-scroll-container">
             <button
               onClick={() => setActiveTab('all')}
               className={`btn ${activeTab === 'all' ? 'btn-primary' : 'btn-secondary'}`}
@@ -137,8 +132,8 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
           </div>
 
           {/* Search & Filter Controls */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <div style={{ position: 'relative', flex: 1, minWidth: '240px' }}>
+          <div className="filter-bar-responsive">
+            <div className="filter-search-box">
               <input
                 type="text"
                 placeholder="Search ticket title, summary, or INC-#..."
@@ -155,8 +150,7 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
             </div>
 
             <select
-              className="form-control"
-              style={{ width: '150px' }}
+              className="form-control filter-select"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
@@ -172,8 +166,7 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
             </select>
 
             <select
-              className="form-control"
-              style={{ width: '140px' }}
+              className="form-control filter-select"
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
             >
@@ -185,8 +178,7 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
             </select>
 
             <select
-              className="form-control"
-              style={{ width: '140px' }}
+              className="form-control filter-select"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
             >
@@ -199,7 +191,13 @@ export const AgentDashboard = ({ onSelectTicket, onNavigateCreate }) => {
               <option value="Closed">Closed</option>
             </select>
 
-            <button onClick={fetchTickets} className="btn btn-secondary" title="Refresh">
+            <button
+              onClick={fetchTickets}
+              className="btn btn-secondary"
+              title="Refresh"
+              aria-label="Refresh tickets list"
+              style={{ minWidth: '40px' }}
+            >
               <RefreshCw size={14} />
             </button>
           </div>

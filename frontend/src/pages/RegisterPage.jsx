@@ -34,16 +34,8 @@ export const RegisterPage = ({ onNavigateLogin }) => {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '24px',
-      backgroundColor: 'var(--bg-primary)',
-      background: 'radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(11, 15, 25, 1) 70%)',
-    }}>
-      <div style={{ width: '100%', maxWidth: '480px' }}>
+    <div className="auth-page-container">
+      <div className="auth-card-wrap" style={{ maxWidth: '480px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div style={{
             width: '44px',
@@ -63,7 +55,7 @@ export const RegisterPage = ({ onNavigateLogin }) => {
           </p>
         </div>
 
-        <div className="card" style={{ padding: '32px' }}>
+        <div className="card auth-card">
           {error && (
             <div className="alert alert-error">
               <AlertCircle size={16} />
@@ -112,7 +104,7 @@ export const RegisterPage = ({ onNavigateLogin }) => {
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="grid-form-2col">
               <div className="form-group">
                 <label className="form-label">Role</label>
                 <select

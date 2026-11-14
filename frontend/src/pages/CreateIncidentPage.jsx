@@ -94,17 +94,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
           )}
 
           {/* AI Helper Banner */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '12px',
-            padding: '14px 18px',
-            backgroundColor: 'rgba(59, 130, 246, 0.08)',
-            border: '1px solid rgba(59, 130, 246, 0.25)',
-            borderRadius: 'var(--radius-sm)',
-            marginBottom: '24px',
-          }}>
+          <div className="ai-banner-responsive">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Sparkles size={20} color="#60a5fa" style={{ flexShrink: 0 }} />
               <div style={{ fontSize: '13px', color: '#93c5fd', lineHeight: 1.5 }}>
@@ -126,17 +116,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
 
           {/* AI Triage Suggestion Banner */}
           {triageSuggestion && (
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '12px 16px',
-              backgroundColor: 'rgba(16, 185, 129, 0.1)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
-              borderRadius: 'var(--radius-sm)',
-              marginBottom: '20px',
-              fontSize: '13px',
-            }}>
+            <div className="suggestion-banner-responsive">
               <div>
                 <span style={{ color: '#34d399', fontWeight: '600' }}>ML Prediction: </span>
                 <span>Category: <strong>{triageSuggestion.predicted_category}</strong> ({(triageSuggestion.category_confidence * 100).toFixed(0)}%) • Priority: <strong>{triageSuggestion.predicted_priority}</strong> ({(triageSuggestion.priority_confidence * 100).toFixed(0)}%)</span>
@@ -145,7 +125,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
                 type="button"
                 onClick={applySuggestion}
                 className="btn btn-primary"
-                style={{ fontSize: '11px', padding: '4px 10px', backgroundColor: '#10b981' }}
+                style={{ fontSize: '11px', padding: '4px 10px', backgroundColor: '#10b981', flexShrink: 0 }}
               >
                 Apply Suggestion
               </button>
@@ -167,7 +147,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="grid-form-2col">
               <div className="form-group">
                 <label className="form-label">Category</label>
                 <select
@@ -217,7 +197,7 @@ export const CreateIncidentPage = ({ onIncidentCreated, onCancel }) => {
               />
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '24px' }}>
+            <div className="card-actions-responsive" style={{ marginTop: '24px' }}>
               {onCancel && (
                 <button
                   type="button"

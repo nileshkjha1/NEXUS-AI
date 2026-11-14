@@ -67,11 +67,11 @@ export const TicketTable = ({ tickets, onSelectTicket }) => {
               onClick={() => onSelectTicket && onSelectTicket(t.id)}
               style={{ cursor: 'pointer' }}
             >
-              <td style={{ fontFamily: 'var(--font-mono)', fontWeight: '600', color: '#60a5fa' }}>
+              <td style={{ fontFamily: 'var(--font-mono)', fontWeight: '600', color: '#60a5fa', whiteSpace: 'nowrap' }}>
                 {t.ticket_number}
               </td>
-              <td>
-                <div style={{ fontWeight: '600', color: 'var(--text-main)', marginBottom: '2px' }}>
+              <td className="cell-wrap">
+                <div style={{ fontWeight: '600', color: 'var(--text-main)', marginBottom: '2px', wordBreak: 'break-word' }}>
                   {t.title}
                 </div>
                 <div style={{
@@ -80,7 +80,7 @@ export const TicketTable = ({ tickets, onSelectTicket }) => {
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                  maxWidth: '360px',
+                  maxWidth: '280px',
                 }}>
                   {t.description}
                 </div>

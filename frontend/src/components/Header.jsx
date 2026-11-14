@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Bell, Check, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Bell, Check, ExternalLink, Menu } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
 
 export const Header = ({ title, subtitle }) => {
-  const { user } = useAuth();
+  const { user, toggleSidebar } = useAuth();
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -49,40 +49,54 @@ export const Header = ({ title, subtitle }) => {
   };
 
   return (
-    <header className="top-header" style={{ position: 'relative' }}>
-      <div>
-        <h2 style={{ fontSize: '18px', fontWeight: '600', color: 'var(--text-main)' }}>
-          {title}
-        </h2>
-        {subtitle && (
-          <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-            {subtitle}
-          </p>
-        )}
+    <header className="top-header">
+      <div className="header-content-wrap">
+        <button
+          type="button"
+          className="hamburger-btn"
+          onClick={toggleSidebar}
+          aria-label="Toggle navigation drawer"
+          title="Open menu"
+        >
+          <Menu size={20} />
+        </button>
+
+        <div className="header-titles">
+          <h2 className="header-title-text">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="header-subtitle-text">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div className="header-right-actions">
         {/* System Status Indicator */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          padding: '4px 10px',
+          padding: '5px 10px',
           borderRadius: '9999px',
           backgroundColor: 'rgba(16, 185, 129, 0.1)',
           border: '1px solid rgba(16, 185, 129, 0.25)',
           fontSize: '12px',
           color: '#34d399',
           fontWeight: '500',
-        }}>
+          whiteSpace: 'nowrap',
+        }} title="Backend API Connected">
           <span style={{
             width: '7px',
             height: '7px',
             borderRadius: '50%',
             backgroundColor: '#10b981',
             boxShadow: '0 0 6px #10b981',
+            flexShrink: 0,
           }} />
-          <span>API Connected</span>
+          <span className="header-status-text">API Connected</span>
         </div>
 
         {/* Notifications Bell Button */}
@@ -90,6 +104,7 @@ export const Header = ({ title, subtitle }) => {
           <button
             onClick={() => setShowDropdown(!showDropdown)}
             title="Notifications"
+            aria-label="View notifications"
             style={{
               position: 'relative',
               background: 'var(--bg-card)',
@@ -101,6 +116,8 @@ export const Header = ({ title, subtitle }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              minWidth: '36px',
+              minHeight: '36px',
             }}
           >
             <Bell size={16} />
@@ -125,18 +142,7 @@ export const Header = ({ title, subtitle }) => {
 
           {/* Notifications Dropdown */}
           {showDropdown && (
-            <div style={{
-              position: 'absolute',
-              right: 0,
-              top: '40px',
-              width: '320px',
-              backgroundColor: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 'var(--radius-md)',
-              boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
-              zIndex: 1000,
-              overflow: 'hidden',
-            }}>
+            <div className="notifications-dropdown">
               <div style={{
                 display: 'flex',
                 alignItems: 'center',

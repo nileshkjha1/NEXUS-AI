@@ -189,12 +189,12 @@ export const IncidentDetailPage = ({ ticketId, onBack }) => {
           )}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
+        <div className="grid-detail-layout">
           {/* Main Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', minWidth: 0 }}>
             {/* Incident Details Card */}
             <div className="card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', fontSize: '15px', color: '#60a5fa' }}>
                   {ticket.ticket_number}
                 </span>
@@ -211,7 +211,7 @@ export const IncidentDetailPage = ({ ticketId, onBack }) => {
                 </span>
               </div>
 
-              <h2 style={{ fontSize: '20px', marginBottom: '12px' }}>{ticket.title}</h2>
+              <h2 style={{ fontSize: 'clamp(17px, 3vw, 20px)', marginBottom: '12px', wordBreak: 'break-word' }}>{ticket.title}</h2>
               <div style={{
                 fontSize: '14px',
                 color: 'var(--text-main)',
@@ -352,7 +352,7 @@ export const IncidentDetailPage = ({ ticketId, onBack }) => {
                   />
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
                   {(isAgent || isAdmin) ? (
                     <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--text-muted)', cursor: 'pointer' }}>
                       <input
@@ -368,7 +368,7 @@ export const IncidentDetailPage = ({ ticketId, onBack }) => {
                     type="submit"
                     disabled={submittingComment || !commentText.trim()}
                     className="btn btn-primary"
-                    style={{ padding: '8px 16px', fontSize: '13px' }}
+                    style={{ padding: '8px 16px', fontSize: '13px', marginLeft: 'auto' }}
                   >
                     {submittingComment ? (
                       <div className="spinner" style={{ width: '14px', height: '14px', borderWidth: '2px' }} />
@@ -401,6 +401,8 @@ export const IncidentDetailPage = ({ ticketId, onBack }) => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
+                        flexWrap: 'wrap',
+                        gap: '6px',
                         padding: '8px 12px',
                         backgroundColor: 'rgba(11, 15, 25, 0.4)',
                         borderRadius: 'var(--radius-sm)',
