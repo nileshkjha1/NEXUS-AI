@@ -82,7 +82,7 @@ flowchart TD
 - [1. Problem Statement & Solution](#1-problem-statement--solution)
 - [2. End-to-End Workflow](#2-end-to-end-workflow)
 - [2. End-to-End Workflow](#end-to-end-workflow)
-- [3. System Architecture](#2-system-architecture)
+- [3. System Architecture](#3-system-architecture)
 - [3. Key Platform Capabilities](#3-key-platform-capabilities)
 - [4. Database Design (Entity-Relationship)](#4-database-design-entity-relationship)
 - [5. Machine Learning Pipeline & Real Evaluation Metrics](#5-machine-learning-pipeline--real-evaluation-metrics)
@@ -135,27 +135,53 @@ The AI assistant is a decision-support feature: recommendations do not independe
 
 ```mermaid
 flowchart TB
-    U["User's browser"] --> V["React 18 + Vite frontend"]
-    V -->|HTTPS API requests| F["FastAPI application"]
-    F --> AUTH["JWT authentication and RBAC"]
-    F --> INC["Incident and workflow services"]
-    F --> ML["ML triage service"]
-    F --> RAG["AI / RAG resolution assistant"]
-    F --> SLA["SLA and analytics services"]
-    F --> AUD["Notifications and audit services"]
-    INC <--> DB[("PostgreSQL database")]
+    USER["User's browser"] --> FRONTEND
+
+    subgraph VERCEL["Frontend hosting — Vercel"]
+        FRONTEND["React 18 + Vite application"]
+    end
+
+    FRONTEND -->|"HTTPS API requests"| API
+
+    subgraph RENDER_API["Backend hosting — Render"]
+        API["FastAPI application"]
+        AUTH["JWT authentication + RBAC authorization"]
+        ROUTES["API routes and request validation"]
+        INC["Incident and workflow services"]
+        ML["ML triage service"]
+        RAG["AI / RAG resolution assistant"]
+        SLA["SLA and analytics services"]
+        AUD["Notifications and audit services"]
+
+        API --> AUTH
+        AUTH --> ROUTES
+        ROUTES --> INC
+        ROUTES --> ML
+        ROUTES --> RAG
+        ROUTES --> SLA
+        ROUTES --> AUD
+    end
+
+    subgraph RENDER_DB["Database hosting — Render"]
+        DB[("PostgreSQL database")]
+    end
+
+    INC <--> DB
     SLA <--> DB
     AUD <--> DB
-    ML <--> MODEL[("Joblib model artifacts")]
-    RAG <--> FAISS[("FAISS vector index")]
     RAG <--> DB
-    subgraph Cloud["Current hosted deployment"]
-      V
-      F
-      DB
-    end
-    subgraph Local["Optional local / Docker deployment"]
-      N["Nginx reverse proxy"]
+
+    ML <--> MODEL[("Joblib ML model artifacts")]
+    RAG <--> FAISS[("FAISS vector index")]
+
+    subgraph LOCAL["Optional local / Docker deployment"]
+        NGINX["Nginx reverse proxy"]
+        DOCKER_FRONTEND["Frontend container"]
+        DOCKER_API["FastAPI container"]
+        DOCKER_DB[("Local PostgreSQL container")]
+        NGINX --> DOCKER_FRONTEND
+        NGINX --> DOCKER_API
+        DOCKER_API <--> DOCKER_DB
     end
 ```
 
@@ -610,3 +636,4 @@ Contributions and suggestions are welcome.
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
