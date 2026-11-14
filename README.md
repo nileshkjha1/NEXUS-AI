@@ -1,22 +1,88 @@
-# NEXUS AI — Enterprise AI-Powered IT Service Management & Automated Incident Resolution Platform
+# NEXUS AI
+### AI-Powered IT Service Management & Intelligent Incident Resolution
 
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
-[![CI](https://img.shields.io/badge/GitHub_Actions-CI_Passing-2088FF?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+<p align="center">
+  <strong>Turn IT incidents into actionable, trackable, AI-assisted resolutions.</strong>
+</p>
 
-> **NEXUS AI** is an enterprise-grade IT Service Management (ITSM) and automated incident resolution platform. It combines classical machine learning classification, dense vector semantic search (FAISS), Retrieval-Augmented Generation (RAG), and real-time SLA tracking into a unified, human-governed enterprise portal.
+<p align="center">
+  <a href="https://nexus-ai-khaki-kappa.vercel.app"><strong>Live Application</strong></a> ·
+  <a href="https://nexus-ai-backend-ze3p.onrender.com/docs"><strong>API Documentation</strong></a> ·
+  <a href="https://github.com/nileshkjha1/NEXUS-AI"><strong>GitHub Repository</strong></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.12">
+  <img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite" alt="Vite">
+  <img src="https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat-square&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="MIT License">
+</p>
+
+NEXUS AI is a full-stack **IT Service Management (ITSM)** platform for submitting, classifying, assigning, investigating, and resolving IT incidents. It combines a React frontend, FastAPI backend, PostgreSQL persistence, machine-learning-based triage, semantic knowledge retrieval, and an AI-assisted resolution workflow with human approval.
+
+> **Live demo:** The frontend and backend are deployed separately. The first request to the Render free web service may take longer after a period of inactivity.
+
+## Live Deployment
+
+| Component | Link | Hosting |
+|---|---|---|
+| Web application | [https://nexus-ai-khaki-kappa.vercel.app](https://nexus-ai-khaki-kappa.vercel.app) | Vercel |
+| Backend API | [https://nexus-ai-backend-ze3p.onrender.com](https://nexus-ai-backend-ze3p.onrender.com) | Render |
+| Interactive API documentation | [https://nexus-ai-backend-ze3p.onrender.com/docs](https://nexus-ai-backend-ze3p.onrender.com/docs) | Render |
+| Source code | [GitHub repository](https://github.com/nileshkjha1/NEXUS-AI) | GitHub |
+
+## At a Glance
+
+- **Three role types:** Employee, IT Support Agent, and Administrator.
+- **Incident lifecycle:** Submit, classify, assign, investigate, resolve, and review.
+- **ML-assisted triage:** Predicts incident category and priority from the incident description.
+- **Knowledge retrieval:** Uses FAISS similarity search to retrieve relevant SOPs and related incident knowledge.
+- **Human oversight:** AI-generated resolution suggestions remain subject to agent review.
+- **Operational visibility:** SLA status, incident analytics, MTTR, notifications, and audit history.
+
+## Core Incident Workflow
+
+The following illustrates the intended end-to-end workflow supported by the platform:
+
+```mermaid
+flowchart TD
+    A["Employee submits an incident"] --> B["Backend validates request"]
+    B --> C["ML model predicts category and priority"]
+    C --> D["Incident is stored and SLA is calculated"]
+    D --> E["Agent reviews and takes ownership"]
+    E --> F["AI assistant retrieves relevant SOPs and similar incidents"]
+    F --> G["Resolution recommendation is prepared"]
+    G --> HAgent review
+    H -->|Approve / use recommendation| I["Agent applies resolution"]
+    H -->|Reject / revise| J["Agent investigates or edits recommendation"]
+    J --> E
+    I --> K["Incident status and history are updated"]
+    K --> L["Analytics, SLA metrics and audit trail are updated"]
+```
+
+## Application Links & Environments
+
+| Environment | Component | URL |
+|---|---|---|
+| Production | Frontend | [https://nexus-ai-khaki-kappa.vercel.app](https://nexus-ai-khaki-kappa.vercel.app) |
+| Production | Backend API | [https://nexus-ai-backend-ze3p.onrender.com](https://nexus-ai-backend-ze3p.onrender.com) |
+| Production | Swagger / OpenAPI UI | [https://nexus-ai-backend-ze3p.onrender.com/docs](https://nexus-ai-backend-ze3p.onrender.com/docs) |
+| Local development | Vite frontend | `http://localhost:5173` |
+| Local development | FastAPI backend | `http://127.0.0.1:8000` |
+| Local development | API documentation | `http://127.0.0.1:8000/docs` |
+| Local Docker | Unified application | `http://localhost` |
 
 ---
 
 ## Table of Contents
 
 - [1. Problem Statement & Solution](#1-problem-statement--solution)
-- [2. System Architecture](#2-system-architecture)
+- [2. End-to-End Workflow](#2-end-to-end-workflow)
+- [2. End-to-End Workflow](#end-to-end-workflow)
+- [3. System Architecture](#2-system-architecture)
 - [3. Key Platform Capabilities](#3-key-platform-capabilities)
 - [4. Database Design (Entity-Relationship)](#4-database-design-entity-relationship)
 - [5. Machine Learning Pipeline & Real Evaluation Metrics](#5-machine-learning-pipeline--real-evaluation-metrics)
@@ -51,55 +117,46 @@ NEXUS AI introduces an end-to-end, multi-stage automated workflow:
 
 ---
 
+## End-to-End Workflow
+
+1. **Incident submission:** An employee signs in and submits an incident with a title and description.
+2. **Automated triage:** The backend runs the configured ML pipeline to predict a category and priority.
+3. **Persistence and SLA tracking:** The incident is stored in the relational database and its SLA target is calculated from its priority.
+4. **Assignment and investigation:** An authorized agent reviews the incident and takes or receives ownership.
+5. **Knowledge retrieval:** The AI resolution workflow searches relevant SOP content and similar historical incidents.
+6. **Recommendation review:** The platform presents a structured recommendation and its supporting sources. The agent can review, revise, approve, or reject it.
+7. **Resolution and governance:** The incident is updated through the normal workflow. Changes are recorded in ticket history/audit data and reflected in analytics.
+
+The AI assistant is a decision-support feature: recommendations do not independently execute infrastructure changes or replace the authorized agent's review.
+
+---
+
 ## 2. System Architecture
 
 ```mermaid
-flowchart TD
-    subgraph PresentationTier["Presentation Tier (Client)"]
-        Browser["Modern Web Browser"]
-        SPA["React 18 + Vite SPA (Inter Typography & Lucide Icons)"]
-        Browser --> SPA
+flowchart TB
+    U["User's browser"] --> V["React 18 + Vite frontend"]
+    V -->|HTTPS API requests| F["FastAPI application"]
+    F --> AUTH["JWT authentication and RBAC"]
+    F --> INC["Incident and workflow services"]
+    F --> ML["ML triage service"]
+    F --> RAG["AI / RAG resolution assistant"]
+    F --> SLA["SLA and analytics services"]
+    F --> AUD["Notifications and audit services"]
+    INC <--> DB[("PostgreSQL database")]
+    SLA <--> DB
+    AUD <--> DB
+    ML <--> MODEL[("Joblib model artifacts")]
+    RAG <--> FAISS[("FAISS vector index")]
+    RAG <--> DB
+    subgraph Cloud["Current hosted deployment"]
+      V
+      F
+      DB
     end
-
-    subgraph IngressTier["Ingress & Proxy Tier"]
-        Nginx["Nginx Alpine Reverse Proxy (:80)"]
-        SPA -->|Static Bundle & API Requests| Nginx
+    subgraph Local["Optional local / Docker deployment"]
+      N["Nginx reverse proxy"]
     end
-
-    subgraph AppTier["Application Tier (FastAPI :8000)"]
-        Router["FastAPI Core Routing & Middleware"]
-        AuthModule["JWT Security & Bcrypt Authentication"]
-        TicketModule["Incident Management & Workflow Engine"]
-        MLModule["Machine Learning Triage Engine"]
-        RAGModule["AI & RAG Resolution Assistant"]
-        SLAModule["Real-Time SLA & Compliance Engine"]
-        NotifModule["Notification & SMTP Dispatcher"]
-        AuditModule["Immutable Governance Audit Trail"]
-
-        Router --> AuthModule
-        Router --> TicketModule
-        Router --> MLModule
-        Router --> RAGModule
-        Router --> SLAModule
-        Router --> NotifModule
-        Router --> AuditModule
-    end
-
-    Nginx -->|/api/v1/*| Router
-
-    subgraph DataTier["Data & Vector Persistence Tier"]
-        DB[("PostgreSQL 16 / SQLite Engine")]
-        VectorDB[("FAISS Dense Vector Index")]
-        MLModels[("Persisted Joblib Model Artifacts")]
-    end
-
-    TicketModule <--> DB
-    AuditModule <--> DB
-    NotifModule <--> DB
-    SLAModule <--> DB
-    MLModule <--> MLModels
-    RAGModule <--> VectorDB
-    RAGModule <--> DB
 ```
 
 ---
@@ -281,6 +338,26 @@ NEXUS AI does not rely on synthetic claims or fabricated accuracy figures. The m
 
 ---
 
+## Project Structure
+
+The repository is organized into separate frontend and backend applications, alongside deployment configuration, documentation, tests, and ML assets. The exact contents may evolve as the project is maintained.
+
+```text
+NEXUS-AI/
+├── backend/              # FastAPI application, API routes and services
+├── frontend/             # React + Vite user interface
+├── data/                 # ML input data and processed artifacts
+├── docs/                 # Project and API documentation
+├── tests/                # Automated backend tests
+├── .github/workflows/    # GitHub Actions CI workflows
+├── docker-compose.yml    # Local multi-service orchestration
+├── render.yaml           # Render deployment blueprint
+├── README.md
+└── LICENSE
+```
+
+---
+
 ## 7. Technology Stack
 
 | Layer | Technologies Used | Purpose |
@@ -305,9 +382,9 @@ NEXUS AI does not rely on synthetic claims or fabricated accuracy figures. The m
 | **Local Development** | FastAPI Backend API | `http://127.0.0.1:8000` | Local API server running via Uvicorn |
 | **Local Development** | Interactive API Docs | `http://127.0.0.1:8000/docs` | Swagger UI documentation |
 | **Local Docker** | Unified Nginx Entrypoint | `http://localhost` | Single port 80 container reverse proxy |
-| **Production Cloud** | Deployed Web App | `https://<your-nexus-frontend>.vercel.app` | Hosted on Vercel |
-| **Production Cloud** | Deployed Backend API | `https://<your-render-backend-name>.onrender.com` | Hosted on Render |
-| **Production Cloud** | Production API Docs | `https://<your-render-backend-name>.onrender.com/docs` | Public Swagger documentation |
+| **Production Cloud** | Deployed Web App | `https://nexus-ai-khaki-kappa.vercel.app` | Hosted on Vercel |
+| **Production Cloud** | Deployed Backend API | `https://nexus-ai-backend-ze3p.onrender.com` | Hosted on Render |
+| **Production Cloud** | Production API Docs | `https://nexus-ai-backend-ze3p.onrender.com/docs` | Public Swagger documentation |
 
 ---
 
@@ -318,7 +395,7 @@ Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is runn
 ```powershell
 # Clone the repository
 git clone https://github.com/nileshkjha1/NEXUS-AI.git
-cd nexus-ai
+cd NEXUS-AI
 
 # Build and start all 3 services (PostgreSQL, FastAPI Backend, React/Nginx Frontend)
 docker compose up -d --build
@@ -364,7 +441,7 @@ npm run dev
 
 ## 9. Public Cloud Deployment Guide (Vercel + Render + PostgreSQL)
 
-NEXUS AI is prepared for zero-cost, production cloud deployment using **Render** for the Python backend & PostgreSQL database, and **Vercel** for the React frontend SPA.
+NEXUS AI is currently deployed with **Render** hosting the Python backend and PostgreSQL database, and **Vercel** hosting the React frontend. The live URLs are listed at the top of this README. The steps below document how to reproduce the deployment.
 
 ### Step 1: Deploy PostgreSQL Database on Render
 1. Log in to [Render](https://dashboard.render.com/) and click **New +** -> **PostgreSQL**.
@@ -375,7 +452,7 @@ NEXUS AI is prepared for zero-cost, production cloud deployment using **Render**
 ### Step 2: Deploy FastAPI Backend on Render
 1. In Render, click **New +** -> **Web Service** and connect your GitHub repository (`nileshkjha1/NEXUS-AI`).
 2. Configure settings:
-   - **Name**: `nexus-ai-backend` (your URL will be `https://<your-render-backend-name>.onrender.com`)
+   - **Name**: `nexus-ai-backend` (your URL will be `https://nexus-ai-backend-ze3p.onrender.com`)
    - **Region**: Oregon (or matching your database)
    - **Branch**: `main`
    - **Root Directory**: leave blank (repository root)
@@ -388,7 +465,7 @@ NEXUS AI is prepared for zero-cost, production cloud deployment using **Render**
    - `DATABASE_URL`: *(paste the connection string from Step 1)*
    - `SECRET_KEY`: *(enter a random 32+ character string)*
    - `JWT_SECRET_KEY`: *(enter a random 32+ character string)*
-   - `ALLOWED_ORIGINS`: `http://localhost:5173,https://<your-nexus-frontend>.vercel.app` *(update with your Vercel URL in Step 4)*
+   - `ALLOWED_ORIGINS`: `http://localhost:5173,https://nexus-ai-khaki-kappa.vercel.app` *(use the deployed frontend URL `https://nexus-ai-khaki-kappa.vercel.app`)*
    - `LLM_PROVIDER`: `fallback` *(or `gemini` if providing `GEMINI_API_KEY`)*
 4. Click **Deploy Web Service**.
    > *Note: Database schema creation and initial demo accounts (`admin@nexusai.com`, etc.) are automatically seeded on first launch!*
@@ -402,16 +479,16 @@ NEXUS AI is prepared for zero-cost, production cloud deployment using **Render**
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
 4. Expand **Environment Variables** and add:
-   - `VITE_API_BASE_URL`: `https://<your-render-backend-name>.onrender.com` *(use your actual Render backend URL from Step 2, no trailing slash)*
-5. Click **Deploy**. Vercel will build and assign your production domain: `https://<your-nexus-frontend>.vercel.app`.
+   - `VITE_API_BASE_URL`: `https://nexus-ai-backend-ze3p.onrender.com` *(use `https://nexus-ai-backend-ze3p.onrender.com` (without a trailing slash))*
+5. Click **Deploy**. Vercel will build and assign your production domain: `https://nexus-ai-khaki-kappa.vercel.app`.
 
 ### Step 4: Finalize CORS Link
 1. Go back to Render -> `nexus-ai-backend` -> **Environment**.
-2. Update `ALLOWED_ORIGINS` to include your exact Vercel production domain:
+2. Ensure `ALLOWED_ORIGINS` includes your deployed Vercel frontend domain:
    ```
-   https://<your-nexus-frontend>.vercel.app,http://localhost:5173
+   https://nexus-ai-khaki-kappa.vercel.app,http://localhost:5173
    ```
-3. Save changes. Your enterprise ITSM platform is now publicly accessible worldwide!
+3. Save changes. The deployed application is available at `https://nexus-ai-khaki-kappa.vercel.app` and its backend API is at `https://nexus-ai-backend-ze3p.onrender.com`.
 
 ---
 
@@ -421,16 +498,18 @@ The database seeder automatically creates 3 testing accounts:
 
 | Role | Email Address | Password | Permissions |
 |---|---|---|---|
-| **Administrator** | `admin@nexusai.com` | `Admin@123456` | Full system control, user management, audit trail, global settings |
-| **IT Support Agent** | `agent@nexusai.com` | `Agent@123456` | Ticket triage, AI review, status updates, SLA reports |
-| **Employee** | `employee@nexusai.com` | `Employee@123456` | Create incidents, view personal tickets, add public comments |
+| **Administrator** | `admin@nexusai.com` | Use the in-app demo account option, if enabled | Full system control, user management, audit trail, global settings |
+| **IT Support Agent** | `agent@nexusai.com` | Use the in-app demo account option, if enabled | Ticket triage, AI review, status updates, SLA reports |
+| **Employee** | `employee@nexusai.com` | Use the in-app demo account option, if enabled | Create incidents, view personal tickets, add public comments |
+
+> **Security:** Do not use seeded demo accounts for real data. Change or disable demo credentials before using the application with non-demo users. Never commit passwords, API keys, database URLs, JWT secrets, or `.env` files to GitHub.
 
 ---
 
 ## 11. REST API Specification Summary
 
-> **Base URL**: `http://localhost:8000/api/v1` *(Local Development)* | `https://<your-render-backend-name>.onrender.com/api/v1` *(Production Cloud)*  
-> **Interactive Docs**: `http://localhost:8000/docs` *(Local)* | `https://<your-render-backend-name>.onrender.com/docs` *(Production)*
+> **Base URL**: `http://localhost:8000/api/v1` *(Local Development)* | `https://nexus-ai-backend-ze3p.onrender.com/api/v1` *(Production Cloud)*  
+> **Interactive Docs**: `http://localhost:8000/docs` *(Local)* | `https://nexus-ai-backend-ze3p.onrender.com/docs` *(Production)*
 
 | Domain | Method | Endpoint | Description | Access |
 |---|---|---|---|---|
@@ -457,7 +536,7 @@ The database seeder automatically creates 3 testing accounts:
 
 ## 12. Technical Decisions & Trade-Offs
 
-Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](file:///TECHNICAL_DECISIONS.md):
+Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](TECHNICAL_DECISIONS.md):
 - **TD-005: Dual-Dialect Support**: Allows developers to run tests on in-memory SQLite instantly without Docker, while seamlessly running PostgreSQL 16 in production.
 - **TD-006: Direct Bcrypt + PyJWT**: Avoided unmaintained wrapper libraries like `passlib` to ensure full Python 3.12 compatibility.
 - **TD-010: TF-IDF + Balanced Logistic Regression vs. Deep Learning**: Sub-10ms inference latency, zero GPU memory requirements, and explainable feature importances outperforming complex deep learning models for short incident descriptions.
@@ -486,7 +565,48 @@ Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](file
 
 ---
 
+## Security & Configuration
+
+- Keep secrets in local environment files or hosting-provider environment settings.
+- Keep `.env`, database dumps, private keys, and credentials out of version control.
+- Configure production CORS with the exact frontend origin.
+- Use strong, unique production secrets and rotate any credentials that may have been exposed.
+- Treat the public demo as a demonstration environment; do not enter confidential or personal data.
+
+## Development & Quality Checks
+
+Before submitting changes, run the relevant checks for the part of the application you modified.
+
+```bash
+# Backend tests (run from the repository root, if pytest is installed)
+pytest
+
+# Frontend production build
+cd frontend
+npm install
+npm run build
+```
+
+The repository's CI workflow should also be checked on GitHub after pushing changes. Report only test results that were actually run for the commit being reviewed.
+
+## Contributing
+
+Contributions and suggestions are welcome.
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/your-change`.
+3. Make focused changes and add or update tests where appropriate.
+4. Run the relevant checks locally.
+5. Open a pull request describing the change and its verification.
+
+## Known Deployment Considerations
+
+- The Render free web service may spin down after inactivity, so its first request after an idle period can be slower.
+- Free database plans can have storage, availability, and expiry limitations. Back up important database data independently of the source-code repository.
+- A successful hosting deployment confirms that the service built and started; it does not by itself prove every workflow has been tested. Verify login, incident creation, assignment, AI recommendations, and persistence after deployment.
+
+---
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
