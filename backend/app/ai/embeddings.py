@@ -1,4 +1,5 @@
 import re
+import hashlib
 import numpy as np
 import faiss
 from typing import List, Union
@@ -23,10 +24,10 @@ class DenseEmbeddingEncoder:
 
     def _tokenize(self, text: str) -> List[str]:
         text = text.lower()
-        tokens = re.findall(r"\b[a-z0-9_]{2,}\b", text)
-        # Add character tri-grams for subword matching
-        trigrams = [text[i:i + 3] for i in range(len(text) - 2)]
-        return tokens + trigrams
+        words = re.findall(r"\b[a-z0-9_]{2,}\b", text)
+        # Add character tri-grams within words only (avoiding whitespace noise)
+        subwords = [w[i:i + 3] for w in words if len(w) >= 3 for i in range(len(w) - 2)]
+        return words + subwords
 
     def encode(self, texts: Union[str, List[str]]) -> np.ndarray:
         """
@@ -41,8 +42,8 @@ class DenseEmbeddingEncoder:
             bow = np.zeros(1024, dtype=np.float32)
 
             for token in tokens:
-                # Hash token into 1024-bucket space
-                h = hash(token) % 1024
+                # Deterministic hash token into 1024-bucket space (process-independent)
+                h = int.from_bytes(hashlib.md5(token.encode("utf-8")).digest()[:4], "little") % 1024
                 bow[h] += 1.0
 
             # Sublinear term frequency

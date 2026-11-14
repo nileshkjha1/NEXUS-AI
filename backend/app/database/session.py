@@ -3,13 +3,18 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from app.config import settings
 
+# Normalize Render / Heroku postgres:// URLs to SQLAlchemy-compliant postgresql://
+database_url = settings.DATABASE_URL
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+
 # SQLite needs check_same_thread=False; PostgreSQL doesn't use it
 connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
+if database_url.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
 
 engine = create_engine(
-    settings.DATABASE_URL,
+    database_url,
     connect_args=connect_args,
     pool_pre_ping=True,
 )

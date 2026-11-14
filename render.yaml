@@ -1,0 +1,46 @@
+# ==============================================================================
+# NEXUS AI — Render Deployment Blueprint
+# Deploys:
+#   1. nexus-ai-backend: FastAPI Python 3.12 Web Service
+#   2. nexus-ai-db: Managed PostgreSQL 16 Database
+# ==============================================================================
+
+services:
+  - type: web
+    name: nexus-ai-backend
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nexus-ai-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: "http://localhost:5173,http://127.0.0.1:5173,https://<your-nexus-frontend>.vercel.app"
+      - key: LLM_PROVIDER
+        value: fallback
+      - key: EMAILS_ENABLED
+        value: "False"
+
+databases:
+  - name: nexus-ai-db
+    databaseName: nexus_db
+    user: nexus
+    region: oregon
+    plan: free

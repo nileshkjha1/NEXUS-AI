@@ -22,13 +22,14 @@
 - [5. Machine Learning Pipeline & Real Evaluation Metrics](#5-machine-learning-pipeline--real-evaluation-metrics)
 - [6. AI Resolution Assistant & Vector RAG Pipeline](#6-ai-resolution-assistant--vector-rag-pipeline)
 - [7. Technology Stack](#7-technology-stack)
-- [8. Quickstart Guide](#8-quickstart-guide)
+- [8. Quickstart Guide (Local Development)](#8-quickstart-guide-local-development)
   - [Option A: Docker Compose (1-Command Launch)](#option-a-docker-compose-1-command-launch)
   - [Option B: Local Setup (Windows PowerShell)](#option-b-local-setup-windows-powershell)
-- [9. Seeded Default Accounts](#9-seeded-default-accounts)
-- [10. REST API Specification Summary](#10-rest-api-specification-summary)
-- [11. Technical Decisions & Trade-Offs](#11-technical-decisions--trade-offs)
-- [12. Interview Preparation & Resume Highlights](#12-interview-preparation--resume-highlights)
+- [9. Public Cloud Deployment Guide (Vercel + Render + PostgreSQL)](#9-public-cloud-deployment-guide-vercel--render--postgresql)
+- [10. Seeded Default Accounts](#10-seeded-default-accounts)
+- [11. REST API Specification Summary](#11-rest-api-specification-summary)
+- [12. Technical Decisions & Trade-Offs](#12-technical-decisions--trade-offs)
+- [13. Interview Preparation & Resume Highlights](#13-interview-preparation--resume-highlights)
 
 ---
 
@@ -294,7 +295,21 @@ NEXUS AI does not rely on synthetic claims or fabricated accuracy figures. The m
 
 ---
 
-## 8. Quickstart Guide
+## 8. Quickstart Guide (Local Development)
+
+### Local Development vs. Production Deployment URLs
+
+| Environment | Component | URL | Note |
+|---|---|---|---|
+| **Local Development** | React Frontend (Vite) | `http://localhost:5173` | Proxies `/api` to local FastAPI backend |
+| **Local Development** | FastAPI Backend API | `http://127.0.0.1:8000` | Local API server running via Uvicorn |
+| **Local Development** | Interactive API Docs | `http://127.0.0.1:8000/docs` | Swagger UI documentation |
+| **Local Docker** | Unified Nginx Entrypoint | `http://localhost` | Single port 80 container reverse proxy |
+| **Production Cloud** | Deployed Web App | `https://<your-nexus-frontend>.vercel.app` | Hosted on Vercel |
+| **Production Cloud** | Deployed Backend API | `https://<your-render-backend-name>.onrender.com` | Hosted on Render |
+| **Production Cloud** | Production API Docs | `https://<your-render-backend-name>.onrender.com/docs` | Public Swagger documentation |
+
+---
 
 ### Option A: Docker Compose (1-Command Launch)
 
@@ -302,16 +317,16 @@ Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is runn
 
 ```powershell
 # Clone the repository
-git clone https://github.com/your-username/nexus-ai.git
+git clone https://github.com/nileshkjha1/NEXUS-AI.git
 cd nexus-ai
 
 # Build and start all 3 services (PostgreSQL, FastAPI Backend, React/Nginx Frontend)
 docker compose up -d --build
 ```
 
-- **Frontend Application**: [http://localhost](http://localhost)
-- **Interactive Swagger API Docs**: [http://localhost/docs](http://localhost/docs)
-- **Backend Health Check**: [http://localhost/health](http://localhost/health)
+- **Frontend Application**: `http://localhost`
+- **Interactive Swagger API Docs**: `http://localhost/docs`
+- **Backend Health Check**: `http://localhost/health`
 
 ---
 
@@ -342,12 +357,65 @@ npm install
 npm run dev
 ```
 
-- **Frontend URL**: [http://localhost:5173](http://localhost:5173)
-- **Backend API**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- **Frontend URL**: `http://localhost:5173`
+- **Backend API**: `http://127.0.0.1:8000`
 
 ---
 
-## 9. Seeded Default Accounts
+## 9. Public Cloud Deployment Guide (Vercel + Render + PostgreSQL)
+
+NEXUS AI is prepared for zero-cost, production cloud deployment using **Render** for the Python backend & PostgreSQL database, and **Vercel** for the React frontend SPA.
+
+### Step 1: Deploy PostgreSQL Database on Render
+1. Log in to [Render](https://dashboard.render.com/) and click **New +** -> **PostgreSQL**.
+2. Set **Name** to `nexus-ai-db` and **Database** to `nexus_db`.
+3. Select the **Free** tier and click **Create Database**.
+4. Once created, copy the **Internal Database URL** (for Render web service) or **External Database URL**.
+
+### Step 2: Deploy FastAPI Backend on Render
+1. In Render, click **New +** -> **Web Service** and connect your GitHub repository (`nileshkjha1/NEXUS-AI`).
+2. Configure settings:
+   - **Name**: `nexus-ai-backend` (your URL will be `https://<your-render-backend-name>.onrender.com`)
+   - **Region**: Oregon (or matching your database)
+   - **Branch**: `main`
+   - **Root Directory**: leave blank (repository root)
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r backend/requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
+3. Under **Environment Variables**, add:
+   - `APP_ENV`: `production`
+   - `DEBUG`: `False`
+   - `DATABASE_URL`: *(paste the connection string from Step 1)*
+   - `SECRET_KEY`: *(enter a random 32+ character string)*
+   - `JWT_SECRET_KEY`: *(enter a random 32+ character string)*
+   - `ALLOWED_ORIGINS`: `http://localhost:5173,https://<your-nexus-frontend>.vercel.app` *(update with your Vercel URL in Step 4)*
+   - `LLM_PROVIDER`: `fallback` *(or `gemini` if providing `GEMINI_API_KEY`)*
+4. Click **Deploy Web Service**.
+   > *Note: Database schema creation and initial demo accounts (`admin@nexusai.com`, etc.) are automatically seeded on first launch!*
+
+### Step 3: Deploy React Frontend on Vercel
+1. Log in to [Vercel](https://vercel.com/) and click **Add New...** -> **Project**.
+2. Import your GitHub repository (`nileshkjha1/NEXUS-AI`).
+3. In project setup:
+   - **Root Directory**: Click edit and select `frontend`.
+   - **Framework Preset**: `Vite` (detected automatically).
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Expand **Environment Variables** and add:
+   - `VITE_API_BASE_URL`: `https://<your-render-backend-name>.onrender.com` *(use your actual Render backend URL from Step 2, no trailing slash)*
+5. Click **Deploy**. Vercel will build and assign your production domain: `https://<your-nexus-frontend>.vercel.app`.
+
+### Step 4: Finalize CORS Link
+1. Go back to Render -> `nexus-ai-backend` -> **Environment**.
+2. Update `ALLOWED_ORIGINS` to include your exact Vercel production domain:
+   ```
+   https://<your-nexus-frontend>.vercel.app,http://localhost:5173
+   ```
+3. Save changes. Your enterprise ITSM platform is now publicly accessible worldwide!
+
+---
+
+## 10. Seeded Default Accounts
 
 The database seeder automatically creates 3 testing accounts:
 
@@ -359,7 +427,10 @@ The database seeder automatically creates 3 testing accounts:
 
 ---
 
-## 10. REST API Specification Summary
+## 11. REST API Specification Summary
+
+> **Base URL**: `http://localhost:8000/api/v1` *(Local Development)* | `https://<your-render-backend-name>.onrender.com/api/v1` *(Production Cloud)*  
+> **Interactive Docs**: `http://localhost:8000/docs` *(Local)* | `https://<your-render-backend-name>.onrender.com/docs` *(Production)*
 
 | Domain | Method | Endpoint | Description | Access |
 |---|---|---|---|---|
@@ -384,7 +455,7 @@ The database seeder automatically creates 3 testing accounts:
 
 ---
 
-## 11. Technical Decisions & Trade-Offs
+## 12. Technical Decisions & Trade-Offs
 
 Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](file:///TECHNICAL_DECISIONS.md):
 - **TD-005: Dual-Dialect Support**: Allows developers to run tests on in-memory SQLite instantly without Docker, while seamlessly running PostgreSQL 16 in production.
@@ -396,7 +467,7 @@ Detailed technical justifications are tracked in [`TECHNICAL_DECISIONS.md`](file
 
 ---
 
-## 12. Interview Preparation & Resume Highlights
+## 13. Interview Preparation & Resume Highlights
 
 ### Resume Bullet Points
 - **Architected and built NEXUS AI**, an enterprise IT Service Management platform with Python 3.12, FastAPI, PostgreSQL, FAISS, and React, reducing incident triage time by automating category and priority assignment.

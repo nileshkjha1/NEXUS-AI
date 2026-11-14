@@ -33,7 +33,7 @@ class RAGEngine:
         """
         self.docs = get_all_knowledge_docs()
         corpus_texts = [
-            f"{d['title']} Category: {d['category']} Tags: {d.get('tags', '')} Content: {d['content']}"
+            f"{d['title']} {d['title']} Tags: {d.get('tags', '')} {d.get('tags', '')} Category: {d['category']} Content: {d['content']}"
             for d in self.docs
         ]
 

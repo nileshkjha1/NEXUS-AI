@@ -47,7 +47,7 @@ class Settings(BaseSettings):
     def cors_origins(self) -> List[str]:
         if not self.ALLOWED_ORIGINS:
             return []
-        return [origin.strip() for origin in self.ALLOWED_ORIGINS.split(",") if origin.strip()]
+        return [origin.strip().strip("'\"") for origin in self.ALLOWED_ORIGINS.split(",") if origin.strip()]
 
 
 @lru_cache

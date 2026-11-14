@@ -32,7 +32,12 @@
 3. **Complete REST API Catalog (`docs/api-documentation.md`)**:
    - Detailed specification of all endpoints across `/auth`, `/tickets`, `/ml`, `/ai`, `/analytics`, `/notifications`, `/users`, and `/health`.
    - Request and response JSON schema examples.
-4. **Verification & Final Health**:
+4. **Cloud Deployment Readiness (Vercel & Render)**:
+   - Configured React frontend with dynamic `VITE_API_BASE_URL` and `vercel.json` SPA rewrites for Vercel.
+   - Configured FastAPI backend with dynamic PostgreSQL dialect normalization (`postgres://` -> `postgresql://`) and auto-seeding on startup for Render.
+   - Created `render.yaml` deployment blueprint and updated environment examples.
+   - Documented step-by-step public cloud hosting guide in `README.md` and `docs/deployment.md`.
+5. **Verification & Final Health**:
    - 38/38 backend automated tests passing.
    - Frontend production build verified in 2.1s with 0 errors.
    - Zero-untracked clean git repository status.

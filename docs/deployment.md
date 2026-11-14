@@ -103,10 +103,84 @@ Create a root `.env` or set environment variables in your cloud provider:
 | `SMTP_PORT` | `587` | Standard TLS SMTP port |
 | `SMTP_USER` | *(none)* | SMTP authentication username |
 | `SMTP_PASSWORD` | *(none)* | SMTP authentication secret/key |
+| `ALLOWED_ORIGINS` | `http://localhost:5173,...` | Comma-separated list of permitted CORS frontend origins |
 
 ---
 
-## 4. AWS Cloud Deployment Options
+## 4. Public Cloud Deployment Guide (Render + Vercel)
+
+This is the recommended, zero-cost production path for hosting NEXUS AI publicly on the web.
+
+```
+┌──────────────────────────────────────┐        ┌──────────────────────────────────────┐
+│            Frontend (Vercel)         │        │           Backend (Render)           │
+│  https://<your-frontend>.vercel.app  │───────>│  https://<your-backend>.onrender.com │
+│       React 18 + Vite SPA Build      │ (REST) │         FastAPI + Uvicorn            │
+└──────────────────────────────────────┘        └──────────────────┬───────────────────┘
+                                                                   │ (PostgreSQL Driver)
+                                                                   ▼
+                                                ┌──────────────────────────────────────┐
+                                                │      Render Managed PostgreSQL       │
+                                                │               nexus_db               │
+                                                └──────────────────────────────────────┘
+```
+
+### Part 1: Managed PostgreSQL on Render
+1. Navigate to the [Render Dashboard](https://dashboard.render.com/) and click **New +** -> **PostgreSQL**.
+2. Settings:
+   - **Name**: `nexus-ai-db`
+   - **Database**: `nexus_db`
+   - **User**: `nexus`
+   - **Region**: Oregon (or your preferred region)
+   - **Plan**: Free
+3. Click **Create Database**.
+4. Once active, copy the **Internal Database URL** (e.g. `postgres://nexus:...@dpg-...-a/nexus_db`).
+
+### Part 2: FastAPI Backend on Render
+1. In Render Dashboard, click **New +** -> **Web Service**.
+2. Connect your GitHub repository (`nileshkjha1/NEXUS-AI`).
+3. Set the following fields:
+   - **Name**: `nexus-ai-backend` (public URL will be `https://<your-render-backend-name>.onrender.com`)
+   - **Region**: Same region as your database
+   - **Branch**: `main`
+   - **Root Directory**: *(leave blank)*
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r backend/requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
+4. Under **Environment Variables**, define:
+   - `APP_ENV` = `production`
+   - `DEBUG` = `False`
+   - `DATABASE_URL` = *(Internal Database URL copied from Part 1)*
+   - `SECRET_KEY` = *(click Generate or enter a secure 32+ character random string)*
+   - `JWT_SECRET_KEY` = *(click Generate or enter a secure 32+ character random string)*
+   - `ALLOWED_ORIGINS` = `http://localhost:5173,https://<your-nexus-frontend>.vercel.app`
+   - `LLM_PROVIDER` = `fallback` *(or `gemini` if you supply `GEMINI_API_KEY`)*
+5. Click **Create Web Service**.
+6. When deployment finishes, copy your live backend URL: `https://<your-render-backend-name>.onrender.com`.
+
+### Part 3: React Frontend on Vercel
+1. Log in to [Vercel](https://vercel.com/) and click **Add New...** -> **Project**.
+2. Import the `nileshkjha1/NEXUS-AI` repository.
+3. In Project Settings:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: `frontend` *(Click Edit and select the frontend folder)*
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Under **Environment Variables**, add:
+   - `VITE_API_BASE_URL` = `https://<your-render-backend-name>.onrender.com` *(no trailing slash)*
+5. Click **Deploy**. Vercel will build and assign your domain: `https://<your-nexus-frontend>.vercel.app`.
+
+### Part 4: Authorize CORS on Backend
+1. Go back to Render Dashboard -> `nexus-ai-backend` -> **Environment**.
+2. Update `ALLOWED_ORIGINS` to include your exact Vercel domain:
+   ```
+   https://<your-nexus-frontend>.vercel.app,http://localhost:5173
+   ```
+3. Save changes. The backend will instantly recognize your Vercel frontend.
+
+---
+
+## 5. AWS Cloud Deployment Options
 
 ### Option A: AWS App Runner (Fastest & Fully Managed)
 1. Push `backend/Dockerfile` and `frontend/Dockerfile` to Amazon Elastic Container Registry (ECR).
@@ -139,7 +213,7 @@ Create a root `.env` or set environment variables in your cloud provider:
 
 ---
 
-## 5. Automated CI/CD Pipeline (GitHub Actions)
+## 6. Automated CI/CD Pipeline (GitHub Actions)
 
 Located at [`.github/workflows/ci.yml`](file:///.github/workflows/ci.yml), every push and pull request triggers three parallel jobs:
 

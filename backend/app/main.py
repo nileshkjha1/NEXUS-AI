@@ -14,6 +14,12 @@ import app.models  # noqa: F401
 async def lifespan(app: FastAPI):
     # Ensure database tables exist on application startup
     Base.metadata.create_all(bind=engine)
+    # Seed default SLA and demo users if database is empty
+    try:
+        from app.database.seed import seed_database
+        seed_database()
+    except Exception as e:
+        print(f"[STARTUP] Seeder note: {e}")
     yield
 
 
@@ -32,10 +38,11 @@ app = FastAPI(
 
 # Enable CORS for frontend integration
 if settings.cors_origins:
+    allow_all = "*" in settings.cors_origins
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
-        allow_credentials=True,
+        allow_origins=["*"] if allow_all else settings.cors_origins,
+        allow_credentials=not allow_all,
         allow_methods=["*"],
         allow_headers=["*"],
     )

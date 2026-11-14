@@ -1,9 +1,9 @@
 # NEXUS AI — REST API Documentation
 
-Base URL: `http://localhost:8000/api/v1` (or `http://localhost/api/v1` via Docker Nginx)
-
-Interactive Swagger UI: `http://localhost:8000/docs`  
-OpenAPI Specification: `http://localhost:8000/openapi.json`
+- **Local Development Base URL**: `http://localhost:8000/api/v1` (or `http://localhost/api/v1` via Docker Nginx)
+- **Production Cloud Base URL**: `https://<your-render-backend-name>.onrender.com/api/v1`
+- **Interactive Swagger UI**: `http://localhost:8000/docs` *(Local)* | `https://<your-render-backend-name>.onrender.com/docs` *(Production)*
+- **OpenAPI Specification**: `http://localhost:8000/openapi.json` *(Local)* | `https://<your-render-backend-name>.onrender.com/openapi.json` *(Production)*
 
 ---
 
