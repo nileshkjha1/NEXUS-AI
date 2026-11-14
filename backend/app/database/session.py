@@ -3,10 +3,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from app.config import settings
 
-# Normalize Render / Heroku postgres:// URLs to SQLAlchemy-compliant postgresql://
+# Normalize Render / Heroku postgres:// URLs and ensure psycopg (v3) dialect
 database_url = settings.DATABASE_URL
 if database_url.startswith("postgres://"):
-    database_url = database_url.replace("postgres://", "postgresql://", 1)
+    database_url = database_url.replace("postgres://", "postgresql+psycopg://", 1)
+elif database_url.startswith("postgresql://"):
+    database_url = database_url.replace("postgresql://", "postgresql+psycopg://", 1)
 
 # SQLite needs check_same_thread=False; PostgreSQL doesn't use it
 connect_args = {}
