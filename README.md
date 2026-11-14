@@ -7,8 +7,7 @@
 
 <p align="center">
   <a href="https://nexus-ai-khaki-kappa.vercel.app"><strong>Live Application</strong></a> ·
-  <a href="https://nexus-ai-backend-ze3p.onrender.com/docs"><strong>API Documentation</strong></a> ·
-  <a href="https://github.com/nileshkjha1/NEXUS-AI"><strong>GitHub Repository</strong></a>
+  <a href="https://nexus-ai-backend-ze3p.onrender.com/docs"><strong>API Documentation</strong></a>
 </p>
 
 <p align="center">
@@ -55,7 +54,7 @@ flowchart TD
     D --> E["Agent reviews and takes ownership"]
     E --> F["AI assistant retrieves relevant SOPs and similar incidents"]
     F --> G["Resolution recommendation is prepared"]
-    G --> HAgent review
+    G --> H{"Agent review"}
     H -->|Approve / use recommendation| I["Agent applies resolution"]
     H -->|Reject / revise| J["Agent investigates or edits recommendation"]
     J --> E
