@@ -6,6 +6,11 @@
 </p>
 
 <p align="center">
+  <strong>Developed &amp; Maintained by <a href="https://github.com/nileshkjha1">Nilesh Kumar Jha</a></strong><br>
+  GitHub Profile: <a href="https://github.com/nileshkjha1">https://github.com/nileshkjha1</a>
+</p>
+
+<p align="center">
   <a href="https://nexus-ai-khaki-kappa.vercel.app"><strong>Live Application</strong></a> ·
   <a href="https://nexus-ai-backend-ze3p.onrender.com/docs"><strong>API Documentation</strong></a>
 </p>
