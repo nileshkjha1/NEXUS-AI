@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
@@ -37,14 +38,38 @@ app = FastAPI(
 )
 
 # Enable CORS for frontend integration
-if settings.cors_origins:
-    allow_all = "*" in settings.cors_origins
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"] if allow_all else settings.cors_origins,
-        allow_credentials=not allow_all,
-        allow_methods=["*"],
-        allow_headers=["*"],
+allow_all = "*" in settings.cors_origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"] if allow_all else settings.cors_origins,
+    allow_origin_regex=None if allow_all else settings.ALLOWED_ORIGIN_REGEX,
+    allow_credentials=not allow_all,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],
+)
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    """
+    Catch-all exception handler to ensure that unexpected 500 errors
+    return proper CORS headers so the frontend receives a readable JSON error
+    instead of an opaque browser CORS preflight/header failure.
+    """
+    origin = request.headers.get("origin", "*")
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": "An internal server error occurred.",
+            "error": str(exc) if settings.DEBUG else None,
+        },
+        headers={
+            "Access-Control-Allow-Origin": origin if origin != "*" else "*",
+            "Access-Control-Allow-Credentials": "true" if origin != "*" else "false",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "*",
+        },
     )
 
 # Mount API v1 router

@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     HOST: str = "127.0.0.1"
     PORT: int = 8000
     ALLOWED_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000"
+    ALLOWED_ORIGIN_REGEX: Optional[str] = r"^https:\/\/.*\.vercel\.app$"
 
     # Database Configuration (PostgreSQL in production/Docker, SQLite for zero-setup local dev & testing)
     DATABASE_URL: str = "sqlite:///./nexus_ai.db"
@@ -46,8 +47,24 @@ class Settings(BaseSettings):
     @property
     def cors_origins(self) -> List[str]:
         if not self.ALLOWED_ORIGINS:
-            return []
-        return [origin.strip().strip("'\"") for origin in self.ALLOWED_ORIGINS.split(",") if origin.strip()]
+            return ["http://localhost:5173", "http://127.0.0.1:5173"]
+        raw = self.ALLOWED_ORIGINS.strip()
+        # Handle JSON array string format e.g. ["https://...", "http://..."]
+        if raw.startswith("[") and raw.endswith("]"):
+            import json
+            try:
+                parsed = json.loads(raw)
+                if isinstance(parsed, list):
+                    return [str(o).strip().strip("'\"").rstrip("/") for o in parsed if str(o).strip()]
+            except Exception:
+                raw = raw[1:-1]
+
+        origins: List[str] = []
+        for origin in raw.split(","):
+            cleaned = origin.strip().strip("'\"[]").rstrip("/")
+            if cleaned:
+                origins.append(cleaned)
+        return origins or ["http://localhost:5173", "http://127.0.0.1:5173"]
 
 
 @lru_cache

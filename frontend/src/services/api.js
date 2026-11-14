@@ -1,8 +1,22 @@
 // Configurable API base URL:
 // In local development or Docker, defaults to '/api/v1' (served via proxy).
 // In production on Vercel, reads VITE_API_BASE_URL (e.g. 'https://<your-backend>.onrender.com').
-const rawBase = import.meta.env.VITE_API_BASE_URL || '';
-const API_BASE = rawBase ? `${rawBase.replace(/\/+$/, '')}/api/v1` : '/api/v1';
+function resolveApiBase(raw) {
+  if (!raw || typeof raw !== 'string') return '/api/v1';
+  let cleaned = raw.trim();
+  // Strip tracking query parameters (e.g. ?utm_source=...) and hash fragments (#...)
+  cleaned = cleaned.split('?')[0].split('#')[0].trim();
+  // Strip trailing slashes
+  cleaned = cleaned.replace(/\/+$/, '');
+  if (!cleaned) return '/api/v1';
+  // Avoid duplicating /api/v1 if already present in environment variable
+  if (cleaned.endsWith('/api/v1')) {
+    return cleaned;
+  }
+  return `${cleaned}/api/v1`;
+}
+
+const API_BASE = resolveApiBase(import.meta.env.VITE_API_BASE_URL);
 
 class ApiService {
   getToken() {
